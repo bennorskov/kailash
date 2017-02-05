@@ -36,11 +36,7 @@ html, body {
     background-image: url(../images/Cotopaxi_with_horse.jpg);
     background-position: top center;
     background-size: auto 100%;
-    background-repeat: no-repeat;
-    -moz-transition: background-image 1s;
-    -webkit-transition: background-image 1s;
-    -o-transition: background-image 1s;
-    transition: background-image 1s; }
+    background-repeat: no-repeat; }
   .section#page2 {
     background-image: url(../images/sky-clouds.jpg);
     padding: 0;
