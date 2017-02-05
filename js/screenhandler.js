@@ -34,7 +34,18 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	// console.log(ScreenHandler.imageArray[_id].src);
 
 	//switch out image
-	$(".fullpage").css("background-image", "url("+ScreenHandler.imageArray[_id].src+")");
+	var imgWH = { w: ScreenHandler.imageArray[_id].width, h: ScreenHandler.imageArray[_id].height };
+	var windowWH = { 
+		w: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth, 
+		h: window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+	};
+	console.log(imgWH.h + " "+ windowWH.h +" "+ imgWH.h/windowWH.h);
+	console.log(imgWH.w + " "+ windowWH.w +" "+ imgWH.w/windowWH.w);
+	console.log(imgWH.w * windowWH.h/imgWH.h);
+	$(".fullpage").css({
+		"background-image": "url("+ScreenHandler.imageArray[_id].src+")",
+		"background-size": imgWH.w * windowWH.h/imgWH.h+"px 100%"
+	});
 	// close description box if necessary 
 	$("#descriptionBox").removeClass("opened");
 	// --------------------------------------------------- Handle Description Text
