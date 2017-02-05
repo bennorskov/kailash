@@ -7,19 +7,27 @@ StoryHolder.story1 = {
 		textnodes: [
 			"Hello, this is displayed first",
 			"This is displayed second",
-			"This should be third",
+			"Stares at human while pushing stuff off a table russian blue friends are not food yet cats making all the muffins sniff other cat's butt and hang jaw half open thereafter. I cry and cry and cry unless you pet me, and then maybe i cry just for fun. Lies down hiss at vacuum cleaner purrr purr littel cat, little cat purr purr yet sleep on dog bed, force dog to sleep on floor and brown cats with pink ears. ",
 			"Stepping through the story",
 			"and some more stuff"
 		],
 		choices: [
 			{
 				pointsTo: "stone2",
-				displayText: "Goto Stone 2",
-				position: { x: 0, y: 300 }
+				displayText: {
+					title: "Path to Stone 2",
+					description: "A path leading off into the distance. It seems to go to Stone 2.",
+					navText: "Follow the Path"
+				},
+				position: { x: 0, y: 200 }
 			},
 			{
 				pointsTo: "stone3",
-				displayText: "goto stone 3",
+				displayText: {
+					title: "Path to Stone 3",
+					description: "A path leading off into the distance. It seems to go to Stone 3.",
+					navText: "Follow the Path"
+				},
 				position: { x: -20, y: 300 }
 			}
 		],
@@ -34,13 +42,21 @@ StoryHolder.story1 = {
 		choices: [
 			{	
 				pointsTo: "stone1",
-				displayText: "back to stone 1",
-				position: { x: 400, y: 300 }
+				displayText: {
+					title: "Path to Stone 1",
+					description: "Go back the way you came",
+					navText: "Follow the Path"
+				},
+				position: { x: 40, y: 200 }
 			},
 			{
 				pointsTo: "stone3",
-				displayText: "to stone 3",
-				position: { x: 200, y: 300 }
+				displayText: {
+					title: "Path to Stone 3",
+					description: "Onwards to stone 3!",
+					navText: "Follow the Path"
+				},
+				position: { x: -100, y: 600 }
 			}
 		],
 		backgroundImage: "stones2.jpg"
@@ -54,8 +70,12 @@ StoryHolder.story1 = {
 		choices: [
 			{
 				pointsTo: "stone1",
-				displayText: "start Over",
-				position: { x: 400, y: 100 }
+				displayText: {
+					title: "Path to Stone 1",
+					description: "Go back the way you came",
+					navText: "Follow the Path"
+				},
+				position: { x: 40, y: 100 }
 			}
 		],
 		backgroundImage: "stones3.jpg"
