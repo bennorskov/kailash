@@ -1,0 +1,61 @@
+@import foundation
+
+@import storyOverlay
+
+.section
+	&.fullpage
+		width: 100%
+		height: 100%
+		background-image: url(../images/Cotopaxi_with_horse.jpg)
+		background-position: top center
+		background-size: auto 100%
+		background-repeat: no-repeat
+	/* this bit was to test the animation. Will be taken out later */
+	&#page2
+		background-image: url(../images/sky-clouds.jpg)
+		padding: 0
+		animation-name: skydrift 
+		animation-duration: 6s
+		animation-timing-function: ease-in-out
+		animation-iteration-count: infinite
+		animation-direction: alternate
+		.cutout-holder
+			background-image: url(../images/mani-stones_cutout.png)
+			height: 100%
+			background-position: top center
+			background-size: auto 100%
+			background-repeat: no-repeat
+			padding: 1em
+	&.current
+		position: relative
+	#descriptionBox
+		position: fixed
+		bottom: 0
+		left: 0
+		width: 100%
+		height: $titleSize - .5
+		+transition( height, .3s)
+		background: rgba(0, 0, 0, .5)
+		padding: .2em 1em
+		&.opened
+			height: $titleSize * 4
+	.choiceNode
+		background: green
+		cursor: pointer
+		margin: 0 auto
+		width: 100px
+		height: 32px
+		position: relative
+.overlayText
+	h1
+		font-size: $titleSize
+	p
+		font-size: $textSize
+.hidden
+	display: none
+
+@keyframes skydrift
+	0% 
+		background-position: 0
+	100%
+		background-position: 100
