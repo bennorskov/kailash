@@ -10,23 +10,53 @@ html, body {
   color: white;
   font-size: 18px; }
 
-#storyOverlay {
+.overlay {
   display: none;
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0; }
-  #storyOverlay #contentCentererDiv {
+  .overlay .contentCentererDiv {
     display: table-cell;
     vertical-align: middle;
     background: rgba(0, 0, 0, 0.5);
     padding: 0.2em 1em; }
-    #storyOverlay #contentCentererDiv #textHolder {
-      height: 50%;
-      width: 80%;
-      background: red;
-      margin: 0 auto; }
+
+#storyOverlay {
+  z-index: 100; }
+  #storyOverlay #textHolder {
+    height: 50%;
+    width: 80%;
+    background: red;
+    margin: 0 auto; }
+
+#mapOverlay {
+  z-index: 50; }
+  #mapOverlay #navigationMap {
+    position: relative;
+    background-image: url(../images/kailashMapPlaceholder.jpg);
+    background-position: top center;
+    background-size: auto 100%;
+    background-repeat: no-repeat; }
+    #mapOverlay #navigationMap .mapNode {
+      position: relative;
+      margin: 0 auto;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      background: #CCD; }
+      #mapOverlay #navigationMap .mapNode span {
+        display: none; }
+      #mapOverlay #navigationMap .mapNode:hover span {
+        display: block; }
+
+#mapButton {
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  background: #CCD;
+  cursor: pointer; }
 
 .section {
   /* this bit was to test the animation. Will be taken out later */ }
@@ -36,7 +66,11 @@ html, body {
     background-image: url(../images/Cotopaxi_with_horse.jpg);
     background-position: top center;
     background-size: auto 100%;
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    -moz-transition: background-image 1s;
+    -webkit-transition: background-image 1s;
+    -o-transition: background-image 1s;
+    transition: background-image 1s; }
   .section#page2 {
     background-image: url(../images/sky-clouds.jpg);
     padding: 0;

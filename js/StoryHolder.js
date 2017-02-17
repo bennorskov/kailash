@@ -82,6 +82,23 @@ StoryHolder.story1 = {
 	}
 }
 
+StoryHolder.map = {
+	stone1: {
+		position: { x: 0, y: 200 },
+		label: "Standing Stones",
+		found: false
+	},
+	stone2: {
+		position: { x: 0, y: -100 },
+		label: "Standing Stones",
+		found: false
+	},
+	stone3: {
+		position: { x: 40, y: 0 },
+		label: "Standing Stones",
+		found: false
+	}
+}
 /*
 Notes: 
 	Animation from left=>right

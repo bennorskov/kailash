@@ -10,10 +10,20 @@ $(document).ready( function(){
 		$("#" + $(this).attr("data-navigation-goto") ).removeClass("hidden");
 		$("#" + $(this).attr("data-navigation-goto") ),addClass("current");
 	});*/
+	// ————— ————— ————— ————— ————— ————— ————— Story Overlay Control
 	ScreenHandler.storyOverlay = $("#storyOverlay");
 	ScreenHandler.storyOverlay.on("click", function () { 
 		ScreenHandler.closeOverlay();
 	});
+	// ————— ————— ————— ————— ————— ————— ————— Map Overlay Control
+	ScreenHandler.mapOverlay = $("#mapOverlay");
+	ScreenHandler.mapOverlay.on("click", function() {
+		ScreenHandler.closeMapOverlay();
+	});
+	$("#mapButton").on("click", function() {
+		ScreenHandler.openMapOverlay();
+	});
+
 	$("#descriptionBox").on("click", function() {
 		$(this).toggleClass("opened");
 	});
@@ -43,19 +53,6 @@ ScreenHandler.gotoStoryNode = function( _id ){
 		_html += "<p>"+value+"</p>";
 	});
 	$("#descriptionBox").html(_html);
-	/* 
-	old text node cyles
-	//cycle through text nodes. Displayed under the title
-	var tNodeNum = 0;
-	var tNodeTotal = StoryHolder.story1[_id].textnodes.length;
-	$("#descriptionBox").children("p").text(StoryHolder.story1[_id].textnodes[tNodeNum]);
-	$("#descriptionBox").children("p").on("click", function (){
-		tNodeNum++;
-		tNodeNum %= tNodeTotal;
-		$(this).text(StoryHolder.story1[_id].textnodes[ tNodeNum ])
-	}); 
-	*/
-
 	// --------------------------------------------------- Handle Choice Nodes
 	//hide all choice nodes
 	$(".choiceNode").remove();
@@ -66,6 +63,9 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	$(".choiceNode").on("click", function () {
 		ScreenHandler.openOverlay( $(this) );
 	});
+
+	// —————————————————————————————————————————————————— Update Visited Nodes
+	StoryHolder.map[_id].found = true;
 }
 
 ScreenHandler.spawnChoiceNode = function( _nodeData ) {
@@ -78,7 +78,7 @@ ScreenHandler.spawnChoiceNode = function( _nodeData ) {
 		},
 		position: {int x, int y}
 	}*/
-	console.log(_nodeData.displayText);
+	// console.log(_nodeData.displayText);
 	var _html = "<div class='choiceNode' data-navigation-goto='";
 	_html += _nodeData.pointsTo + "' data-node-description='";
 	_html += _nodeData.displayText.description + "' style='left:";
@@ -86,7 +86,7 @@ ScreenHandler.spawnChoiceNode = function( _nodeData ) {
 	_html += _nodeData.displayText.title + "</div>";
 	$(".current").append(_html);
 }
-
+// ————— ————— ————— ————— ————— ————— ————— Story Overlay Control
 ScreenHandler.openOverlay = function ( _clickedNode ) {
 	this.storyOverlay.css("display", "table");
 	$textHolder = $("#textHolder");
@@ -104,6 +104,34 @@ ScreenHandler.closeOverlay = function () {
 	// console.log("closeOverlay");
 	ScreenHandler.storyOverlay.css("display", "none");
 }
+
+// ————— ————— ————— ————— ————— ————— ————— Map Overlay Control
+
+ScreenHandler.openMapOverlay = function() {
+	ScreenHandler.mapOverlay.css("display", "table");
+	this.addMapNodes();
+}
+ScreenHandler.closeMapOverlay = function() {
+	ScreenHandler.mapOverlay.css("display", "none");	
+}
+ScreenHandler.addMapNodes = function() {
+	var navMap = $("#navigationMap");
+	$(".mapNode").remove();//empty the container
+	$.each(StoryHolder.map, function (index, value) {
+		console.log(value + " " + index);
+		if(value.found == true) {
+			var _html = "<div class='mapNode' style='left:";
+			_html += value.position.x + "px; top: " + value.position.y + "px;"
+			_html += "' data-navigation-goto='"+index+"'><span>"+ value.label +"</span></div>";
+			navMap.append(_html);
+		}
+	});
+	$(".mapNode").on("click", function() {
+		ScreenHandler.gotoStoryNode( $(this).attr("data-navigation-goto") );
+	});
+}
+
+// ————— ————— ————— ————— ————— ————— ————— Preloader
 
 ScreenHandler.preload = function() {
 	var loader = new PxLoader();
