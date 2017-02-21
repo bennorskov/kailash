@@ -19,7 +19,8 @@ StoryHolder.story1 = {
 					description: "A path leading off into the distance. It seems to go to Stone 2.",
 					navText: "Follow the Path"
 				},
-				position: { x: 0, y: 200 }
+				position: { x: 0, y: 200 },
+				choiceNodeArrow: "top"
 			},
 			{
 				pointsTo: "stone3",
@@ -28,7 +29,8 @@ StoryHolder.story1 = {
 					description: "A path leading off into the distance. It seems to go to Stone 3.",
 					navText: "Follow the Path"
 				},
-				position: { x: -20, y: 300 }
+				position: { x: -20, y: 300 },
+				choiceNodeArrow: "right"
 			}
 		],
 		backgroundImage: "stones1.jpg"
@@ -47,7 +49,8 @@ StoryHolder.story1 = {
 					description: "Go back the way you came",
 					navText: "Follow the Path"
 				},
-				position: { x: 40, y: 200 }
+				position: { x: 40, y: 200 },
+				choiceNodeArrow: "left"
 			},
 			{
 				pointsTo: "stone3",
@@ -56,7 +59,8 @@ StoryHolder.story1 = {
 					description: "Onwards to stone 3!",
 					navText: "Follow the Path"
 				},
-				position: { x: -100, y: 600 }
+				position: { x: -100, y: 600 },
+				choiceNodeArrow: "top"
 			}
 		],
 		backgroundImage: "stones2.jpg"
@@ -75,12 +79,15 @@ StoryHolder.story1 = {
 					description: "Go back the way you came",
 					navText: "Follow the Path"
 				},
-				position: { x: 40, y: 100 }
+				position: { x: 40, y: 100 },
+				choiceNodeArrow: "bottom"
 			}
 		],
 		backgroundImage: "stones3.jpg"
 	}
 }
+
+// ———————— ———————— ———————— ———————— ———————— ———————— ————————  MAP
 
 StoryHolder.map = {
 	stone1: {

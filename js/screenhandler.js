@@ -21,9 +21,14 @@ $(document).ready( function(){
 		ScreenHandler.closeMapOverlay();
 	});
 	$("#mapButton").on("click", function() {
+		$(this).toggleClass("opened");
+	});
+	$("#showMap").on("click", function () {
 		ScreenHandler.openMapOverlay();
 	});
-
+	$("#showAbout").on("click", function () {
+		ScreenHandler.openAboutOverlay();
+	});
 	$("#descriptionBox").on("click", function() {
 		$(this).toggleClass("opened");
 	});
@@ -83,7 +88,8 @@ ScreenHandler.spawnChoiceNode = function( _nodeData ) {
 	_html += _nodeData.pointsTo + "' data-node-description='";
 	_html += _nodeData.displayText.description + "' style='left:";
 	_html += _nodeData.position.x + "px; top:"+_nodeData.position.y+"px;'>";
-	_html += _nodeData.displayText.title + "</div>";
+	_html += _nodeData.displayText.title;
+	_html += "<div class='choiceNodeArrow position-"+ _nodeData.choiceNodeArrow +"'></div></div>";
 	$(".current").append(_html);
 }
 // ————— ————— ————— ————— ————— ————— ————— Story Overlay Control
@@ -103,6 +109,15 @@ ScreenHandler.openOverlay = function ( _clickedNode ) {
 ScreenHandler.closeOverlay = function () {
 	// console.log("closeOverlay");
 	ScreenHandler.storyOverlay.css("display", "none");
+}
+
+// ————— ————— ————— ————— ————— ————— ————— About Overlay Control
+
+ScreenHandler.openAboutOverlay = function() {
+	$("#aboutOverlay").css("display", "table");
+}
+ScreenHandler.closeAboutOverlay = function() {
+	$("#aboutOverlay").css("display", "none");
 }
 
 // ————— ————— ————— ————— ————— ————— ————— Map Overlay Control

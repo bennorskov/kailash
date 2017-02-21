@@ -11,23 +11,7 @@
 		background-size: auto 100%
 		background-repeat: no-repeat
 		+transition(background-image, 1s)
-	/* this bit was to test the animation. Will be taken out later */
-		
-	&#page2
-		background-image: url(../images/sky-clouds.jpg)
-		padding: 0
-		animation-name: skydrift 
-		animation-duration: 6s
-		animation-timing-function: ease-in-out
-		animation-iteration-count: infinite
-		animation-direction: alternate
-		.cutout-holder
-			background-image: url(../images/mani-stones_cutout.png)
-			height: 100%
-			background-position: top center
-			background-size: auto 100%
-			background-repeat: no-repeat
-			padding: 1em
+
 	&.current
 		position: relative
 	#descriptionBox
@@ -42,12 +26,36 @@
 		&.opened
 			height: $titleSize * 6
 	.choiceNode
-		background: green
+		background: $white
 		cursor: pointer
 		margin: 0 auto
-		width: 100px
-		height: 32px
+		width: 120px
+		height: $basicSquare
 		position: relative
+		color: black
+		line-height: $basicSquare
+		vertical-align: middle
+		padding: 0 5px
+		.choiceNodeArrow
+			background-image: url(../images/path_arrows.png)
+			width: $basicSquare
+			height: $basicSquare
+			position: absolute
+			&.position-top
+				left: 60px
+				top: -$basicSquare
+				background-position: top right
+			&.position-left
+				left: -$basicSquare
+				top: 0
+				background-position: bottom left
+			&.position-right
+				left: 120px
+				top: 0
+			&.position-bottom
+				left: 60px
+				top: $basicSquare
+				background-position: bottom right
 .overlayText
 	h1
 		font-size: $titleSize
