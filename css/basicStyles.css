@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Fjalla+One|Sansita");
+@import url("https://fonts.googleapis.com/css?family=Fjalla+One|Sansita|Snippet");
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +7,7 @@
 
 html, body {
   height: 100%;
-  background: black;
+  background: white;
   font-family: sans-serif;
   color: white;
   font-size: 18px; }
@@ -47,7 +47,8 @@ html, body {
       cursor: pointer;
       width: 32px;
       height: 32px;
-      background: #CCD; }
+      background: #CCD;
+      font-family: "Fjalla One", sans-serif; }
       #mapOverlay #navigationMap .mapNode span {
         display: none; }
       #mapOverlay #navigationMap .mapNode:hover span {
@@ -75,6 +76,35 @@ html, body {
     padding-left: 0.1em; }
   #mapButton.opened #dropDown {
     display: block; }
+
+#loadingScreen {
+  background: #f7f7f7;
+  text-align: center;
+  height: 100%; }
+  #loadingScreen img {
+    margin: 20% 0;
+    width: 40%; }
+  #loadingScreen h1 {
+    border-left: 100px solid #54bbb4;
+    border-right: 100px solid #54bbb4;
+    color: #54bbb4;
+    font-size: 2em;
+    margin: 10px 0;
+    font-family: "Snippet" sans-serif; }
+  #loadingScreen h2 {
+    border-left: 100px solid #bda8ab;
+    border-right: 100px solid #bda8ab;
+    font-size: 1.5em;
+    color: #bda8ab; }
+  #loadingScreen #loadingProgress {
+    color: #bda8ab;
+    margin-top: 10px; }
+  #loadingScreen #spacerLine {
+    height: 10px;
+    background: #d4b0a4;
+    margin: 32px 0; }
+  #loadingScreen h3 {
+    color: black; }
 
 .section.fullpage {
   width: 100%;
@@ -143,11 +173,5 @@ html, body {
 
 .hidden {
   display: none; }
-
-@keyframes skydrift {
-  0% {
-    background-position: 0; }
-  100% {
-    background-position: 100; } }
 
 /*# sourceMappingURL=basicStyles.css.map */

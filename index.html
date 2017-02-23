@@ -11,14 +11,22 @@
 	<script type="text/javascript" src="js/screenHandler.js"></script>
 </head>
 <body>
-	<div class="section fullpage current" id="page1">
+	<div id="loadingScreen">
+		<img src="images/landingPage_logo.png">
+		<h1>HOLY MOUNTAIN</h1>
+		<h2>QUEST FOR KAILASH</h2>
+		<p id="loadingProgress">Loading...<span>0</span>%</p>
+		<div id="spacerLine"></div>
+		<h3>A Game by the India China Institute and Antidote Games</h3>
+	</div>
+	<div class="section fullpage current hidden" id="page1">
 		<div id="descriptionBox" class="overlayText">
 			<h1>Title</h1>
 			<p>test description</p>
 			<a class="navigation" data-navigation-goto="page2">Howdy</a>
 		</div>
 	</div>
-	<div id="mapButton">
+	<div id="mapButton" class="hidden">
 		&#9651;
 		<ul id="dropDown">
 			<li id="showMap">Show Map</li>

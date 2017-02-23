@@ -15,7 +15,7 @@ $(document).ready( function(){
 	ScreenHandler.storyOverlay.on("click", function () { 
 		ScreenHandler.closeOverlay();
 	});
-	// ————— ————— ————— ————— ————— ————— ————— Map Overlay Control
+	// ————— ————— ————— ————— ————— ————— ————— Overlay Controls
 	ScreenHandler.mapOverlay = $("#mapOverlay");
 	ScreenHandler.mapOverlay.on("click", function() {
 		ScreenHandler.closeMapOverlay();
@@ -45,7 +45,7 @@ ScreenHandler.gotoStoryNode = function( _id ){
 			backgroundImage: string
 		}
 	*/
-	// console.log("story node " + StoryHolder.story1[_id].title);
+	console.log("story node " + StoryHolder.story1[_id].title);
 	// console.log(ScreenHandler.imageArray[_id].src);
 
 	//switch out image
@@ -150,6 +150,7 @@ ScreenHandler.addMapNodes = function() {
 
 ScreenHandler.preload = function() {
 	var loader = new PxLoader();
+	var loaderDisplay = $("#loadingProgress span");
 	ScreenHandler.imageArray = []; 
 	// stores an img object in an associative array
 	//each key is the name of a storynode.
@@ -160,8 +161,16 @@ ScreenHandler.preload = function() {
 	});
 	// console.log(ScreenHandler.imageArray);
 	
+	loader.addProgressListener(function(e) { 
+		loaderDisplay.text(e.completedCount/e.totalCount * 100);
+	    // console.log(e.resource.getName()); 
+	}); 
+
 	loader.addCompletionListener( function () {
 		ScreenHandler.gotoStoryNode("stone1");
+		$("#loadingScreen").hide();
+		$("#mapButton").removeClass("hidden");
+		$(".current").removeClass("hidden");
 	});
 
 	loader.start();
