@@ -1,9 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Sansita|Snippet')
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Sansita|Snippet|Quicksand|Abel')
 
 $white: rgba(255, 255, 255, .8)
-$lightGreen: rgb(84, 187, 180)
-$salmon: rgb(189, 168, 171)
+$lightGreen: #00A990
+$salmon: #996666
+$lightOrange: #fb9f7d
 $basicSquare: 32px
+
+$descriptionZOrder: 10
+$nodeZOrder: 5
 
 *
 	margin: 0
@@ -16,6 +20,7 @@ html, body
 	font-family: sans-serif
 	color: white
 	font-size: 18px
+	margin: 0
 
 =transition($element, $time)
 	-moz-transition: $element $time
@@ -24,4 +29,4 @@ html, body
 	transition: $element $time
 
 $titleSize: 3em
-$textSize: 1em
+$textSize: 1.3em

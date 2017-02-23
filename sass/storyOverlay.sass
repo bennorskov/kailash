@@ -13,11 +13,11 @@
 
 #storyOverlay
 	z-index: 100
-	#textHolder
-		height: 50%
+	#storyTextHolder
 		width: 80%
-		background: red
+		background: $white
 		margin: 0 auto
+		color: black
 
 #mapOverlay
 	z-index: 50
@@ -35,6 +35,7 @@
 			height: $basicSquare
 			background: #CCD
 			font-family: "Fjalla One", sans-serif
+			z-index: $nodeZOrder
 			span
 				display: none
 			&:hover span

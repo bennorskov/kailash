@@ -19,12 +19,13 @@
 		bottom: 0
 		left: 0
 		width: 100%
-		height: $titleSize - .5
-		+transition( height, .3s)
+		top: 95%
+		+transition( top, .3s)
 		background: rgba(0, 0, 0, .5)
 		padding: .2em 1em
+		z-index: $descriptionZOrder
 		&.opened
-			height: $titleSize * 6
+			top: 15%
 	.choiceNode
 		background: $white
 		cursor: pointer
@@ -56,11 +57,19 @@
 				left: 60px
 				top: $basicSquare
 				background-position: bottom right
+
 .overlayText
+	padding: .2em 1.2em 1.2em
 	h1
 		font-size: $titleSize
 	p
 		font-size: $textSize
 		margin-bottom: .2em
+		font-family: 'Abel', sans-serif
+	a.navigation
+		cursor: pointer
+		text-decoration: underline
+		color: black
+
 .hidden
 	display: none

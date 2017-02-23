@@ -1,7 +1,7 @@
 var StoryHolder = {} || StoryHolder;
 
 StoryHolder.story1 = {
-	stone1: {
+	INTRODUCTION: {
 		id: 1,
 		title: "Stack of Stones",
 		textnodes: [
@@ -16,7 +16,7 @@ StoryHolder.story1 = {
 				pointsTo: "stone2",
 				displayText: {
 					title: "Path to Stone 2",
-					description: "A path leading off into the distance. It seems to go to Stone 2.",
+					description: "This feels like too much too soon. Perhaps it’s best to return to Simikot, maybe fly back to Kathmandu, to the familiar noise and chaos of urban cities in the global south. Although flying into Simikot seems like a fool's errand, the pilots were actually great, and the landing and take-off were both super smooth, much more than many a huge commercial jet landing in JFK or similar. Although I suspect having a smaller plane with 12-15 people makes for lighter, smoother sailing. Either way everyone held their breath a bit when we first saw the landing strip from the air.",
 					navText: "Follow the Path"
 				},
 				position: { x: 0, y: 200 },
@@ -90,7 +90,7 @@ StoryHolder.story1 = {
 // ———————— ———————— ———————— ———————— ———————— ———————— ————————  MAP
 
 StoryHolder.map = {
-	stone1: {
+	INTRODUCTION: {
 		position: { x: 0, y: 200 },
 		label: "Standing Stones",
 		found: false

@@ -29,8 +29,15 @@ $(document).ready( function(){
 	$("#showAbout").on("click", function () {
 		ScreenHandler.openAboutOverlay();
 	});
+	$("#aboutOverlay").on("click", function() {
+		ScreenHandler.closeAboutOverlay();
+	});
 	$("#descriptionBox").on("click", function() {
 		$(this).toggleClass("opened");
+	});
+
+	$("#restart").on("click", function () {
+		window.location.reload();
 	});
 });
 
@@ -70,7 +77,7 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	});
 
 	// —————————————————————————————————————————————————— Update Visited Nodes
-	StoryHolder.map[_id].found = true;
+	if (StoryHolder.map[_id] != undefined) StoryHolder.map[_id].found = true;
 }
 
 ScreenHandler.spawnChoiceNode = function( _nodeData ) {
@@ -94,20 +101,23 @@ ScreenHandler.spawnChoiceNode = function( _nodeData ) {
 }
 // ————— ————— ————— ————— ————— ————— ————— Story Overlay Control
 ScreenHandler.openOverlay = function ( _clickedNode ) {
+	console.log(_clickedNode);
 	this.storyOverlay.css("display", "table");
-	$textHolder = $("#textHolder");
-	$textHolder.children("h1").text(_clickedNode.text());
-	$textHolder.children("p").text(_clickedNode.attr("data-node-description"));
-	var nav = $textHolder.children(".navigation");
-	nav.off("click");
-	nav.text(_clickedNode.text());
-	nav.on("click", function(event) {
+	var _html = "<h1>" + _clickedNode.text() + "</h1>";
+	_html += "<p>" + _clickedNode.attr("data-node-description") + "</p>";
+	_html += "<a class='navigation' href=#>";
+	_html += _clickedNode.text() + "</a>";
+	
+	$("#storyTextHolder").html(_html);
+
+	$("#storyTextHolder").children(".navigation").on("click", function(event) {
 		ScreenHandler.gotoStoryNode( _clickedNode.attr("data-navigation-goto") ) ;
 	});
 }
 
 ScreenHandler.closeOverlay = function () {
 	// console.log("closeOverlay");
+	$("#storyTextHolder").children(".navigation").off("click");
 	ScreenHandler.storyOverlay.css("display", "none");
 }
 
@@ -167,7 +177,7 @@ ScreenHandler.preload = function() {
 	}); 
 
 	loader.addCompletionListener( function () {
-		ScreenHandler.gotoStoryNode("stone1");
+		ScreenHandler.gotoStoryNode("INTRODUCTION");
 		$("#loadingScreen").hide();
 		$("#mapButton").removeClass("hidden");
 		$(".current").removeClass("hidden");
