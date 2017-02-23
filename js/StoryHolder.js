@@ -33,7 +33,7 @@ StoryHolder.story1 = {
 				choiceNodeArrow: "right"
 			}
 		],
-		backgroundImage: "kailashFlag.gif"
+		backgroundImage: "flagLoop.gif"
 	},
 	stone2: {
 		id: 2,
@@ -63,7 +63,7 @@ StoryHolder.story1 = {
 				choiceNodeArrow: "top"
 			}
 		],
-		backgroundImage: "stones2.jpg"
+		backgroundImage: "road.jpg"
 	},
 	stone3: {
 		id: 3,
