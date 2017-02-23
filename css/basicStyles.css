@@ -159,20 +159,20 @@ html, body {
     height: 32px;
     position: absolute; }
     .section .choiceNode .choiceNodeArrow.position-top {
-      left: 60px;
+      left: 50px;
       top: -32px;
       background-position: top right; }
     .section .choiceNode .choiceNodeArrow.position-left {
       left: -32px;
       top: 0;
-      background-position: bottom left; }
+      background-position: bottom right; }
     .section .choiceNode .choiceNodeArrow.position-right {
       left: 120px;
       top: 0; }
     .section .choiceNode .choiceNodeArrow.position-bottom {
-      left: 60px;
+      left: 50px;
       top: 32px;
-      background-position: bottom right; }
+      background-position: bottom left; }
 
 .overlayText {
   padding: 0.2em 1.2em 1.2em; }

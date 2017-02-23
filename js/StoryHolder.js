@@ -33,7 +33,7 @@ StoryHolder.story1 = {
 				choiceNodeArrow: "right"
 			}
 		],
-		backgroundImage: "stones1.jpg"
+		backgroundImage: "kailashFlag.gif"
 	},
 	stone2: {
 		id: 2,
@@ -73,7 +73,7 @@ StoryHolder.story1 = {
 		],
 		choices: [
 			{
-				pointsTo: "stone1",
+				pointsTo: "INTRODUCTION",
 				displayText: {
 					title: "Path to Stone 1",
 					description: "Go back the way you came",
@@ -83,7 +83,7 @@ StoryHolder.story1 = {
 				choiceNodeArrow: "bottom"
 			}
 		],
-		backgroundImage: "stones3.jpg"
+		backgroundImage: "cloudvalley.jpg"
 	}
 }
 

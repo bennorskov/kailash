@@ -101,7 +101,7 @@ ScreenHandler.spawnChoiceNode = function( _nodeData ) {
 }
 // ————— ————— ————— ————— ————— ————— ————— Story Overlay Control
 ScreenHandler.openOverlay = function ( _clickedNode ) {
-	console.log(_clickedNode);
+	// console.log(_clickedNode);
 	this.storyOverlay.css("display", "table");
 	var _html = "<h1>" + _clickedNode.text() + "</h1>";
 	_html += "<p>" + _clickedNode.attr("data-node-description") + "</p>";
