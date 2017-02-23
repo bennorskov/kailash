@@ -177,10 +177,23 @@ ScreenHandler.preload = function() {
 	}); 
 
 	loader.addCompletionListener( function () {
-		ScreenHandler.gotoStoryNode("INTRODUCTION");
-		$("#loadingScreen").hide();
-		$("#mapButton").removeClass("hidden");
-		$(".current").removeClass("hidden");
+		$("#loadingProgress").html("<a id='beginJourney' href=#>Begin Your Journey</a>");
+		$("#beginJourney").on("click", function() {
+			ScreenHandler.storyOverlay.css("display", "table");
+			var _html = "";
+			_html += "<p>&#8220;Kailash is not a Mountain to climb physically in this life; it is a holy mountain to climb metaphorically for spiritual transformation&#8221;</p>";
+			_html += "<p>– Tshewang Lama</p>";
+			
+			$("#storyTextHolder").html(_html);
+			window.setTimeout( function () {
+				//auto advance
+				ScreenHandler.storyOverlay.fadeOut();
+				ScreenHandler.gotoStoryNode("INTRODUCTION");
+			}, 4000);
+			$("#loadingScreen").hide();
+			$("#mapButton").removeClass("hidden");
+			$(".current").removeClass("hidden");
+		});
 	});
 
 	loader.start();

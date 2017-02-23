@@ -3,53 +3,43 @@ var StoryHolder = {} || StoryHolder;
 StoryHolder.story1 = {
 	INTRODUCTION: {
 		id: 1,
-		title: "Stack of Stones",
+		title: "Prologue: Kathmandu",
 		textnodes: [
-			"Hello, this is displayed first",
-			"This is displayed second",
-			"Stares at human while pushing stuff off a table russian blue friends are not food yet cats making all the muffins sniff other cat's butt and hang jaw half open thereafter. I cry and cry and cry unless you pet me, and then maybe i cry just for fun. Lies down hiss at vacuum cleaner purrr purr littel cat, little cat purr purr yet sleep on dog bed, force dog to sleep on floor and brown cats with pink ears. ",
-			"Stepping through the story",
-			"and some more stuff"
+			"Your journey begins here today.", 
+			"You never thought you would actually get this grant, and with it a unique opportunity to come study this region in person. You weren’t even going to send in the application, but your professor at university insisted. Now that you are here, you can’t remember why you hesitated. What was left for you in that city? Only complications and interferences.",
+			"Here you can forget all that. Here, all you need is around you. "
 		],
 		choices: [
 			{
-				pointsTo: "stone2",
+				pointsTo: "simikot",
 				displayText: {
-					title: "Path to Stone 2",
-					description: "This feels like too much too soon. Perhaps it’s best to return to Simikot, maybe fly back to Kathmandu, to the familiar noise and chaos of urban cities in the global south. Although flying into Simikot seems like a fool's errand, the pilots were actually great, and the landing and take-off were both super smooth, much more than many a huge commercial jet landing in JFK or similar. Although I suspect having a smaller plane with 12-15 people makes for lighter, smoother sailing. Either way everyone held their breath a bit when we first saw the landing strip from the air.",
-					navText: "Follow the Path"
+					title: "Fly to Simikot",
+					description: "",
+					navText: "Board the Plane"
 				},
 				position: { x: 0, y: 200 },
 				choiceNodeArrow: "top"
-			},
-			{
-				pointsTo: "stone3",
-				displayText: {
-					title: "Path to Stone 3",
-					description: "A path leading off into the distance. It seems to go to Stone 3.",
-					navText: "Follow the Path"
-				},
-				position: { x: -20, y: 300 },
-				choiceNodeArrow: "right"
 			}
 		],
-		backgroundImage: "flagLoop.gif"
+		backgroundImage: "kathmandu.jpg"
 	},
-	stone2: {
+	simikot: {
 		id: 2,
-		title: "Piles and Piles",
+		title: "Simikot",
 		textnodes: [
-			"oh no, it's stone 2!"
+			"You are flying into Simikot, which is an experience unto itself. You fly just above the mountain ridges, and then bank and swoop down and land on the flattened ridge of one of the many mountains in the area.",
+			"Your stomach lurches, and you close your eyes reciting a prayer your grandmother taught you when you were a child.",
+			"You catch yourself with surprise – you are not religious. You remind yourself that you are a scientist, not a pilgrim."
 		],
 		choices: [
 			{	
-				pointsTo: "stone1",
+				pointsTo: "INTRODUCTION",
 				displayText: {
-					title: "Path to Stone 1",
+					title: "Kathmandu",
 					description: "Go back the way you came",
-					navText: "Follow the Path"
+					navText: "Return to Kathmandu"
 				},
-				position: { x: 40, y: 200 },
+				position: { x: -130, y: 400 },
 				choiceNodeArrow: "left"
 			},
 			{
@@ -63,7 +53,7 @@ StoryHolder.story1 = {
 				choiceNodeArrow: "top"
 			}
 		],
-		backgroundImage: "road.jpg"
+		backgroundImage: "simikot.jpg"
 	},
 	stone3: {
 		id: 3,
