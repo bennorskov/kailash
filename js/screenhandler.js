@@ -162,7 +162,7 @@ ScreenHandler.preload = function() {
 	// console.log(ScreenHandler.imageArray);
 	
 	loader.addProgressListener(function(e) { 
-		loaderDisplay.text(e.completedCount/e.totalCount * 100);
+		loaderDisplay.text(Math.round( e.completedCount/e.totalCount * 100));
 	    // console.log(e.resource.getName()); 
 	}); 
 

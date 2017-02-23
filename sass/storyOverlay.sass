@@ -55,11 +55,15 @@
 		display: none
 		background: $white
 		position: absolute
-		left: $basicSquare
+		left: $basicSquare + 2
 		top: 0
 		list-style: none
-		width: 140px
-		padding-left: .1em
+		width: 145px
+		padding: 0 .1em .1em .2em
+		li
+			margin: 2px auto 4px
+			&:hover
+				text-decoration: underline
 	&.opened #dropDown
 		display: block
 

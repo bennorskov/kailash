@@ -69,11 +69,15 @@ html, body {
     display: none;
     background: rgba(255, 255, 255, 0.8);
     position: absolute;
-    left: 32px;
+    left: 34px;
     top: 0;
     list-style: none;
-    width: 140px;
-    padding-left: 0.1em; }
+    width: 145px;
+    padding: 0 0.1em 0.1em 0.2em; }
+    #mapButton #dropDown li {
+      margin: 2px auto 4px; }
+      #mapButton #dropDown li:hover {
+        text-decoration: underline; }
   #mapButton.opened #dropDown {
     display: block; }
 
