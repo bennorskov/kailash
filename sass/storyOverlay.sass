@@ -23,7 +23,7 @@
 	z-index: 50
 	#navigationMap
 		position: relative
-		background-image: url(../images/kailashMapPlaceholder.jpg)
+		background-image: url(../images/Map_Darker.png)
 		background-position: top center
 		background-size: auto 100%
 		background-repeat: no-repeat
@@ -45,7 +45,6 @@
 	position: fixed
 	top: .3em
 	left: .3em
-	background: $white
 	cursor: pointer
 	color: $lightGreen
 	width: $basicSquare
@@ -67,4 +66,38 @@
 				text-decoration: underline
 	&.opened #dropDown
 		display: block
+
+#fieldGuideInformationButton
+	position: fixed
+	top: .3em
+	right: .3em
+	background: $white
+	width: $basicSquare
+	height: $basicSquare
+	font-size: $basicSquare
+	line-height: $basicSquare
+	cursor: pointer
+	text-align: center
+	color: $lightGreen
+	&.newInformation
+		border: solid 2px $lightGreen
+	#descriptionBox
+		text-align: left
+		position: absolute
+		width: 300px
+		display: none
+		background: rgba(0, 0, 0, .5)
+		padding: .2em 1em
+		z-index: $descriptionZOrder
+		right: $basicSquare +2 
+		top: 0
+		&.opened
+			display: block
+		h1
+			font-size: 1em
+			margin-bottom: .3em
+		p
+			font-size: .5em
+			line-height: 1em
+
 

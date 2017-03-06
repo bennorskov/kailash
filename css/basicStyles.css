@@ -13,6 +13,13 @@ html, body {
   font-size: 18px;
   margin: 0; }
 
+a {
+  color: black;
+  text-decoration: underline;
+  font-weight: bold; }
+  a.whiteLink {
+    color: white; }
+
 .overlay {
   display: none;
   position: absolute;
@@ -38,7 +45,7 @@ html, body {
   z-index: 50; }
   #mapOverlay #navigationMap {
     position: relative;
-    background-image: url(../images/kailashMapPlaceholder.jpg);
+    background-image: url(../images/Map_Darker.png);
     background-position: top center;
     background-size: auto 100%;
     background-repeat: no-repeat; }
@@ -60,7 +67,6 @@ html, body {
   position: fixed;
   top: 0.3em;
   left: 0.3em;
-  background: rgba(255, 255, 255, 0.8);
   cursor: pointer;
   color: #00A990;
   width: 32px;
@@ -83,6 +89,39 @@ html, body {
   #mapButton.opened #dropDown {
     display: block; }
 
+#fieldGuideInformationButton {
+  position: fixed;
+  top: 0.3em;
+  right: 0.3em;
+  background: rgba(255, 255, 255, 0.8);
+  width: 32px;
+  height: 32px;
+  font-size: 32px;
+  line-height: 32px;
+  cursor: pointer;
+  text-align: center;
+  color: #00A990; }
+  #fieldGuideInformationButton.newInformation {
+    border: solid 2px #00A990; }
+  #fieldGuideInformationButton #descriptionBox {
+    text-align: left;
+    position: absolute;
+    width: 300px;
+    display: none;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.2em 1em;
+    z-index: 10;
+    right: 34px;
+    top: 0; }
+    #fieldGuideInformationButton #descriptionBox.opened {
+      display: block; }
+    #fieldGuideInformationButton #descriptionBox h1 {
+      font-size: 1em;
+      margin-bottom: 0.3em; }
+    #fieldGuideInformationButton #descriptionBox p {
+      font-size: 0.5em;
+      line-height: 1em; }
+
 #loadingScreen {
   background: #f7f7f7;
   text-align: center;
@@ -91,18 +130,30 @@ html, body {
     margin: 20% 0;
     width: 40%; }
   #loadingScreen h1 {
-    border-left: 100px solid #00A990;
-    border-right: 100px solid #00A990;
+    background: #00A990;
     color: #00A990;
-    font-size: 2em;
-    margin: 10px 0;
-    font-family: "Snippet", sans-serif; }
+    font-size: 1.4em;
+    line-height: 1.2em;
+    margin: 10px 0; }
+    #loadingScreen h1 span {
+      display: inline-block;
+      background: #f7f7f7;
+      height: 1.3em;
+      font-family: "Snippet", sans-serif;
+      padding: 4px 8px;
+      vertical-align: baseline; }
   #loadingScreen h2 {
-    border-left: 100px solid #996666;
-    border-right: 100px solid #996666;
-    font-size: 1.5em;
+    background: #996666;
+    font-size: 0.8em;
     color: #996666;
-    font-family: "Quicksand", sans-serif; }
+    line-height: 0.7em; }
+    #loadingScreen h2 span {
+      display: inline-block;
+      background: #f7f7f7;
+      height: 1.3em;
+      font-family: "Quicksand", sans-serif;
+      padding: 4px 10px;
+      vertical-align: baseline; }
   #loadingScreen #loadingProgress {
     color: #996666;
     margin-top: 10px; }
@@ -112,7 +163,24 @@ html, body {
     margin: 32px 0; }
   #loadingScreen h3 {
     color: #ccc;
-    font-family: "Abel", sans-serif; }
+    font-family: "Abel", sans-serif;
+    font-size: 0.8em; }
+
+#bottomNavigation {
+  position: fixed;
+  bottom: 0.5em;
+  width: 100%;
+  text-align: center;
+  height: 32px; }
+  #bottomNavigation .node {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%; }
+    #bottomNavigation .node.visited {
+      cursor: pointer;
+      background: #00A990; }
 
 .section.fullpage {
   width: 100%;
@@ -127,39 +195,26 @@ html, body {
   transition: background-image 1s; }
 .section.current {
   position: relative; }
-.section #descriptionBox {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  top: 92%;
-  -moz-transition: top 0.3s;
-  -webkit-transition: top 0.3s;
-  -o-transition: top 0.3s;
-  transition: top 0.3s;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 0.2em 1em;
-  z-index: 10; }
-  .section #descriptionBox.opened {
-    top: 15%; }
 .section .choiceNode {
   background: rgba(255, 255, 255, 0.8);
   cursor: pointer;
   margin: 0 auto;
-  width: 120px;
+  width: 32px;
   height: 32px;
   position: relative;
   color: black;
   line-height: 32px;
   vertical-align: middle;
-  padding: 0 5px; }
+  padding: 0 5px;
+  text-align: center;
+  overflow: hidden; }
   .section .choiceNode .choiceNodeArrow {
     background-image: url(../images/path_arrows.png);
     width: 32px;
     height: 32px;
     position: absolute; }
     .section .choiceNode .choiceNodeArrow.position-top {
-      left: 50px;
+      left: 16px;
       top: -32px;
       background-position: top right; }
     .section .choiceNode .choiceNodeArrow.position-left {
@@ -167,19 +222,21 @@ html, body {
       top: 0;
       background-position: bottom right; }
     .section .choiceNode .choiceNodeArrow.position-right {
-      left: 120px;
+      left: 32px;
       top: 0; }
     .section .choiceNode .choiceNodeArrow.position-bottom {
-      left: 50px;
+      left: 16px;
       top: 32px;
       background-position: bottom left; }
+    .section .choiceNode .choiceNodeArrow.position-none {
+      display: none; }
 
 .overlayText {
   padding: 0.2em 1.2em 1.2em; }
   .overlayText h1 {
-    font-size: 3em; }
+    font-size: 2em; }
   .overlayText p {
-    font-size: 1.3em;
+    font-size: 0.9em;
     margin-bottom: 0.2em;
     font-family: "Abel", sans-serif; }
   .overlayText a.navigation {

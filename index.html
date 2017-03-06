@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/basicStyles.css">
+	<link rel="stylesheet" type="text/css" media="screen and (min-width: 600px)" href="css/wideStyles.css">
 	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 	<!-- script type="text/javascript" src="js/PxLoader.js"></script -->
 	<script type="text/javascript" src="js/pxloader-all.min.js"></script> 
@@ -14,18 +15,13 @@
 <body>
 	<div id="loadingScreen">
 		<img src="images/landingPage_logo.png">
-		<h1>HOLY MOUNTAIN</h1>
-		<h2>QUEST FOR KAILASH</h2>
+		<h1><span>HOLY MOUNTAIN</span></h1>
+		<h2><span>QUEST FOR KAILASH</span></h2>
 		<p id="loadingProgress">Loading...<span>0</span>%</p>
 		<div id="spacerLine"></div>
 		<h3>A Game by the India China Institute and Antidote Games</h3>
 	</div>
 	<div class="section fullpage current hidden" id="page1">
-		<div id="descriptionBox" class="overlayText">
-			<h1>Title</h1>
-			<p>test description</p>
-			<a class="navigation" data-navigation-goto="page2">Howdy</a>
-		</div>
 	</div>
 	<div id="mapButton" class="hidden">
 		&#9651;
@@ -35,6 +31,13 @@
 			<li id="restart">Restart</li>
 		</ul>
 	</div>
+	<div id="fieldGuideInformationButton" class="hidden">
+		J
+		<div id="descriptionBox" class="overlayText">
+			<h1>Title</h1>
+			<p>test description</p>
+		</div>
+	</div>
 	<div id="mapOverlay" class="overlay">
 		<div id="navigationMap" class="contentCentererDiv">
 		</div>
@@ -42,9 +45,8 @@
 	<div id="aboutOverlay" class="overlay">
 		<div class="contentCentererDiv">
 			<div id="textHolder" class="overlayText">
-				<h1>This project is awesome</h1>
-				<p>Antidote is awesome</p>
-				<p>India China Institute is awesome!</p>
+				<h1>Journey to Kailash</h1>
+				<p>This project was produced in a collaboration between <a class="whiteLink" href="http://playistheantidote.com">Antidote Games</a> and the <a class="whiteLink" href="https://www.indiachinainstitute.org">India China Institute.</a></p>
 			</div>
 		</div>
 	</div>
@@ -56,6 +58,18 @@
 				<a class="navigation" data-navigation-goto="stone2">testNav</a>
 			</div>
 		</div>
+	</div>
+	<div id="bottomNavigation">
+		<div class="node visited" data-navigation-goto="INTRODUCTION" data-displayText="Kathmandu"></div>
+		<div class="node"></div>
+		<div class="node"></div>
+		<div class="node"></div>
+		<div class="node"></div>
+		<div class="node"></div>
+		<div class="node"></div>
+		<div class="node"></div>
+		<div class="node"></div>
+		<div class="node"></div>
 	</div>
 </body>
 </html>

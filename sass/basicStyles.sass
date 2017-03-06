@@ -1,7 +1,7 @@
 @import foundation
 @import storyOverlay
 @import loadingScreen
-
+@import bottomNavigationNodes
 .section
 	&.fullpage
 		width: 100%
@@ -14,36 +14,26 @@
 
 	&.current
 		position: relative
-	#descriptionBox
-		position: fixed
-		bottom: 0
-		left: 0
-		width: 100%
-		top: 92%
-		+transition( top, .3s)
-		background: rgba(0, 0, 0, .5)
-		padding: .2em 1em
-		z-index: $descriptionZOrder
-		&.opened
-			top: 15%
 	.choiceNode
 		background: $white
 		cursor: pointer
 		margin: 0 auto
-		width: 120px
+		width: $basicSquare
 		height: $basicSquare
 		position: relative
 		color: black
 		line-height: $basicSquare
 		vertical-align: middle
 		padding: 0 5px
+		text-align: center
+		overflow: hidden
 		.choiceNodeArrow
 			background-image: url(../images/path_arrows.png)
 			width: $basicSquare
 			height: $basicSquare
 			position: absolute
 			&.position-top
-				left: 50px
+				left: $basicSquare*.5
 				top: -$basicSquare
 				background-position: top right
 			&.position-left
@@ -51,12 +41,14 @@
 				top: 0
 				background-position: bottom right
 			&.position-right
-				left: 120px
+				left: $basicSquare
 				top: 0
 			&.position-bottom
-				left: 50px
+				left: $basicSquare*.5
 				top: $basicSquare
 				background-position: bottom left
+			&.position-none
+				display: none
 
 .overlayText
 	padding: .2em 1.2em 1.2em

@@ -20,6 +20,8 @@ $(document).ready( function(){
 	ScreenHandler.mapOverlay.on("click", function() {
 		ScreenHandler.closeMapOverlay();
 	});
+
+	// —————————————— —————————————— —————————————— Add Click Handlers
 	$("#mapButton").on("click", function() {
 		$(this).toggleClass("opened");
 	});
@@ -32,15 +34,19 @@ $(document).ready( function(){
 	$("#aboutOverlay").on("click", function() {
 		ScreenHandler.closeAboutOverlay();
 	});
-	$("#descriptionBox").on("click", function() {
-		$(this).toggleClass("opened");
+	$("#fieldGuideInformationButton").on("click", function() {
+		$("#descriptionBox").toggleClass("opened");
 	});
-
 	$("#restart").on("click", function () {
 		window.location.reload();
 	});
+	$("#bottomNavigation").on("click", function(){
+		ScreenHandler.openOverlay($(this), true);
+	});
 });
 
+// —————————————— —————————————— —————————————— ——————————————  Story Node Handling
+var firstTime = true;
 ScreenHandler.gotoStoryNode = function( _id ){
 	// used to display text from a story node
 	/* story nodes look like this:
@@ -52,8 +58,24 @@ ScreenHandler.gotoStoryNode = function( _id ){
 			backgroundImage: string
 		}
 	*/
-	console.log("story node " + StoryHolder.story1[_id].title);
+	// console.log("story node " + StoryHolder.story1[_id].title);
 	// console.log(ScreenHandler.imageArray[_id].src);
+	if (firstTime) {
+		firstTime = false;
+		var $firstNode = $("#bottomNavigation .node").first();
+		$firstNode.attr("data-navigation-goto", "INTRODUCTION");
+		$firstNode.attr("data-navigationText", "Kathmandu");
+		$firstNode.addClass("visited");
+	} else {
+		/* 
+		right now, every place you visit becomes a node, even if you go backwards. 
+		This is the easier version to code. To test earlier visits, we'll have to put in some more functionality
+		*/
+		var $firstNode = $("#bottomNavigation .visited").next();
+		$firstNode.attr("data-navigation-goto", _id);
+		$firstNode.attr("data-navigationText", StoryHolder.story1[_id].title);
+		$firstNode.addClass("visited");
+	}
 
 	//switch out image
 	$(".fullpage").css("background-image", "url("+ScreenHandler.imageArray[_id].src+")");
@@ -93,20 +115,27 @@ ScreenHandler.spawnChoiceNode = function( _nodeData ) {
 	// console.log(_nodeData.displayText);
 	var _html = "<div class='choiceNode' data-navigation-goto='";
 	_html += _nodeData.pointsTo + "' data-node-description='";
-	_html += _nodeData.displayText.description + "' style='left:";
-	_html += _nodeData.position.x + "px; top:"+_nodeData.position.y+"px;'>";
+	_html += _nodeData.displayText.description;
+	console.log(_nodeData.displayText.navText);
+	_html += "' data-navigationText='" + _nodeData.displayText.navText + "' style='left:";
+	_html += _nodeData.position.x + "%; top:"+_nodeData.position.y+"%;'>";
 	_html += _nodeData.displayText.title;
 	_html += "<div class='choiceNodeArrow position-"+ _nodeData.choiceNodeArrow +"'></div></div>";
 	$(".current").append(_html);
 }
 // ————— ————— ————— ————— ————— ————— ————— Story Overlay Control
-ScreenHandler.openOverlay = function ( _clickedNode ) {
-	// console.log(_clickedNode);
+ScreenHandler.openOverlay = function ( _clickedNode, navigationNode ) {
+	var isNavNode = (navigationNode === true);
+	$("#descriptionBox").removeClass("opened");
+	console.log(_clickedNode);
 	this.storyOverlay.css("display", "table");
-	var _html = "<h1>" + _clickedNode.text() + "</h1>";
-	_html += "<p>" + _clickedNode.attr("data-node-description") + "</p>";
-	_html += "<a class='navigation' href=#>";
-	_html += _clickedNode.text() + "</a>";
+	var _html = (isNavNode) ? "<h1>Travel Back?</h1>" :"<h1>" + _clickedNode.text() + "</h1>";
+	_html += (isNavNode) ? "" : "<p>" + _clickedNode.attr("data-node-description") + "</p>";
+	if (_clickedNode.attr("data-navigationText") != undefined) {
+		_html += "<a class='navigation' href=#>";
+		_html += (isNavNode) ? "Return to " + _clickedNode.attr("data-navigationText") : _clickedNode.attr("data-navigationText");
+		_html += "</a>";
+	}
 	
 	$("#storyTextHolder").html(_html);
 
@@ -176,6 +205,8 @@ ScreenHandler.preload = function() {
 	    // console.log(e.resource.getName()); 
 	}); 
 
+	// ———————————————— ———————————————— ———————————————— ———————————————— ———————————————— ————————————————  LOAD COMPLETION Script
+
 	loader.addCompletionListener( function () {
 		$("#loadingProgress").html("<a id='beginJourney' href=#>Begin Your Journey</a>");
 		$("#beginJourney").on("click", function() {
@@ -189,8 +220,9 @@ ScreenHandler.preload = function() {
 				//auto advance
 				ScreenHandler.storyOverlay.fadeOut();
 				ScreenHandler.gotoStoryNode("INTRODUCTION");
-			}, 4000);
-			$("#loadingScreen").hide();
+				$("#fieldGuideInformationButton").show();
+			}, 40);
+			$("#loadingScreen").remove();
 			$("#mapButton").removeClass("hidden");
 			$(".current").removeClass("hidden");
 		});
