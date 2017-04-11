@@ -40,7 +40,7 @@ $(document).ready( function(){
 	$("#restart").on("click", function () {
 		window.location.reload();
 	});
-	$("#bottomNavigation").on("click", function(){
+	$("#bottomNavigation .node").on("click", function(){
 		ScreenHandler.openOverlay($(this), true);
 	});
 });
@@ -65,18 +65,26 @@ ScreenHandler.gotoStoryNode = function( _id ){
 		var $firstNode = $("#bottomNavigation .node").first();
 		$firstNode.attr("data-navigation-goto", "INTRODUCTION");
 		$firstNode.attr("data-navigationText", "Kathmandu");
-		$firstNode.addClass("visited");
+		$firstNode.addClass("currentNavNode");
 	} else {
 		/* 
 		right now, every place you visit becomes a node, even if you go backwards. 
 		This is the easier version to code. To test earlier visits, we'll have to put in some more functionality
+		I figure you only get so many places to go? It's a feature, not a bug!
 		*/
-		var $firstNode = $("#bottomNavigation .visited").next();
-		$firstNode.attr("data-navigation-goto", _id);
-		$firstNode.attr("data-navigationText", StoryHolder.story1[_id].title);
-		$firstNode.addClass("visited");
+		$cNN = $("#bottomNavigation .currentNavNode");
+		$cNN.removeClass("currentNavNode");
+		var $firstNode = $cNN.next(); 
+		if ($firstNode.length < 1){
+			// end of your journey
+			alert("That's all you have time for this trip!\n You'll have to return to Kailash in the future.");
+			_id = "endImage";
+		} else {
+			$firstNode.attr("data-navigation-goto", _id);
+			$firstNode.attr("data-navigationText", StoryHolder.story1[_id].title);
+			$firstNode.addClass("visited currentNavNode");
+		}
 	}
-
 	//switch out image
 	$(".fullpage").css("background-image", "url("+ScreenHandler.imageArray[_id].src+")");
 	// close description box if necessary 
@@ -113,27 +121,26 @@ ScreenHandler.spawnChoiceNode = function( _nodeData ) {
 		position: {int x, int y}
 	}*/
 	// console.log(_nodeData.displayText);
-	var _html = "<div class='choiceNode' data-navigation-goto='";
-	_html += _nodeData.pointsTo + "' data-node-description='";
-	_html += _nodeData.displayText.description;
-	console.log(_nodeData.displayText.navText);
+	var _html = "<div class='choiceNode type-" + _nodeData.type;
+	_html += "' data-navigation-goto='" + _nodeData.pointsTo;
+	_html += "' data-node-description='" + _nodeData.displayText.description;
+	_html += "' data-node-title='" + _nodeData.displayText.title;
 	_html += "' data-navigationText='" + _nodeData.displayText.navText + "' style='left:";
 	_html += _nodeData.position.x + "%; top:"+_nodeData.position.y+"%;'>";
-	_html += _nodeData.displayText.title;
-	_html += "<div class='choiceNodeArrow position-"+ _nodeData.choiceNodeArrow +"'></div></div>";
+	// _html += "<div class='choiceNodeArrow position-"+ _nodeData.choiceNodeArrow +"'></div></div>";
 	$(".current").append(_html);
 }
 // ————— ————— ————— ————— ————— ————— ————— Story Overlay Control
 ScreenHandler.openOverlay = function ( _clickedNode, navigationNode ) {
 	var isNavNode = (navigationNode === true);
 	$("#descriptionBox").removeClass("opened");
-	console.log(_clickedNode);
+	// console.log(_clickedNode + " " + navigationNode);
 	this.storyOverlay.css("display", "table");
-	var _html = (isNavNode) ? "<h1>Travel Back?</h1>" :"<h1>" + _clickedNode.text() + "</h1>";
+	var _html = (isNavNode) ? "<h1>Travel Back?</h1>" :"<h1>" + _clickedNode.attr("data-node-title") + "</h1>";
 	_html += (isNavNode) ? "" : "<p>" + _clickedNode.attr("data-node-description") + "</p>";
 	if (_clickedNode.attr("data-navigationText") != undefined) {
 		_html += "<a class='navigation' href=#>";
-		_html += (isNavNode) ? "Return to " + _clickedNode.attr("data-navigationText") : _clickedNode.attr("data-navigationText");
+		_html += (isNavNode) ? "Return to " + _clickedNode.attr("data-navigationtext") : _clickedNode.attr("data-navigationText");
 		_html += "</a>";
 	}
 	

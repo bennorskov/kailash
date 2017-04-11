@@ -34,5 +34,17 @@ a
 	-o-transition: $element $time
 	transition: $element $time
 
+=uiIcons($element, $mode)
+	background-image: url(../images/Kailash_UI_Icons.png)
+	$posX: 0
+	$posY: 0
+	@if $element == backpack
+		$posX: 66px
+	@if $mode == white
+		$posY: 66px
+	background-position: $posX $posY
+
+	
+
 $titleSize: 2em
 $textSize: .9em

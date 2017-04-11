@@ -18,7 +18,7 @@ StoryHolder.story1 = {
 					navText: "Board the Plane"
 				},
 				position: { x: 0, y: 20 },
-				choiceNodeArrow: "top"
+				type: "hand"
 			},
 			{
 				pointsTo:"INTRODUCTION",
@@ -28,7 +28,7 @@ StoryHolder.story1 = {
 					navText: ""
 				},
 				position: { x: 0, y: 40 },
-				choiceNodeArrow: "none"
+				type: "symbol"
 			}
 		],
 		backgroundImage: "kathmandu.jpg"
@@ -50,7 +50,7 @@ StoryHolder.story1 = {
 					navText: "Return to Kathmandu"
 				},
 				position: { x: -30, y: 40 },
-				choiceNodeArrow: "left"
+				type: "tree"
 			},
 			{
 				pointsTo: "afterSimikot",
@@ -60,7 +60,7 @@ StoryHolder.story1 = {
 					navText: "Follow the Path"
 				},
 				position: { x: -10, y: 60 },
-				choiceNodeArrow: "top"
+				type: "tower"
 			}
 		],
 		backgroundImage: "simikot.jpg"
@@ -189,7 +189,7 @@ StoryHolder.story1 = {
 	}
 }
 // ———————— ———————— ———————— ———————— ———————— ———————— ————————  NAVIGATION NODES
-StoryHolder.visitedNodes = {}
+StoryHolder.visitedNodes = {}; // we'll use this if we want to prevent backtracking. 
 
 // ———————— ———————— ———————— ———————— ———————— ———————— ————————  MAP
 

@@ -128,7 +128,7 @@ a {
   height: 100%; }
   #loadingScreen img {
     margin: 20% 0;
-    width: 40%; }
+    width: 50%; }
   #loadingScreen h1 {
     background: #00A990;
     color: #00A990;
@@ -168,19 +168,25 @@ a {
 
 #bottomNavigation {
   position: fixed;
-  bottom: 0.5em;
+  bottom: 1.1em;
   width: 100%;
   text-align: center;
-  height: 32px; }
+  height: 6px;
+  background: #00A990; }
   #bottomNavigation .node {
     width: 32px;
     height: 32px;
     display: inline-block;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 50%; }
+    background: white;
+    border-radius: 50%;
+    border: 6px solid #00A990;
+    position: relative;
+    top: -200%; }
     #bottomNavigation .node.visited {
       cursor: pointer;
       background: #00A990; }
+      #bottomNavigation .node.visited.currentNavNode {
+        border-color: red; }
 
 .section.fullpage {
   width: 100%;
@@ -196,7 +202,8 @@ a {
 .section.current {
   position: relative; }
 .section .choiceNode {
-  background: rgba(255, 255, 255, 0.8);
+  background: url(../images/Kailash_InScene_Icons.png);
+  background-size: 400% 100%;
   cursor: pointer;
   margin: 0 auto;
   width: 32px;
@@ -208,6 +215,14 @@ a {
   padding: 0 5px;
   text-align: center;
   overflow: hidden; }
+  .section .choiceNode.type-hand {
+    background-position: 0%; }
+  .section .choiceNode.type-tree {
+    background-position: 33%; }
+  .section .choiceNode.type-tower {
+    background-position: 66%; }
+  .section .choiceNode.type-symbol {
+    background-position: 100%; }
   .section .choiceNode .choiceNodeArrow {
     background-image: url(../images/path_arrows.png);
     width: 32px;
