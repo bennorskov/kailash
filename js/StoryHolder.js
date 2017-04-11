@@ -31,6 +31,10 @@ StoryHolder.story1 = {
 				type: "symbol"
 			}
 		],
+		map: {
+			position: { x: 0, y: 20 },
+			found: false
+		},
 		backgroundImage: "kathmandu.jpg"
 	},
 	simikot: {
@@ -63,6 +67,10 @@ StoryHolder.story1 = {
 				type: "tower"
 			}
 		],
+		map: {
+			position: { x: 75.3, y: 75.1 },
+			found: false
+		},
 		backgroundImage: "simikot.jpg"
 	},
 	afterSimikot: {
@@ -103,6 +111,10 @@ StoryHolder.story1 = {
 				choiceNodeArrow: "right"
 			}
 		],
+		map: {
+			position: { x: 71.2, y: 71 },
+			found: false
+		},
 		backgroundImage: "village.jpg"
 	},
 	karnaliRiver: {
@@ -144,6 +156,10 @@ StoryHolder.story1 = {
 				choiceNodeArrow: "right"
 			}
 		],
+		map: {
+			position: { x: 63.9, y: 67.9 },
+			found: false
+		},
 		backgroundImage: "cloudvalley.jpg"
 	},
 	you: {
@@ -164,6 +180,10 @@ StoryHolder.story1 = {
 				choiceNodeArrow: "top"
 			}
 		],
+		map: {
+			position: { x: 60.1, y: 68.2 },
+			found: false
+		},
 		backgroundImage: "stones2.jpg"
 	},
 	roadToHilsa: {
@@ -185,36 +205,17 @@ StoryHolder.story1 = {
 				choiceNodeArrow: "top"
 			}
 		],
+		map: {
+			position: { x: 55.5, y: 66.7 },
+			found: false
+		},
 		backgroundImage: "stones2.jpg"
 	}
 }
-// ———————— ———————— ———————— ———————— ———————— ———————— ————————  NAVIGATION NODES
-StoryHolder.visitedNodes = {}; // we'll use this if we want to prevent backtracking. 
 
-// ———————— ———————— ———————— ———————— ———————— ———————— ————————  MAP
-
-StoryHolder.map = {
-	/*INTRODUCTION: {
-		position: { x: 0, y: 200 },
-		label: "Standing Stones",
-		found: false
-	},
-	stone2: {
-		position: { x: 0, y: -100 },
-		label: "Standing Stones",
-		found: false
-	},
-	stone3: {
-		position: { x: 40, y: 0 },
-		label: "Standing Stones",
-		found: false
-	}*/
-}
 /*
 Notes: 
 	Animation from left=>right
-	Altitude meter
-	Altitude for each place
 	Interactive Elements: Cairns
 	Map:
 		Position

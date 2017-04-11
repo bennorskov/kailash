@@ -105,9 +105,8 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	$(".choiceNode").on("click", function () {
 		ScreenHandler.openOverlay( $(this) );
 	});
-
-	// —————————————————————————————————————————————————— Update Visited Nodes
-	if (StoryHolder.map[_id] != undefined) StoryHolder.map[_id].found = true;
+	// update found nodes for the map
+	StoryHolder.story1[_id].map.found = true;
 }
 
 ScreenHandler.spawnChoiceNode = function( _nodeData ) {
@@ -176,16 +175,20 @@ ScreenHandler.closeMapOverlay = function() {
 	ScreenHandler.mapOverlay.css("display", "none");	
 }
 ScreenHandler.addMapNodes = function() {
-	var navMap = $("#navigationMap");
+	var $mapNodeHolder = $("#mapNodeHolder");
+	$mapNodeHolder.width( $("#navigationMap img").width() );
 	$(".mapNode").remove();//empty the container
-	$.each(StoryHolder.map, function (index, value) {
-		console.log(value + " " + index);
-		if(value.found == true) {
-			var _html = "<div class='mapNode' style='left:";
-			_html += value.position.x + "px; top: " + value.position.y + "px;"
-			_html += "' data-navigation-goto='"+index+"'><span>"+ value.label +"</span></div>";
-			navMap.append(_html);
-		}
+	$.each(StoryHolder.story1, function (index, value) {
+		// console.log(value + " " + index);
+		var _html = "<div class='mapNode";
+			if (value.map.found == true){
+				_html += " foundMapNode";
+			}
+			_html += "' style='left:";
+			_html += value.map.position.x + "%; top: " + value.map.position.y + "%;"
+			_html += "' data-navigation-goto='"+index+"'></div>";
+			
+		$mapNodeHolder.append(_html);
 	});
 	$(".mapNode").on("click", function() {
 		ScreenHandler.gotoStoryNode( $(this).attr("data-navigation-goto") );
