@@ -32,7 +32,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 20 },
+			position: { x: 90, y: 90 },
 			found: false
 		},
 		backgroundImage: "kathmandu.jpg"

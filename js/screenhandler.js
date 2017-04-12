@@ -190,9 +190,10 @@ ScreenHandler.addMapNodes = function() {
 			
 		$mapNodeHolder.append(_html);
 	});
-	$(".mapNode").on("click", function() {
+	$(".foundMapNode").on("click", function() {
 		ScreenHandler.gotoStoryNode( $(this).attr("data-navigation-goto") );
 	});
+	$("#navigationMap").scrollLeft( $("#navigationMap img").width());
 }
 
 // ————— ————— ————— ————— ————— ————— ————— Preloader

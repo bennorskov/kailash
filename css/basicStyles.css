@@ -80,7 +80,9 @@ a {
   width: 32px;
   height: 32px;
   font-size: 32px;
-  line-height: 32px; }
+  line-height: 32px;
+  background: url(../images/Kailash_UI_Icons.png);
+  background-size: 200% 200%; }
   #mapButton #dropDown {
     display: none;
     background: rgba(255, 255, 255, 0.8);
@@ -101,7 +103,9 @@ a {
   position: fixed;
   top: 0.3em;
   right: 0.3em;
-  background: rgba(255, 255, 255, 0.8);
+  background: url(../images/Kailash_UI_Icons.png);
+  background-size: 200% 200%;
+  background-position: 100% 0;
   width: 32px;
   height: 32px;
   font-size: 32px;
@@ -194,7 +198,7 @@ a {
       cursor: pointer;
       background: #00A990; }
       #bottomNavigation .node.visited.currentNavNode {
-        border-color: red; }
+        border-color: #fb9f7d; }
 
 .section.fullpage {
   width: 100%;
@@ -214,15 +218,17 @@ a {
   background-size: 400% 100%;
   cursor: pointer;
   margin: 0 auto;
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   position: relative;
   color: black;
   line-height: 32px;
   vertical-align: middle;
   padding: 0 5px;
   text-align: center;
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%; }
   .section .choiceNode.type-hand {
     background-position: 0%; }
   .section .choiceNode.type-tree {
