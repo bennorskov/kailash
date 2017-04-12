@@ -46,8 +46,12 @@ $(document).ready( function(){
 });
 
 // —————————————— —————————————— —————————————— ——————————————  Story Node Handling
-var firstTime = true;
+var timesThrough = 0;
 ScreenHandler.gotoStoryNode = function( _id ){
+	if (StoryHolder.story1[_id] == undefined) { //error handling
+		console.error("didn't find " + _id + " in the story structure.");
+		return;
+	}
 	// used to display text from a story node
 	/* story nodes look like this:
 		StoryHolder.story1[_id]: {
@@ -60,12 +64,9 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	*/
 	// console.log("story node " + StoryHolder.story1[_id].title);
 	// console.log(ScreenHandler.imageArray[_id].src);
-	if (firstTime) {
-		firstTime = false;
-		var $firstNode = $("#bottomNavigation .node").first();
-		$firstNode.attr("data-navigation-goto", "INTRODUCTION");
-		$firstNode.attr("data-navigationText", "Kathmandu");
-		$firstNode.addClass("currentNavNode");
+	if (timesThrough < 2) {
+		timesThrough++;
+		$("#bottomNavigation").removeClass("hidden");
 	} else {
 		/* 
 		right now, every place you visit becomes a node, even if you go backwards. 
@@ -73,9 +74,10 @@ ScreenHandler.gotoStoryNode = function( _id ){
 		I figure you only get so many places to go? It's a feature, not a bug!
 		*/
 		$cNN = $("#bottomNavigation .currentNavNode");
+		// console.log($cNN);
 		$cNN.removeClass("currentNavNode");
 		var $firstNode = $cNN.next(); 
-		if ($firstNode.length < 1){
+		if (($firstNode.length < 1) && ($cNN.length > 0)){ //first time through, there's no current nav node
 			// end of your journey
 			alert("That's all you have time for this trip!\n You'll have to return to Kailash in the future.");
 			_id = "endImage";
@@ -94,6 +96,7 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	$.each(StoryHolder.story1[_id].textnodes, function(index, value) {
 		_html += "<p>"+value+"</p>";
 	});
+	_html += "<div id='descriptionArrow'></div>"
 	$("#descriptionBox").html(_html);
 	// --------------------------------------------------- Handle Choice Nodes
 	//hide all choice nodes
@@ -106,7 +109,11 @@ ScreenHandler.gotoStoryNode = function( _id ){
 		ScreenHandler.openOverlay( $(this) );
 	});
 	// update found nodes for the map
-	StoryHolder.story1[_id].map.found = true;
+	if (StoryHolder.story1[_id].map !== undefined) StoryHolder.story1[_id].map.found = true;
+	if (timesThrough == 1) {
+		//open descriptoin box for first time through
+		$("#descriptionBox").addClass("opened");
+	}
 }
 
 ScreenHandler.spawnChoiceNode = function( _nodeData ) {
@@ -230,9 +237,9 @@ ScreenHandler.preload = function() {
 			window.setTimeout( function () {
 				//auto advance
 				ScreenHandler.storyOverlay.fadeOut();
-				ScreenHandler.gotoStoryNode("INTRODUCTION");
+				ScreenHandler.gotoStoryNode("characterIntro");
 				$("#fieldGuideInformationButton").show();
-			}, 40);
+			}, 1000);
 			$("#loadingScreen").remove();
 			$("#mapButton").removeClass("hidden");
 			$(".current").removeClass("hidden");

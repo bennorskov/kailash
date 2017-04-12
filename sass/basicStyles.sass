@@ -6,7 +6,7 @@
 	&.fullpage
 		width: 100%
 		height: 100%
-		background-image: url(../images/stones2.jpg)
+		background-image: url(../images/black.gif)
 		background-position: top center
 		background-size: auto 100%
 		background-repeat: no-repeat
@@ -28,7 +28,6 @@
 		padding: 0 5px
 		text-align: center
 		overflow: hidden
-		background-color: $white
 		border-radius: 50%
 		&.type-hand
 			background-position: 0%
@@ -38,28 +37,28 @@
 			background-position: 66%
 		&.type-symbol
 			background-position: 100%
-		.choiceNodeArrow
+		&.type-book
+			background: url(../images/guidebookIcon.png)
+			background-size: 100% 100%
+		&.type-arrow-top
 			background-image: url(../images/path_arrows.png)
-			width: $basicSquare
-			height: $basicSquare
-			position: absolute
-			&.position-top
-				left: $basicSquare*.5
-				top: -$basicSquare
-				background-position: top right
-			&.position-left
-				left: -$basicSquare
-				top: 0
-				background-position: bottom right
-			&.position-right
-				left: $basicSquare
-				top: 0
-			&.position-bottom
-				left: $basicSquare*.5
-				top: $basicSquare
-				background-position: bottom left
-			&.position-none
-				display: none
+			background-position: top right
+			background-size: 200% 200%
+			background-color: none
+		&.type-arrow-left
+			background-image: url(../images/path_arrows.png)
+			background-position: bottom right
+			background-size: 200% 200%
+			background-color: none
+		&.type-arrow-right
+			background-image: url(../images/path_arrows.png)
+			background-size: 200% 200%
+			background-color: none
+		&.type-arrow-bottom
+			background-image: url(../images/path_arrows.png)
+			background-position: bottom left
+			background-size: 200% 200%
+			background-color: none
 
 .overlayText
 	padding: .2em 1.2em 1.2em

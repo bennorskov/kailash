@@ -96,12 +96,12 @@
 	#descriptionBox
 		text-align: left
 		position: absolute
-		width: 300px
+		width: 275px
 		display: none
-		background: rgba(0, 0, 0, .5)
-		padding: .2em 1em
+		background: $white
+		padding: .2em .4em .3em .5em
 		z-index: $descriptionZOrder
-		right: $basicSquare +2 
+		right: $basicSquare + $basicSquare*.3 
 		top: 0
 		&.opened
 			display: block
@@ -111,5 +111,12 @@
 		p
 			font-size: .5em
 			line-height: 1em
+		#descriptionArrow
+			border-left: $basicSquare*.25 solid $white
+			border-top:  $basicSquare*.25 solid rgba(0,0,0,0)
+			border-bottom:  $basicSquare*.25 solid rgba(0,0,0,0)
+			position: absolute
+			top: $basicSquare*.25
+			right: -$basicSquare*.25
 
 

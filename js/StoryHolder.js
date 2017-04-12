@@ -1,6 +1,53 @@
 var StoryHolder = {} || StoryHolder;
 
 StoryHolder.story1 = {
+	// ———————————————————————— TEMPLATE
+	template: {
+		title: "Template",
+		textnodes: [
+			"", 
+			"",
+			""
+		],
+		choices: [
+			{
+				pointsTo: "",
+				displayText: {
+					title: "",
+					discription: "",
+					navText: ""
+				},
+				position: {x: 0, y: 45 },
+				type: "hand"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	// ———————————————————————— /TEMPLATE
+	characterIntro: {
+		title: "Character Intro",
+		textnodes: [
+			"You are a geology researcher who just received a grant to explore the ecology of the Kailash Sacred Region. You are a bookish person, more comfortable in a library than outdoors. You are apprehensive about this trip to say the least.", 
+			"You decide to explore this region for a short trip of 10 days, to learn more about the region, you will return for a longer trip later, if you find something interesting here."
+		],
+		choices: [
+			{
+				pointsTo: "INTRODUCTION",
+				displayText: {
+					title: "Travel to Kathmandu",
+					description: "Remember, you just have 10 days this time, each place you visit takes 1 day of your time.",
+					navText: "Board the Plane"
+				},
+				position: { x: 0, y: 45 },
+				type: "hand"
+			}
+		],
+		backgroundImage: "black.gif"
+	},
 	INTRODUCTION: {
 		id: 1,
 		title: "Prologue: Kathmandu",
@@ -17,18 +64,28 @@ StoryHolder.story1 = {
 					description: "",
 					navText: "Board the Plane"
 				},
-				position: { x: 0, y: 20 },
+				position: { x: 40, y: 20 },
 				type: "hand"
 			},
 			{
-				pointsTo:"INTRODUCTION",
+				pointsTo:"",
 				displayText: {
 					title: "Kathmandu",
 					description: "Your host had told you about the mythic history of the city–According to Swayambhu Purana, present-day Kathmandu was once a huge and deep lake named Nagdaha – as it was full of snakes. The lake was drained by Bodhisatwa Manjusri with his sword, and the water removed from it. After sometime, a demon named Banasur closed the outlet, and the valley was again a lake. Then lord Krishna came to Nepal, killed Banasur, and again drained out the water. ",
 					navText: ""
 				},
-				position: { x: 0, y: 40 },
+				position: { x: -22, y: 40 },
 				type: "symbol"
+			},
+			{
+				pointsTo:"",
+				displayText: {
+					title: "Exploring Kathmandu",
+					description: "Kathmandu is a capital city in the global south. Tradition and modernity walk hand in hand here, and you were both amazed and overwhelmed by the bustling metropolis. While you were in Kathmandu, you couldn’t wait to leave. But now, in this isolated stretch of road, you can’t help but feel wistful about that chaotic calm of the big city.",
+					navText: ""
+				},
+				position: {x: 32, y: 68},
+				type: "tower"
 			}
 		],
 		map: {
@@ -50,21 +107,41 @@ StoryHolder.story1 = {
 				pointsTo: "INTRODUCTION",
 				displayText: {
 					title: "Kathmandu",
-					description: "Kathmandu is a capital city in the global south. Tradition and modernity walk hand in hand there, and you were both amazed and overwhelmed by the bustling metropolis. While you were in Kathmandu, you couldn’t wait to leave. But now, in this isolated stretch of road, you can’t help but feel wistful about that chaotic calm of the big city.",
+					description: "",
 					navText: "Return to Kathmandu"
 				},
 				position: { x: -30, y: 40 },
-				type: "tree"
+				type: "hand"
 			},
 			{
-				pointsTo: "afterSimikot",
+				pointsTo: "teVillage",
 				displayText: {
-					title: "Leave Simikot",
-					description: "You’ve been studying this mountain for so long that you stopped believing you’d ever see it. Not in this life, at least! Ever since you heard about Kailash, you have been captivated. A student of geology, this region fascinates you. You have not stopped scribbling notes in your diary: <br> <i>Wide scale faulting of metamorphosed late Cretaceous to mid Cenozoic sedimentary rocks which have been intruded by igneous Cenozoic granitic rocks.</i>",
-					navText: "Follow the Path"
+					title: "Go East",
+					description: "East of Simikot is Te Village. It sounds like it might be worth spending a day there.",
+					navText: "Follow the Path to Te Village"
 				},
-				position: { x: -10, y: 60 },
-				type: "tower"
+				position: { x: 30, y: 50 },
+				type: "arrow-right"
+			},
+			{
+				pointsTo: "upperLimiValley",
+				displayText: {
+					title: "Go West",
+					description: "You have little time here, let's head out! ",
+					navText: "Go West to the Upper Limi Valley"
+				},
+				position: { x: -30, y: 40 },
+				type: "arrow-left"
+			},
+			{
+				pointsTo: "",
+				displayText: {
+					title: "Guidebook",
+					description: "Simikot: Translates to Swampy Fort, and gets it&rsquo;s name from a swamp just below the airport, with a ruined fort (Kot) of the Malla Kings. Simikot runs on a market economy, unlike the rest of the region which follows the traditional barter system.",
+					navText: ""
+				}, 
+				position: { x: 20, y: 15},
+				type: "book"
 			}
 		],
 		map: {
@@ -73,42 +150,79 @@ StoryHolder.story1 = {
 		},
 		backgroundImage: "simikot.jpg"
 	},
-	afterSimikot: {
-		id: 3,
-		title: "Path out of Simikot",
+	simikot2: {
+		title: "Exploring Simikot",
 		textnodes: [
-			"You are going to make the journey from Simikot to Hilsa this week. It’s supposed to be quiet and beautiful, just what you want. You are curious to gather some samples of the sedimentary rocks that line this region. "
+			"Simikot is an important town in the most remote district of Nepal. Although dominated by the Airport, the town is split into four parts. South of the Airport are the main government buildings, schools, post office and guest houses. To the east and northwest are two large settlements of the Chhetri and Dum community.",
+			"Any research in this region begins here, since Simikot is connected directly to Hilsa by road. Hilsa is last checkpost in Nepal, and the entry point into the Tibetian Autonomous Region, making it an important transit location. This is the popular route taken by pilgrims and tourists. You really hope you can avoid it.",
+			"After flying into Simikot, you walk around the city trying to find an alternative route to Kailash. "			
+		],
+		choices: [
+			{	
+				pointsTo: "",
+				displayText: {
+					title: "Guidebook",
+					description: "Simikot is the administrative headquarters of Humla District of Karnali Zone in the mountain region of northwestern Nepal. Remember, this is a very remote part of Nepal, so be prepared for solitude and not a lot of tourists!",
+					navText: ""
+				},
+				position: { x: -30, y: 40 },
+				type: "book"
+			},
+			{
+				pointsTo: "twoFish",
+				displayText: {
+					title: "The Myth of the Two Fish",
+					description: "",
+					navText: "Explore the Humla River"
+				},
+				position: { x: -10, y: 60 },
+				type: "arrow-left"
+			},
+			{
+				pointsTo: "herderCairns",
+				displayText: {
+					title: "Stone Cairns",
+					description: "Near a herder camp, there are some stone Carns",
+					navText: "Take a closer Look"
+				},
+				position: { x: 30, y: 35 },
+				type: "tower"
+			}
+			
+		],
+		map: {
+			position: { x: 76.3, y: 75.1 },
+			found: false
+		},
+		backgroundImage: "simikot.jpg"
+	},
+	twoFish: {
+		id: 3,
+		title: "The Two Fish",
+		textnodes: [
+			"You come up to two rocks by the side of Humla River. They seem ordinary enough, but there was something about them that made him want to look closer. Were they glittering? Were these boulders made up of Lepidolite?",
+			"Should you check them or keep going?"
 		],
 		choices: [
 			{
-				pointsTo: "simikot",
+				pointsTo: "checkBoulder",
 				displayText: {
-					title: "Back to Simikot",
-					description: "All this feels like too much too soon. Perhaps it&rsquo;s best to return to Simikot, maybe fly back to Kathmandu, to the familiar noise and chaos of urban cities in the global south. ",
-					navText: "Return to Simikot"
+					title: "Check out the Boulder",
+					description: "",
+					navText: "These deserve a closer look..."
 				},
 				position: { x: 40, y: 10 },
-				choiceNodeArrow: "left"
+				type: "symbol"
 			},
 			{
-				pointsTo: "karnaliRiver",
+				pointsTo: "trailhead",
 				displayText: {
-					title: "Karnali River",
-					description: "Karnali River has many names; it is called Ghagra on the Indian side, Kung-chiao Ho on the Chinese side, and is one of the significant rivers of the region. It originates near the Manasarowar Lake in Tibet. Stretching for 1080 kms, Karnali is an important tributary of the Ganges. This is specifically important to India, given the spiritual significance of the Ganges, as well as a large part of Karnali is in India. Total catchment area of Karnali being 127,950 sq km of which 45% is in India. Ghagra River passes through Nepal where it is known as Karnali or Kauriala. It joins the Ganges at Chapra in Bihar. This river is the main source of water in Bara-Banki District of Uttar Pradesh. Rapti, Little Gandak, Sarda and Sarju are the major tributaries of this river.",
-					navText: "Follow the River"
+					title: "To the Trailhead",
+					description: "",
+					navText: "Continue your journey"
 				},
 				position: { x: 10, y: 10 },
-				choiceNodeArrow: "top"
-			},
-			{
-				pointsTo: "roadToHilsa",
-				displayText: {
-					title: "Hilsa",
-					description: "Hilsa, your destination, is a town on the northwestern corner of Nepal bordering Tibet Autonomous Region (China) where the Humla Karnali crosses from the Tibetan Plateau into the mountain regions on its descent to the Ganges. Hilsa is in Humla District, Karnali Zone facing Burang County, Ngari the westernmost prefecture of the T.A.R.",
-					navText: "Continue to Hilsa"
-				},
-				position: { x: 10, y: 23 },
-				choiceNodeArrow: "right"
+				type: "arrow-top"
 			}
 		],
 		map: {

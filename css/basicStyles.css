@@ -7,7 +7,7 @@
 
 html, body {
   height: 100%;
-  background: white;
+  background: black;
   font-family: sans-serif;
   color: white;
   font-size: 18px;
@@ -118,12 +118,12 @@ a {
   #fieldGuideInformationButton #descriptionBox {
     text-align: left;
     position: absolute;
-    width: 300px;
+    width: 275px;
     display: none;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 0.2em 1em;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.2em 0.4em 0.3em 0.5em;
     z-index: 10;
-    right: 34px;
+    right: 41.6px;
     top: 0; }
     #fieldGuideInformationButton #descriptionBox.opened {
       display: block; }
@@ -133,6 +133,13 @@ a {
     #fieldGuideInformationButton #descriptionBox p {
       font-size: 0.5em;
       line-height: 1em; }
+    #fieldGuideInformationButton #descriptionBox #descriptionArrow {
+      border-left: 8px solid rgba(255, 255, 255, 0.8);
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      position: absolute;
+      top: 8px;
+      right: -8px; }
 
 #loadingScreen {
   background: #f7f7f7;
@@ -203,7 +210,7 @@ a {
 .section.fullpage {
   width: 100%;
   height: 100%;
-  background-image: url(../images/stones2.jpg);
+  background-image: url(../images/black.gif);
   background-position: top center;
   background-size: auto 100%;
   background-repeat: no-repeat;
@@ -227,7 +234,6 @@ a {
   padding: 0 5px;
   text-align: center;
   overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 50%; }
   .section .choiceNode.type-hand {
     background-position: 0%; }
@@ -237,28 +243,28 @@ a {
     background-position: 66%; }
   .section .choiceNode.type-symbol {
     background-position: 100%; }
-  .section .choiceNode .choiceNodeArrow {
+  .section .choiceNode.type-book {
+    background: url(../images/guidebookIcon.png);
+    background-size: 100% 100%; }
+  .section .choiceNode.type-arrow-top {
     background-image: url(../images/path_arrows.png);
-    width: 32px;
-    height: 32px;
-    position: absolute; }
-    .section .choiceNode .choiceNodeArrow.position-top {
-      left: 16px;
-      top: -32px;
-      background-position: top right; }
-    .section .choiceNode .choiceNodeArrow.position-left {
-      left: -32px;
-      top: 0;
-      background-position: bottom right; }
-    .section .choiceNode .choiceNodeArrow.position-right {
-      left: 32px;
-      top: 0; }
-    .section .choiceNode .choiceNodeArrow.position-bottom {
-      left: 16px;
-      top: 32px;
-      background-position: bottom left; }
-    .section .choiceNode .choiceNodeArrow.position-none {
-      display: none; }
+    background-position: top right;
+    background-size: 200% 200%;
+    background-color: none; }
+  .section .choiceNode.type-arrow-left {
+    background-image: url(../images/path_arrows.png);
+    background-position: bottom right;
+    background-size: 200% 200%;
+    background-color: none; }
+  .section .choiceNode.type-arrow-right {
+    background-image: url(../images/path_arrows.png);
+    background-size: 200% 200%;
+    background-color: none; }
+  .section .choiceNode.type-arrow-bottom {
+    background-image: url(../images/path_arrows.png);
+    background-position: bottom left;
+    background-size: 200% 200%;
+    background-color: none; }
 
 .overlayText {
   padding: 0.2em 1.2em 1.2em; }
