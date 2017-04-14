@@ -22,11 +22,11 @@ $(document).ready( function(){
 
 	// —————————————— —————————————— —————————————— Add Click Handlers
 	$("#mapButton").on("click", function() {
-		$(this).toggleClass("opened");
+		ScreenHandler.openMapOverlay();
 	});
 	$("#showMap").on("click", function () {
 		ScreenHandler.openMapOverlay();
-	});
+	});	
 	$("#showAbout").on("click", function () {
 		ScreenHandler.openAboutOverlay();
 	});
@@ -176,6 +176,24 @@ ScreenHandler.closeOverlay = function () {
 	ScreenHandler.storyOverlay.css("display", "none");
 }
 
+// ————— ————— ————— ————— ————— ————— ————— Story Navigation Overlay Control
+
+ScreenHandler.openNavigationOverlay = function(_id) {
+	$("#descriptionBox").removeClass("opened");
+	// console.log(_clickedNode + " " + navigationNode);
+	this.storyOverlay.css("display", "table");
+	var _html = "<a class='navigation' href=#>";
+		_html += "<h2>Travel To ";
+		_html += StoryHolder.story1[_id].title + "?</h2>";
+		_html += "</a>";
+	
+	$("#storyTextHolder").html(_html);
+
+	$("#storyTextHolder").children(".navigation").on("click", function(event) {
+		ScreenHandler.gotoStoryNode( _id ) ;
+	});
+}
+
 // ————— ————— ————— ————— ————— ————— ————— About Overlay Control
 
 ScreenHandler.openAboutOverlay = function() {
@@ -200,18 +218,20 @@ ScreenHandler.addMapNodes = function() {
 	$(".mapNode").remove();//empty the container
 	$.each(StoryHolder.story1, function (index, value) {
 		// console.log(value + " " + index);
-		var _html = "<div class='mapNode";
-			if (value.map.found == true){
-				_html += " foundMapNode";
-			}
-			_html += "' style='left:";
-			_html += value.map.position.x + "%; top: " + value.map.position.y + "%;"
-			_html += "' data-navigation-goto='"+index+"'></div>";
-			
-		$mapNodeHolder.append(_html);
+		if (value.map != undefined) {
+			var _html = "<div class='mapNode";
+				if (value.map.found == true){
+					_html += " foundMapNode";
+				}
+				_html += "' style='left:";
+				_html += value.map.position.x + "%; top: " + value.map.position.y + "%;"
+				_html += "' data-navigation-goto='"+index+"'></div>";
+				
+			$mapNodeHolder.append(_html);
+		}
 	});
 	$(".foundMapNode").on("click", function() {
-		ScreenHandler.gotoStoryNode( $(this).attr("data-navigation-goto") );
+		ScreenHandler.openNavigationOverlay( $(this).attr("data-navigation-goto") );
 	});
 	$("#navigationMap").scrollLeft( $("#navigationMap img").width());
 }
