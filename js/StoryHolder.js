@@ -9,6 +9,7 @@ StoryHolder.story1 = {
 			"",
 			""
 		],
+		guidebook: "",
 		choices: [
 			{
 				pointsTo: "",
@@ -43,7 +44,7 @@ StoryHolder.story1 = {
 					navText: "Board the Plane"
 				},
 				position: { x: 0, y: 45 },
-				type: "hand"
+				type: "arrow-right"
 			}
 		],
 		backgroundImage: "black.gif"
@@ -54,7 +55,9 @@ StoryHolder.story1 = {
 		textnodes: [
 			"Your journey begins here today.", 
 			"You never thought you would actually get this grant, and with it a unique opportunity to come study this region in person. You weren’t even going to send in the application, but your professor at university insisted. Now that you are here, you can’t remember why you hesitated. What was left for you in that city? Only complications and interferences.",
-			"Here you can forget all that. Here, all you need is around you. "
+			"Here you can forget all that. Here, all you need is around you. ",
+			"Your host had told you about the mythic history of the city–According to Swayambhu Purana, present-day Kathmandu was once a huge and deep lake named Nagdaha – as it was full of snakes. The lake was drained by Bodhisatwa Manjusri with his sword, and the water removed from it. After sometime, a demon named Banasur closed the outlet, and the valley was again a lake. Then lord Krishna came to Nepal, killed Banasur, and again drained out the water. ",
+			"Kathmandu is a capital city in the global south. Tradition and modernity walk hand in hand here, and you were both amazed and overwhelmed by the bustling metropolis. While you were in Kathmandu, you couldn’t wait to leave. But now, in this isolated stretch of road, you can’t help but feel wistful about that chaotic calm of the big city."
 		],
 		choices: [
 			{
@@ -66,26 +69,6 @@ StoryHolder.story1 = {
 				},
 				position: { x: 40, y: 20 },
 				type: "arrow-right"
-			},
-			{
-				pointsTo:"",
-				displayText: {
-					title: "Kathmandu",
-					description: "Your host had told you about the mythic history of the city–According to Swayambhu Purana, present-day Kathmandu was once a huge and deep lake named Nagdaha – as it was full of snakes. The lake was drained by Bodhisatwa Manjusri with his sword, and the water removed from it. After sometime, a demon named Banasur closed the outlet, and the valley was again a lake. Then lord Krishna came to Nepal, killed Banasur, and again drained out the water. ",
-					navText: ""
-				},
-				position: { x: -22, y: 40 },
-				type: "symbol"
-			},
-			{
-				pointsTo:"",
-				displayText: {
-					title: "Exploring Kathmandu",
-					description: "Kathmandu is a capital city in the global south. Tradition and modernity walk hand in hand here, and you were both amazed and overwhelmed by the bustling metropolis. While you were in Kathmandu, you couldn’t wait to leave. But now, in this isolated stretch of road, you can’t help but feel wistful about that chaotic calm of the big city.",
-					navText: ""
-				},
-				position: {x: 32, y: 68},
-				type: "tower"
 			}
 		],
 		map: {
@@ -95,24 +78,14 @@ StoryHolder.story1 = {
 		backgroundImage: "kathmandu.jpg"
 	},
 	simikot: {
-		id: 2,
 		title: "Simikot",
 		textnodes: [
 			"You are flying into Simikot, which is an experience unto itself. You fly just above the mountain ridges, and then bank and swoop down and land on the flattened ridge of one of the many mountains in the area.",
 			"Your stomach lurches, and you close your eyes reciting a prayer your grandmother taught you when you were a child.",
 			"You catch yourself with surprise – you are not religious. You remind yourself that you are a scientist, not a pilgrim."
 		],
+		guidebook: "Simikot: Translates to Swampy Fort, and gets it&rsquo;s name from a swamp just below the airport, with a ruined fort (Kot) of the Malla Kings. Simikot runs on a market economy, unlike the rest of the region which follows the traditional barter system.",
 		choices: [
-			{	
-				pointsTo: "INTRODUCTION",
-				displayText: {
-					title: "Kathmandu",
-					description: "",
-					navText: "Return to Kathmandu"
-				},
-				position: { x: -30, y: 40 },
-				type: "hand"
-			},
 			{
 				pointsTo: "teVillage",
 				displayText: {
@@ -131,17 +104,7 @@ StoryHolder.story1 = {
 					navText: "Go West to the Upper Limi Valley"
 				},
 				position: { x: -30, y: 40 },
-				type: "arrow-left"
-			},
-			{
-				pointsTo: "",
-				displayText: {
-					title: "Guidebook",
-					description: "Simikot: Translates to Swampy Fort, and gets it&rsquo;s name from a swamp just below the airport, with a ruined fort (Kot) of the Malla Kings. Simikot runs on a market economy, unlike the rest of the region which follows the traditional barter system.",
-					navText: ""
-				}, 
-				position: { x: 20, y: 15},
-				type: "book"
+				type: "arrow-up"
 			},
 			{
 				pointsTo: "simikot2",
@@ -151,7 +114,7 @@ StoryHolder.story1 = {
 					navText: "Poke Around"
 				},
 				position: {x: 0, y: 45 },
-				type: "hand"
+				type: "arrow-left"
 			}
 		],
 		map: {
@@ -167,17 +130,8 @@ StoryHolder.story1 = {
 			"Any research in this region begins here, since Simikot is connected directly to Hilsa by road. Hilsa is last checkpost in Nepal, and the entry point into the Tibetian Autonomous Region, making it an important transit location. This is the popular route taken by pilgrims and tourists. You really hope you can avoid it.",
 			"After flying into Simikot, you walk around the city trying to find an alternative route to Kailash. "			
 		],
+		guidebook: "Simikot is the administrative headquarters of Humla District of Karnali Zone in the mountain region of northwestern Nepal. Remember, this is a very remote part of Nepal, so be prepared for solitude and not a lot of tourists!",
 		choices: [
-			{	
-				pointsTo: "",
-				displayText: {
-					title: "Guidebook",
-					description: "Simikot is the administrative headquarters of Humla District of Karnali Zone in the mountain region of northwestern Nepal. Remember, this is a very remote part of Nepal, so be prepared for solitude and not a lot of tourists!",
-					navText: ""
-				},
-				position: { x: -30, y: 40 },
-				type: "book"
-			},
 			{
 				pointsTo: "twoFish",
 				displayText: {
@@ -196,7 +150,7 @@ StoryHolder.story1 = {
 					navText: "Take a closer look"
 				},
 				position: { x: 23, y: 30 },
-				type: "tower"
+				type: "arrow-right"
 			},
 			{
 				pointsTo: "ralingGompa",
@@ -206,7 +160,7 @@ StoryHolder.story1 = {
 					navText: "Check it out."
 				},
 				position: { x: -3, y: 55 },
-				type: "tower"
+				type: "arrow-up"
 			}
 			
 		],
@@ -216,6 +170,7 @@ StoryHolder.story1 = {
 		},
 		backgroundImage: "buildingCollage.jpg"
 	},
+	ralingGompa: {},
 	twoFish: {
 		id: 3,
 		title: "The Two Fish",
@@ -232,7 +187,7 @@ StoryHolder.story1 = {
 					navText: "These deserve a closer look..."
 				},
 				position: { x: 40, y: 10 },
-				type: "symbol"
+				type: "arrow-up"
 			},
 			{
 				pointsTo: "trailhead",
@@ -242,7 +197,7 @@ StoryHolder.story1 = {
 					navText: "Continue your journey"
 				},
 				position: { x: 10, y: 10 },
-				type: "arrow-top"
+				type: "arrow-right"
 			}
 		],
 		map: {
@@ -268,7 +223,7 @@ StoryHolder.story1 = {
 					navText: "Let's see if there's something else at Simikot."
 				},
 				position: { x: 4, y: 70 },
-				type: "arrow-down"
+				type: "arrow-left"
 			},
 			{
 				pointsTo: "trailhead",
@@ -278,7 +233,7 @@ StoryHolder.story1 = {
 					navText: "Continue your journey"
 				},
 				position: { x: -10, y: 10 },
-				type: "arrow-top"
+				type: "arrow-right"
 			}
 		],
 		map: {
@@ -293,17 +248,8 @@ StoryHolder.story1 = {
 			"You are in Tshongsa Valley, onward lies Limi Valley, and with it, a wealth of villages and natural sights. Before you, alpine meadow meets a sub-alpine forest. Suffice to say, it is breathtaking.", 
 			"A forking path lies before you at Salli Khola, the trailhead. You can either keep going East towards the Hilsa chekpoint on the Greater Himalayan Trail, or go north into Upper Limi Valley."
 		],
+		guidebook: "West Nepal has a strong belief of a variety of demi gods who protect the rich pasture lands, and even influence local social governance. All resources goverened by these demigods need to be paid for, and it is common for hunters to pacify them. This system maintained law and order and even controlled border crossings for many years. ",
 		choices: [
-			{
-				pointsTo: "",
-				displayText: {
-					title: "Guidebook",
-					description: "West Nepal has a strong belief of a variety of demi gods who protect the rich pasture lands, and even influence local social governance. All resources goverened by these demigods need to be paid for, and it is common for hunters to pacify them. This system maintained law and order and even controlled border crossings for many years. ",
-					navText: ""
-				},
-				position: { x: 10, y: 10 },
-				type: "book"
-			},
 			{
 				pointsTo: "hilsa",
 				displayText: {
@@ -322,7 +268,7 @@ StoryHolder.story1 = {
 					navText: "Continue North"
 				},
 				position: {x: 0, y: 0 },
-				type: "arrow-top"
+				type: "arrow-up"
 			}
 		],
 		map: {
@@ -347,7 +293,7 @@ StoryHolder.story1 = {
 					navText: "Explore the Lake"
 				},
 				position: {x: 0, y: 45 },
-				type: "tower"
+				type: "arrow-up"
 			},
 			{
 				pointsTo: "herderCamp",
@@ -357,7 +303,7 @@ StoryHolder.story1 = {
 					navText: "Go North to the Herder Camp"
 				},
 				position: {x: 0, y: 45 },
-				type: "hand"
+				type: "arrow-right"
 			}
 		],
 		map: {
@@ -382,7 +328,7 @@ StoryHolder.story1 = {
 				navText: "Spending some extra time here would be fantastic!"
 			},
 			position: {x: 0, y: 45 },
-			type: "hand"
+			type: "arrow-up"
 		},
 		{
 			pointsTo: "nyaluLa",
@@ -392,7 +338,7 @@ StoryHolder.story1 = {
 				navText: "No time, and we'd like to get to Nyalu La Summit!"
 			},
 			position: {x: 0, y: 45 },
-			type: "tree"
+			type: "arrow-right"
 		}],
 		backgroundImage: "village.jpg"
 	},
@@ -403,17 +349,8 @@ StoryHolder.story1 = {
 			"Your new friend tells you about this meadow in Tshongsa Valley. It used to be an ancient trading place between Tibet and Nepal. Traditionally, it was beleived that this meadow has nine corners and beautiful waterfalls, all under the protection of Jowo Changtsen Chhenpo, the lord of the northern demigods. Venerated by all the Bhod Shamans of Humla, until recently he was venerated by sheep sacrifices. Now, dough effigies are used instead.",
 			"Limi Valley is changing with the times, but for this herder, time seems to have stopped in this meadow, steeped in history and tradition."
 		],
+		guidebook: "The people of Limi Valley used to traditionally be semi-nomadic. Although citizens of Nepal, they had winter grazing rights in Tibet. Following the boundary demarcation between China and Nepal, these rights were retracted in 1961.",
 		choices: [
-			{
-				pointsTo: "",
-				displayText: {
-					title: "",
-					description: "The people of Limi Valley used to traditionally be semi-nomadic. Although citizens of Nepal, they had winter grazing rights in Tibet. Following the boundary demarcation between China and Nepal, these rights were retracted in 1961.",
-					navText: ""
-				},
-				position: {x: 0, y: 45 },
-				type: "hand"
-			}
 		],
 		map: {
 			position: { x: 0, y: 0},
@@ -428,16 +365,17 @@ StoryHolder.story1 = {
 			"You notice that they have a measured way around the rough path by the river. They barely look at the ground, but their passage over it looks practiced. Compared to your new hiking shoes, their roughshod footwear looks shabby, but anyone looking could clearly see how you didn’t belong here. You were a tourist. Much like them, you wore your colours as blatantly as any tribal person. Only yours were bland and mass-produced.",
 			"Caught in your reverie, you slip quite badly and manage to twist your ankle. You yell out in surprise and find your left ankle throbbing with pain. Some of the locals look back at you in concern."
 		],
+		guidebook: "Karnali River has many names; it is called Ghagra on the Indian side, Kung-chiao Ho on the Chinese side, and is one of the significant rivers of the region. It originates near the Manasarowar Lake in Tibet. Stretching for 1080 kms, Karnali is an important tributary of the Ganges. This is specifically important to India, given the spiritual significance of the Ganges, as well as a large part of Karnali is in India. Total catchment area of Karnali being 127,950 sq km of which 45% is in India. Ghagra River passes through Nepal where it is known as Karnali or Kauriala. It joins the Ganges at Chapra in Bihar. This river is the main source of water in Bara-Banki District of Uttar Pradesh. Rapti, Little Gandak, Sarda and Sarju are the major tributaries of this river.",
 		choices: [
 			{
 				pointsTo: "karnaliRiver",
 				displayText: {
 					title: "Karnali River",
-					description: "Karnali River has many names; it is called Ghagra on the Indian side, Kung-chiao Ho on the Chinese side, and is one of the significant rivers of the region. It originates near the Manasarowar Lake in Tibet. Stretching for 1080 kms, Karnali is an important tributary of the Ganges. This is specifically important to India, given the spiritual significance of the Ganges, as well as a large part of Karnali is in India. Total catchment area of Karnali being 127,950 sq km of which 45% is in India. Ghagra River passes through Nepal where it is known as Karnali or Kauriala. It joins the Ganges at Chapra in Bihar. This river is the main source of water in Bara-Banki District of Uttar Pradesh. Rapti, Little Gandak, Sarda and Sarju are the major tributaries of this river.",
+					description: "",
 					navText: "Follow the River"
 				},
 				position: { x: 10, y: 10 },
-				choiceNodeArrow: "top"
+				type: "arrow-up"
 			}
 		],
 		map: {
