@@ -96,8 +96,11 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	$.each(StoryHolder.story1[_id].textnodes, function(index, value) {
 		_html += "<p>"+value+"</p>";
 	});
-	_html += "<div id='descriptionArrow'></div>"
-	$("#descriptionBox").html(_html);
+	$("#descriptionBox .overlayText").html(_html);
+	if (timesThrough == 1) {
+		//open descriptoin box for first time through
+		$("#descriptionBox").addClass("opened");
+	}
 	// --------------------------------------------------- Handle Choice Nodes
 	//hide all choice nodes
 	$(".choiceNode").remove();
@@ -110,10 +113,7 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	});
 	// update found nodes for the map
 	if (StoryHolder.story1[_id].map !== undefined) StoryHolder.story1[_id].map.found = true;
-	if (timesThrough == 1) {
-		//open descriptoin box for first time through
-		$("#descriptionBox").addClass("opened");
-	}
+	
 }
 
 ScreenHandler.spawnChoiceNode = function( _nodeData ) {
@@ -239,7 +239,7 @@ ScreenHandler.preload = function() {
 				ScreenHandler.storyOverlay.fadeOut();
 				ScreenHandler.gotoStoryNode("characterIntro");
 				$("#fieldGuideInformationButton").show();
-			}, 1000);
+			}, 3000);
 			$("#loadingScreen").remove();
 			$("#mapButton").removeClass("hidden");
 			$(".current").removeClass("hidden");

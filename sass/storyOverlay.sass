@@ -1,18 +1,6 @@
-.overlay
-	display: none
-	position: absolute
-	width: 100%
-	height: 100%
-	top: 0
-	left: 0
-	.contentCentererDiv
-		display: table-cell
-		vertical-align: middle
-		background: rgba(0, 0, 0, .5)
-		padding: .2em 1em
 
 #storyOverlay
-	z-index: 100
+	z-index: $descriptionZOrder
 	#storyTextHolder
 		width: 80%
 		background: $white
@@ -60,7 +48,8 @@
 	font-size: $basicSquare
 	line-height: $basicSquare
 	background: url(../images/Kailash_UI_Icons.png)
-	background-size: 200% 200% 
+	background-size: 200% 200%
+	background-position: 100% 0 
 	#dropDown
 		display: none
 		background: $white
@@ -83,40 +72,40 @@
 	right: .3em
 	background: url(../images/Kailash_UI_Icons.png)
 	background-size: 200% 200% 
-	background-position: 100% 0
 	width: $basicSquare
 	height: $basicSquare
 	font-size: $basicSquare
 	line-height: $basicSquare
 	cursor: pointer
 	text-align: center
-	color: $lightGreen
 	&.newInformation
 		border: solid 2px $lightGreen
-	#descriptionBox
-		text-align: left
-		position: absolute
-		width: 275px
-		display: none
-		background: $white
-		padding: .2em .4em .3em .5em
-		z-index: $descriptionZOrder
-		right: $basicSquare + $basicSquare*.3 
-		top: 0
-		&.opened
-			display: block
-		h1
-			font-size: 1em
-			margin-bottom: .3em
+
+.overlayText
+	padding: .2em 1.2em 1.2em
+	overflow: auto
+	background-color: white
+	border-radius: $basicSquare *.75
+	color: $deepRed
+	height: 85%
+	h1
+		font-size: $titleSize
+		margin-bottom: .3em
+	p
+		font-size: $textSize
+		margin-bottom: .3em
+		font-family: 'Abel', sans-serif
+	a.navigation
+		cursor: pointer
+		text-decoration: underline
+		color: black
+
+#descriptionBox
+	z-index: $descriptionZOrder
+	&.opened
+		display: table
+	.contentCentererDiv .overlayText
 		p
-			font-size: .5em
-			line-height: 1em
-		#descriptionArrow
-			border-left: $basicSquare*.25 solid $white
-			border-top:  $basicSquare*.25 solid rgba(0,0,0,0)
-			border-bottom:  $basicSquare*.25 solid rgba(0,0,0,0)
-			position: absolute
-			top: $basicSquare*.25
-			right: -$basicSquare*.25
+			line-height: $textSize + .15
 
 
