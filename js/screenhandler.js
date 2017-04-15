@@ -39,6 +39,7 @@ $(document).ready( function(){
 	$("#restart").on("click", function () {
 		window.location.reload();
 	});
+	setupDeviceMotionEvents();
 });
 
 // —————————————— —————————————— —————————————— ——————————————  Story Node Handling
@@ -48,19 +49,7 @@ ScreenHandler.gotoStoryNode = function( _id ){
 		console.error("didn't find " + _id + " in the story structure.");
 		return;
 	}
-	
-	// used to display text from a story node
-	/* story nodes look like this:
-		StoryHolder.story1[_id]: {
-			id: int,
-			title: string,
-			textnodes: [ string, string ],
-			choices: { objects },
-			backgroundImage: string
-		}
-	*/
-	// console.log("story node " + StoryHolder.story1[_id].title);
-	// console.log(ScreenHandler.imageArray[_id].src);
+	// do different things at different counts
 	timesThrough++;
 	if (timesThrough == 2) {
 		$("#bottomNavigation").removeClass('hidden');
@@ -102,10 +91,11 @@ ScreenHandler.gotoStoryNode = function( _id ){
 		_html += "<p>"+value+"</p>";
 	});
 	$("#descriptionBox .overlayText").html(_html);
-	if (timesThrough == 1) {
-		//open description box for first time through
-		ScreenHandler.openDescriptionOverlay();
-	}
+
+	// window.setTimeout(function(){
+		ScreenHandler.openDescriptionOverlay(); // open description overlay by default
+	// }, 1000);
+	
 	// --------------------------------------------------- Handle Choice Nodes
 	//hide all choice nodes
 	$(".choiceNode").remove();
@@ -115,7 +105,7 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	});
 	$(".choiceNode").on("click", function () {
 		// ScreenHandler.openOverlay( $(this) );
-		ScreenHandler.gotoStoryNode( $(this).attr("data-navigation-goto"));
+		ScreenHandler.openNavigationOverlay( $(this).attr("data-navigation-goto"));
 	});
 	// update found nodes for the map
 	if (StoryHolder.story1[_id].map !== undefined) StoryHolder.story1[_id].map.found = true;
@@ -135,24 +125,32 @@ ScreenHandler.spawnChoiceNode = function( _nodeData ) {
 	// console.log(_nodeData.displayText);
 	var _html = "<div class='choiceNode type-" + _nodeData.type;
 	_html += "' data-navigation-goto='" + _nodeData.pointsTo;
-	_html += "' data-node-description='" + _nodeData.displayText.description;
-	_html += "' data-node-title='" + _nodeData.displayText.title;
-	_html += "' data-navigationText='" + _nodeData.displayText.navText + "'>";
+	_html += "' data-node-description='" + _nodeData.description;
+	_html += "' data-node-title='" + _nodeData.title;
+	_html += "' data-navigationText='" + _nodeData.navText + "'>";
 	// _html += "style='left:" + _nodeData.position.x + "%; top:"+_nodeData.position.y+"%;'>";
 	_html += "</div>"
 	$(".current").append(_html);
 }
 // ————— ————— ————— ————— ————— ————— ————— Description Overlay Control
 ScreenHandler.openDescriptionOverlay = function() {
-	ScreenHandler.descriptionOverlay.addClass("opened");
+	// ScreenHandler.descriptionOverlay.addClass("opened");
+	ScreenHandler.descriptionOverlay.css({
+		"display": "table",
+		"opacity": 1
+	});
 };
 ScreenHandler.closeDescriptionOverlay = function() {
-	ScreenHandler.descriptionOverlay.removeClass("opened");
+	// ScreenHandler.descriptionOverlay.removeClass("opened");
+	ScreenHandler.descriptionOverlay.css("opacity", 0);
+	window.setTimeout(function () {
+		ScreenHandler.descriptionOverlay.css("display", "none");
+	}, 1000);
 };
 // ————— ————— ————— ————— ————— ————— ————— Story Overlay Control
 ScreenHandler.openOverlay = function ( _clickedNode, navigationNode ) {
 	var isNavNode = (navigationNode === true);
-	$("#descriptionBox").removeClass("opened");
+	this.closeDescriptionOverlay();
 	// console.log(_clickedNode + " " + navigationNode);
 	this.storyOverlay.css("display", "table");
 	var _html = (isNavNode) ? "<h1>Travel Back?</h1>" :"<h1>" + _clickedNode.attr("data-node-title") + "</h1>";
@@ -188,6 +186,7 @@ ScreenHandler.openNavigationOverlay = function(_id) {
 		_html += "</a>";
 	
 	$("#storyTextHolder").html(_html);
+	$("#storyTextHolder").addClass("navigation");
 
 	$("#storyTextHolder").children(".navigation").on("click", function(event) {
 		ScreenHandler.gotoStoryNode( _id ) ;
@@ -235,6 +234,23 @@ ScreenHandler.addMapNodes = function() {
 	});
 	$("#navigationMap").scrollLeft( $("#navigationMap img").width());
 }
+
+// ————— ————— ————— ————— ————— ————— ————— ————— ————— Device Motion Event
+
+function setupDeviceMotionEvents() {
+	var lastOffset = 0;
+	window.addEventListener("deviceorientation", function (event) {
+		if ($(".fullpage") != undefined) {
+			var dist = lastOffset - event.gamma;
+			var offsetAmount = lastOffset + dist * .2; //smoothing is .2
+			var maxClamp = 30;
+			offsetAmount = Math.min(Math.max(offsetAmount, -maxClamp), maxClamp);
+			lastOffset = event.gamma;
+			$(".fullpage").css("background-position", 50 + offsetAmount + "%");
+		} 
+	});
+}
+
 
 // ————— ————— ————— ————— ————— ————— ————— Preloader
 

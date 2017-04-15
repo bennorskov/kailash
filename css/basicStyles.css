@@ -103,9 +103,13 @@ a {
     border: solid 2px #00A990; }
 
 #descriptionBox {
-  z-index: 100; }
-  #descriptionBox.opened {
-    display: table; }
+  z-index: 100;
+  opacity: 0;
+  -moz-transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
+  display: none; }
   #descriptionBox .contentCentererDiv .overlayText p {
     line-height: 1.05em; }
 
@@ -240,6 +244,8 @@ a {
   border-radius: 16px;
   color: #B3262A;
   height: 85%; }
+  .overlayText.navigation {
+    height: auto; }
   .overlayText h1 {
     font-size: 2em;
     margin-bottom: 0.3em; }

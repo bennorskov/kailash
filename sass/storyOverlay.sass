@@ -83,8 +83,9 @@
 
 #descriptionBox
 	z-index: $descriptionZOrder
-	&.opened
-		display: table
+	opacity: 0
+	+transition(opacity, 1s)
+	display: none
 	.contentCentererDiv .overlayText
 		p
 			line-height: $textSize + .15

@@ -1,0 +1,34 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			height: 100%;
+			background-image: url(images/buildingCollage.jpg);
+			background-position: 50%;
+			background-size: auto 100%;
+		}
+	</style>
+</head>
+<body>
+	<h1 id="test">boop</h1>
+
+
+	<script language='javascript'>
+	document.getElementById("test").innerHTML= "not moving!";
+	var lastOffset = 0;
+	window.addEventListener("deviceorientation", function (event) {
+		var dist = lastOffset - event.gamma;
+		var smoothing = .2;
+		var offsetAmount = lastOffset + dist * smoothing;
+		var maxClamp = 30;
+		offsetAmount = Math.min(Math.max(offsetAmount, -maxClamp), maxClamp);
+		lastOffset = event.gamma;
+		document.getElementsByTagName("body")[0].style.backgroundPosition = 50 + offsetAmount + "%";
+
+		document.getElementById("test").innerHTML= offsetAmount;
+	});
+	</script>
+</body>
+
+</html>

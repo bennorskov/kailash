@@ -13,11 +13,9 @@ StoryHolder.story1 = {
 		choices: [
 			{
 				pointsTo: "",
-				displayText: {
-					title: "",
-					description: "",
-					navText: ""
-				},
+				title: "",
+				description: "",
+				navText: "",
 				position: {x: 0, y: 45 },
 				type: "hand"
 			}
@@ -88,31 +86,25 @@ StoryHolder.story1 = {
 		choices: [
 			{
 				pointsTo: "teVillage",
-				displayText: {
-					title: "Go East",
-					description: "East of Simikot is Te Village. It sounds like it might be worth spending a day there.",
-					navText: "Follow the Path to Te Village"
-				},
+				title: "Te Village",
+				description: "East of Simikot is Te Village. It sounds like it might be worth spending a day there.",
+				navText: "Follow the Path to Te Village",
 				position: { x: 30, y: 50 },
 				type: "arrow-right"
 			},
 			{
 				pointsTo: "upperLimiValley",
-				displayText: {
-					title: "Go West",
-					description: "You have little time here, let's head out! ",
-					navText: "Go West to the Upper Limi Valley"
-				},
+				title: "Upper Limi Valley",
+				description: "You have little time here, let's head out! ",
+				navText: "Go West to the Upper Limi Valley",
 				position: { x: -30, y: 40 },
 				type: "arrow-up"
 			},
 			{
 				pointsTo: "simikot2",
-				displayText: {
-					title: "Explore Simikot",
-					description: "Simikot is worth seeing for one more day.",
-					navText: "Poke Around"
-				},
+				title: "Explore Simikot",
+				description: "Simikot is worth seeing for one more day.",
+				navText: "Poke Around",
 				position: {x: 0, y: 45 },
 				type: "arrow-left"
 			}
@@ -134,31 +126,25 @@ StoryHolder.story1 = {
 		choices: [
 			{
 				pointsTo: "twoFish",
-				displayText: {
-					title: "Humla River",
-					description: "Someone said something about a two interesting rocks.",
-					navText: "Explore the Humla River"
-				},
+				title: "Humla River",
+				description: "Someone said something about a two interesting rocks.",
+				navText: "Explore the Humla River",
 				position: { x: -15, y: 30 },
 				type: "arrow-left"
 			},
 			{
 				pointsTo: "herderCairns",
-				displayText: {
-					title: "Stone Cairns",
-					description: "Near a herder camp, there are some stone Carns",
-					navText: "Take a closer look"
-				},
+				title: "Stone Cairns",
+				description: "Near a herder camp, there are some stone Carns",
+				navText: "Take a closer look",
 				position: { x: 23, y: 30 },
 				type: "arrow-right"
 			},
 			{
 				pointsTo: "ralingGompa",
-				displayText: {
-					title: "Raling Gompa",
-					description: "Good thing you hung around! There&rsquo;s a famous monestary close by.",
-					navText: "Check it out."
-				},
+				title: "Raling Gompa",
+				description: "Good thing you hung around! There&rsquo;s a famous monestary close by.",
+				navText: "Check it out.",
 				position: { x: -3, y: 55 },
 				type: "arrow-up"
 			}
@@ -170,7 +156,30 @@ StoryHolder.story1 = {
 		},
 		backgroundImage: "buildingCollage.jpg"
 	},
-	ralingGompa: {},
+	ralingGompa: {
+		title: "Raling Gompa",
+		textnodes: [
+			"", 
+			"",
+			""
+		],
+		guidebook: "",
+		choices: [
+			{
+				pointsTo: "",
+				title: "",
+				description: "",
+				navText: "",
+				position: {x: 0, y: 45 },
+				type: "hand"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
 	twoFish: {
 		id: 3,
 		title: "The Two Fish",
@@ -181,21 +190,17 @@ StoryHolder.story1 = {
 		choices: [
 			{
 				pointsTo: "checkBoulder",
-				displayText: {
-					title: "Check out the Boulder",
-					description: "",
-					navText: "These deserve a closer look..."
-				},
+				title: "Check out the Boulder",
+				description: "",
+				navText: "These deserve a closer look...",
 				position: { x: 40, y: 10 },
 				type: "arrow-up"
 			},
 			{
 				pointsTo: "trailhead",
-				displayText: {
-					title: "To the Trailhead",
-					description: "",
-					navText: "Continue your journey"
-				},
+				title: "To the Trailhead",
+				description: "",
+				navText: "Continue your journey",
 				position: { x: 10, y: 10 },
 				type: "arrow-right"
 			}
@@ -217,21 +222,17 @@ StoryHolder.story1 = {
 		choices: [
 			{
 				pointsTo: "simikot2",
-				displayText: {
-					title: "Back to Simikot",
-					description: "",
-					navText: "Let's see if there's something else at Simikot."
-				},
+				title: "Back to Simikot",
+				description: "",
+				navText: "Let's see if there's something else at Simikot.",
 				position: { x: 4, y: 70 },
 				type: "arrow-left"
 			},
 			{
 				pointsTo: "trailhead",
-				displayText: {
-					title: "To the Trailhead",
-					description: "",
-					navText: "Continue your journey"
-				},
+				title: "To the Trailhead",
+				description: "",
+				navText: "Continue your journey",
 				position: { x: -10, y: 10 },
 				type: "arrow-right"
 			}
@@ -252,21 +253,17 @@ StoryHolder.story1 = {
 		choices: [
 			{
 				pointsTo: "hilsa",
-				displayText: {
-					title: "Continue East",
-					description: "",
-					navText: "Travel East towards Hilsa"
-				},
+				title: "Continue East towards Hilsa",
+				description: "",
+				navText: "Travel East towards Hilsa",
 				position: {x: 0, y: 45 },
 				type: "arrow-right"
 			},
 			{
 				pointsTo: "upperLimiValley",
-				displayText: {
-					title: "Travel through the Limi Valley",
-					description: "",
-					navText: "Continue North"
-				},
+				title: "Travel through the Limi Valley",
+				description: "",
+				navText: "Continue North",
 				position: {x: 0, y: 0 },
 				type: "arrow-up"
 			}
@@ -287,21 +284,17 @@ StoryHolder.story1 = {
 		choices: [
 			{
 				pointsTo: "exploreLake",
-				displayText: {
-					title: "To the Lake",
-					description: "The Lake looks like something worth spending a little time investigating.",
-					navText: "Explore the Lake"
-				},
+				title: "To the Lake",
+				description: "The Lake looks like something worth spending a little time investigating.",
+				navText: "Explore the Lake",
 				position: {x: 0, y: 45 },
 				type: "arrow-up"
 			},
 			{
 				pointsTo: "herderCamp",
-				displayText: {
-					title: "Talk to the Herders",
-					description: "",
-					navText: "Go North to the Herder Camp"
-				},
+				title: "Talk to the Herders",
+				description: "",
+				navText: "Go North to the Herder Camp",
 				position: {x: 0, y: 45 },
 				type: "arrow-right"
 			}
@@ -322,25 +315,45 @@ StoryHolder.story1 = {
 		choices: [
 		{
 			pointsTo: "learnFromHerder",
-			displayText: {
-				title: "Talk with the Herder more",
-				description: "",
-				navText: "Spending some extra time here would be fantastic!"
-			},
+			title: "Talk with the Herder more",
+			description: "",
+			navText: "Spending some extra time here would be fantastic!",
 			position: {x: 0, y: 45 },
 			type: "arrow-up"
 		},
 		{
 			pointsTo: "nyaluLa",
-			displayText: {
-				title: "Continue Onwards",
-				description: "",
-				navText: "No time, and we'd like to get to Nyalu La Summit!"
-			},
+			title: "Continue Onwards",
+			description: "",
+			navText: "No time, and we'd like to get to Nyalu La Summit!",
 			position: {x: 0, y: 45 },
 			type: "arrow-right"
 		}],
 		backgroundImage: "village.jpg"
+	},
+	exploreLake: {
+		title: "Explore the Lake",
+		textnodes: [
+			"", 
+			"",
+			""
+		],
+		guidebook: "",
+		choices: [
+			{
+				pointsTo: "",
+				title: "",
+				description: "",
+				navText: "",
+				position: {x: 0, y: 45 },
+				type: "hand"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
 	},
 	learnFromHerder: {
 		title: "Learn from the Herders",
@@ -358,7 +371,30 @@ StoryHolder.story1 = {
 		},
 		backgroundImage: "stones3.jpg"
 	},
-	nayaluLa: {},
+	nayaluLa: {
+		title: "Nayalu La",
+		textnodes: [
+			"", 
+			"",
+			""
+		],
+		guidebook: "",
+		choices: [
+			{
+				pointsTo: "",
+				title: "",
+				description: "",
+				navText: "",
+				position: {x: 0, y: 45 },
+				type: "hand"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
 	roadToHilsa: {
 		title: "Hilsa",
 		textnodes: [
@@ -369,11 +405,9 @@ StoryHolder.story1 = {
 		choices: [
 			{
 				pointsTo: "karnaliRiver",
-				displayText: {
-					title: "Karnali River",
-					description: "",
-					navText: "Follow the River"
-				},
+				title: "Karnali River",
+				description: "",
+				navText: "Follow the River",
 				position: { x: 10, y: 10 },
 				type: "arrow-up"
 			}
@@ -383,6 +417,78 @@ StoryHolder.story1 = {
 			found: false
 		},
 		backgroundImage: "stones2.jpg"
+	},
+	teVillage: {
+		title: "Te Village",
+		textnodes: [
+			"", 
+			"",
+			""
+		],
+		guidebook: "",
+		choices: [
+			{
+				pointsTo: "",
+				title: "",
+				description: "",
+				navText: "",
+				position: {x: 0, y: 45 },
+				type: "hand"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	hilsa: {
+		title: "Hilsa",
+		textnodes: [
+			"", 
+			"",
+			""
+		],
+		guidebook: "",
+		choices: [
+			{
+				pointsTo: "",
+				title: "",
+				description: "",
+				navText: "",
+				position: {x: 0, y: 45 },
+				type: "hand"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	upperLimiValley: {
+		title: "Upper Limi Valley",
+		textnodes: [
+			"", 
+			"",
+			""
+		],
+		guidebook: "",
+		choices: [
+			{
+				pointsTo: "",
+				title: "",
+				description: "",
+				navText: "",
+				position: {x: 0, y: 45 },
+				type: "hand"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
 	}
 }
 
