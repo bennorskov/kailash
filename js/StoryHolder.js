@@ -1,7 +1,7 @@
 var StoryHolder = {} || StoryHolder;
 
 StoryHolder.story1 = {
-	// ———————————————————————— TEMPLATE
+	/*/ ———————————————————————— TEMPLATE
 	template: {
 		title: "Template",
 		textnodes: [
@@ -30,7 +30,7 @@ StoryHolder.story1 = {
 		},
 		backgroundImage: "cloudvalley.jpg"
 	},
-	// ———————————————————————— /TEMPLATE
+	// ———————————————————————— /TEMPLATE*/
 	characterIntro: {
 		title: "Who are you?",
 		textnodes: [
@@ -44,7 +44,7 @@ StoryHolder.story1 = {
 				type: "arrow-right"
 			}
 		],
-		backgroundImage: "black.gif"
+		backgroundImage: "tooltips.jpg"
 	},
 	INTRODUCTION: {
 		id: 1,
@@ -237,7 +237,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "Raling-Gompa.jpg"
 	},
 	ralingGompa2: {
 		title: "Talk to Monk",
