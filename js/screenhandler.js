@@ -114,7 +114,7 @@ ScreenHandler.gotoStoryNode = function( _id ){
 
 	if (timesThrough == 1) {
 		console.log("oine");
-		$(".type-arrow-right").css("background", "none");
+		$(".choiceNode").css("background", "none");
 		//create fake button for example
 	}
 

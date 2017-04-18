@@ -41,7 +41,15 @@ StoryHolder.story1 = {
 		choices: [
 			{
 				pointsTo: "INTRODUCTION",
+				type: "arrow-up"
+			},
+			{
+				pointsTo: "INTRODUCTION",
 				type: "arrow-right"
+			},
+			{
+				pointsTo: "INTRODUCTION",
+				type: "arrow-left"
 			}
 		],
 		backgroundImage: "tooltips.jpg"
@@ -120,7 +128,7 @@ StoryHolder.story1 = {
 		backgroundImage: "kathmandu2.jpg"
 	},
 	moreKathmandu: {
-		title: "Template",
+		title: "One Day in Kathmandu",
 		textnodes: [
 			"Kathmandu is a city where tradition and modernity coexisit, making it a vibrant first destination. But you aren't a very social person, and all this hustle and bustle makes you anxious.",
 			"Truth be told, you're ready for some calmer environments.", 
@@ -239,7 +247,7 @@ StoryHolder.story1 = {
 		},
 		backgroundImage: "Raling-Gompa.jpg"
 	},
-	ralingGompa2: {
+	talkToMonk: {
 		title: "Talk to Monk",
 		textnodes: [
 			"Walking around Raling Gompa, you loose track of time. A young monk comes up to you and asks if you are a tourist. You tell him you are here to learn about this regions unique natural and spiritual wonders.", 
