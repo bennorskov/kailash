@@ -52,7 +52,6 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	// do different things at different counts
 	timesThrough++;
 	if (timesThrough == 2) {
-		$("#bottomNavigation").removeClass('hidden');
 
 		$("#bottomNavigation .node").on("click", function(){
 			if ($(this).hasClass("visited") && !$(this).hasClass("currentNavNode")) ScreenHandler.openOverlay($(this), true);
@@ -60,6 +59,9 @@ ScreenHandler.gotoStoryNode = function( _id ){
 
 		$(".currentNavNode").attr("data-navigation-goto", _id);
 		$(".currentNavNode").attr("data-navigationText", StoryHolder.story1[_id].title);
+		$("#bottomNavigation").removeClass('hidden');
+		$("#mapButton").removeClass("hidden");
+		$("#fieldGuideInformationButton").show();
 	}
 	if (timesThrough > 2) {
 		/* 
@@ -96,9 +98,7 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	} */
 	$("#descriptionBox .overlayText").html(_html);
 
-	// window.setTimeout(function(){
 	ScreenHandler.openDescriptionOverlay(); // open description overlay by default
-	// }, 1000);
 	
 	// --------------------------------------------------- Handle Choice Nodes
 	//hide all choice nodes
@@ -111,6 +111,13 @@ ScreenHandler.gotoStoryNode = function( _id ){
 		// ScreenHandler.openOverlay( $(this) );
 		ScreenHandler.openNavigationOverlay( $(this).attr("data-navigation-goto"));
 	});
+
+	if (timesThrough == 1) {
+		console.log("oine");
+		$(".type-arrow-right").css("background", "none");
+		//create fake button for example
+	}
+
 	// update found nodes for the map
 	if (StoryHolder.story1[_id].map !== undefined) StoryHolder.story1[_id].map.found = true;
 	
@@ -280,10 +287,8 @@ ScreenHandler.preload = function() {
 				//auto advance
 				ScreenHandler.storyOverlay.fadeOut();
 				ScreenHandler.gotoStoryNode("characterIntro");
-				$("#fieldGuideInformationButton").show();
 			}, 240);
 			$("#loadingScreen").remove();
-			$("#mapButton").removeClass("hidden");
 			$(".current").removeClass("hidden");
 		});
 	});

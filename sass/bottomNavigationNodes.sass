@@ -4,18 +4,20 @@
 	width: 100%
 	text-align: center
 	height: 6px
-	background: $black
+	background: black
 	.node
 		width: $basicSquare
 		height: $basicSquare
 		display: inline-block
-		background: white
+		background: black
 		border-radius: 50%
-		border: 6px solid $black
+		border: 6px solid black
 		position: relative
 		top: -200%
 		&.visited
 			cursor: pointer
 			background: $yellow
-			&.currentNavNode
-				border-color: $lightOrange
+			border-color: $yellow
+		&.currentNavNode
+			border-color: $yellow
+			background: black
