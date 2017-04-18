@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Fjalla+One|Sansita|Snippet|Quicksand|Abel");
+@import url("https://fonts.googleapis.com/css?family=Fjalla+One|Snippet|Reem+Kufi");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Sansita", sans-serif; }
+  font-family: "Fjalla One", sans-serif; }
 
 html, body {
   height: 100%;
@@ -68,9 +68,9 @@ a {
   height: 32px;
   font-size: 32px;
   line-height: 32px;
-  background: url(../images/Kailash_UI_Icons.png);
-  background-size: 200% 200%;
-  background-position: 100% 0; }
+  background: url(../images/navIcons.png);
+  background-size: 200% 100%;
+  background-position: top right; }
   #mapButton #dropDown {
     display: none;
     background: rgba(255, 255, 255, 0.8);
@@ -91,8 +91,8 @@ a {
   position: fixed;
   top: 0.3em;
   right: 0.3em;
-  background: url(../images/Kailash_UI_Icons.png);
-  background-size: 200% 200%;
+  background: url(../images/navIcons.png);
+  background-size: 200% 100%;
   width: 32px;
   height: 32px;
   font-size: 32px;
@@ -104,12 +104,9 @@ a {
 
 #descriptionBox {
   z-index: 100;
-  opacity: 0;
-  -moz-transition: opacity 1s;
-  -webkit-transition: opacity 1s;
-  -o-transition: opacity 1s;
-  transition: opacity 1s;
   display: none; }
+  #descriptionBox.opened {
+    display: table; }
   #descriptionBox .contentCentererDiv .overlayText p {
     line-height: 1.05em; }
 
@@ -121,8 +118,8 @@ a {
     margin: 20% 0;
     width: 50%; }
   #loadingScreen h1 {
-    background: #00A990;
-    color: #00A990;
+    background: #008AB0;
+    color: #008AB0;
     font-size: 1.4em;
     line-height: 1.2em;
     margin: 10px 0; }
@@ -134,15 +131,15 @@ a {
       padding: 4px 8px;
       vertical-align: baseline; }
   #loadingScreen h2 {
-    background: #996666;
+    background: #B3262A;
     font-size: 0.8em;
-    color: #996666;
+    color: #B3262A;
     line-height: 0.7em; }
     #loadingScreen h2 span {
       display: inline-block;
       background: #f7f7f7;
       height: 1.3em;
-      font-family: "Quicksand", sans-serif;
+      font-family: "Fjalla One", sans-serif;
       padding: 4px 10px;
       vertical-align: baseline; }
   #loadingScreen #loadingProgress {
@@ -150,12 +147,14 @@ a {
     margin-top: 10px; }
   #loadingScreen #spacerLine {
     height: 10px;
-    background: #fb9f7d;
-    margin: 32px 0; }
+    background: #F0BF08;
+    margin: 8px 0; }
   #loadingScreen h3 {
-    color: #ccc;
-    font-family: "Abel", sans-serif;
-    font-size: 0.8em; }
+    color: #f7f7f7;
+    background: #F0BF08;
+    font-family: "Reem Kufi", sans-serif;
+    font-size: 0.8em;
+    padding: 10% 0; }
 
 #bottomNavigation {
   position: fixed;
@@ -193,34 +192,26 @@ a {
 .section.current {
   position: relative; }
 .section .choiceNode {
-  background: url(../images/Kailash_InScene_Icons.png);
-  background-size: 400% 100%;
+  background: url(../images/navArrows.png);
+  background-size: 300% 100%;
+  background-color: none;
   cursor: pointer;
   margin: 0 auto;
   width: 48px;
   height: 48px;
   position: absolute;
   overflow: hidden;
-  border-radius: 50%;
   margin-left: -24px; }
   .section .choiceNode.type-arrow-up {
-    background-image: url(../images/path_arrows.png);
-    background-position: top right;
-    background-size: 200% 200%;
-    background-color: none;
+    background-position: top center;
     bottom: 12%;
     left: 50%; }
   .section .choiceNode.type-arrow-left {
-    background-image: url(../images/path_arrows.png);
-    background-position: bottom right;
-    background-size: 200% 200%;
-    background-color: none;
+    background-position: top left;
     bottom: 8%;
     left: 40%; }
   .section .choiceNode.type-arrow-right {
-    background-image: url(../images/path_arrows.png);
-    background-size: 200% 200%;
-    background-color: none;
+    background-position: top right;
     bottom: 8%;
     left: 60%; }
 

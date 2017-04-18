@@ -125,27 +125,22 @@ ScreenHandler.spawnChoiceNode = function( _nodeData ) {
 	// console.log(_nodeData.displayText);
 	var _html = "<div class='choiceNode type-" + _nodeData.type;
 	_html += "' data-navigation-goto='" + _nodeData.pointsTo;
-	_html += "' data-node-description='" + _nodeData.description;
-	_html += "' data-node-title='" + _nodeData.title;
-	_html += "' data-navigationText='" + _nodeData.navText + "'>";
+	// _html += "' data-node-description='" + _nodeData.description;
+	// _html += "' data-node-title='" + _nodeData.title;
+	// _html += "' data-navigationText='" + _nodeData.navText;
 	// _html += "style='left:" + _nodeData.position.x + "%; top:"+_nodeData.position.y+"%;'>";
-	_html += "</div>"
+	_html += "'></div>"
 	$(".current").append(_html);
 }
 // ————— ————— ————— ————— ————— ————— ————— Description Overlay Control
+var isDescriptionOpen = false;
 ScreenHandler.openDescriptionOverlay = function() {
-	// ScreenHandler.descriptionOverlay.addClass("opened");
-	ScreenHandler.descriptionOverlay.css({
-		"display": "table",
-		"opacity": 1
-	});
+	ScreenHandler.descriptionOverlay.addClass("opened");
+	isDescriptionOpen = true;
 };
 ScreenHandler.closeDescriptionOverlay = function() {
-	// ScreenHandler.descriptionOverlay.removeClass("opened");
-	ScreenHandler.descriptionOverlay.css("opacity", 0);
-	window.setTimeout(function () {
-		ScreenHandler.descriptionOverlay.css("display", "none");
-	}, 1000);
+	ScreenHandler.descriptionOverlay.removeClass("opened");
+	isDescriptionOpen = false;
 };
 // ————— ————— ————— ————— ————— ————— ————— Story Overlay Control
 ScreenHandler.openOverlay = function ( _clickedNode, navigationNode ) {
@@ -154,12 +149,6 @@ ScreenHandler.openOverlay = function ( _clickedNode, navigationNode ) {
 	// console.log(_clickedNode + " " + navigationNode);
 	this.storyOverlay.css("display", "table");
 	var _html = (isNavNode) ? "<h1>Travel Back?</h1>" :"<h1>" + _clickedNode.attr("data-node-title") + "</h1>";
-	_html += (isNavNode) ? "" : "<p>" + _clickedNode.attr("data-node-description") + "</p>";
-	if (_clickedNode.attr("data-navigationText") != undefined) {
-		_html += "<a class='navigation' href=#>";
-		_html += (isNavNode) ? "Return to " + _clickedNode.attr("data-navigationtext") : _clickedNode.attr("data-navigationText");
-		_html += "</a>";
-	}
 	
 	$("#storyTextHolder").html(_html);
 
@@ -240,9 +229,9 @@ ScreenHandler.addMapNodes = function() {
 function setupDeviceMotionEvents() {
 	var lastOffset = 0;
 	window.addEventListener("deviceorientation", function (event) {
-		if ($(".fullpage") != undefined) {
+		if ($(".fullpage") != undefined && !isDescriptionOpen) {
 			var dist = lastOffset - event.gamma;
-			var offsetAmount = lastOffset + dist * .2; //smoothing is .2
+			var offsetAmount = lastOffset + dist * .02; //smoothing is .2
 			var maxClamp = 30;
 			offsetAmount = Math.min(Math.max(offsetAmount, -maxClamp), maxClamp);
 			lastOffset = event.gamma;
@@ -263,7 +252,7 @@ ScreenHandler.preload = function() {
 	// if we do other stories, we'll have to create a preload for those stories as well
 	$.each(Object.keys(StoryHolder.story1), function (index, value) {
 		// story1.stone1.backgroundImage;
-		ScreenHandler.imageArray[value] = loader.addImage("images/"+StoryHolder.story1[value].backgroundImage);
+		if (value != undefined) ScreenHandler.imageArray[value] = loader.addImage("images/"+StoryHolder.story1[value].backgroundImage);
 	});
 	// console.log(ScreenHandler.imageArray);
 	

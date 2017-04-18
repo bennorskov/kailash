@@ -13,11 +13,15 @@ StoryHolder.story1 = {
 		choices: [
 			{
 				pointsTo: "",
-				title: "",
-				description: "",
-				navText: "",
-				position: {x: 0, y: 45 },
-				type: "hand"
+				type: "arrow-right"
+			},
+			{
+				pointsTo: "",
+				type: "arrow-left"
+			},
+			{
+				pointsTo: "",
+				type: "arrow-up"
 			}
 		],
 		map: {
@@ -30,18 +34,13 @@ StoryHolder.story1 = {
 	characterIntro: {
 		title: "Who are you?",
 		textnodes: [
-			"You are a geology researcher who just received a grant to explore the ecology of the Kailash Sacred Region. You are a bookish person, more comfortable in a library than outdoors. You are apprehensive about this trip to say the least.", 
-			"You decide to explore this region for a short trip of 10 days, to learn more about the region, you will return for a longer trip later, if you find something interesting here."
-		],
+			"You are a researcher working with ecological conservation. You receive a grant to study the duality of ecology and spirituality in the Kailash Sacred Region.",
+			"While you are really excited about this project, you pride your scientific rationality above all else. Not being very religious, explored this region before, what if you can’t find anything spiritual…?",
+			],
+		guidebook: "You are about to leave on a 10 day trip to familiarise yourself with the region. Each location visited takes a day off your expedition. Navigate using the arrows at the bottom of the screen. You can see how many days you have left in the circles at the bottom of text. Return to any of the previously visited locations by tapping on any filled in circles.",
 		choices: [
 			{
 				pointsTo: "INTRODUCTION",
-				displayText: {
-					title: "Travel to Kathmandu",
-					description: "Remember, you just have 10 days this time, each place you visit takes 1 day of your time.",
-					navText: "Board the Plane"
-				},
-				position: { x: 0, y: 45 },
 				type: "arrow-right"
 			}
 		],
@@ -49,24 +48,25 @@ StoryHolder.story1 = {
 	},
 	INTRODUCTION: {
 		id: 1,
-		title: "Prologue: Kathmandu",
+		title: "Kathmandu",
 		textnodes: [
-			"Your journey begins here today.", 
-			"You never thought you would actually get this grant, and with it a unique opportunity to come study this region in person. You weren’t even going to send in the application, but your professor at university insisted. Now that you are here, you can’t remember why you hesitated. What was left for you in that city? Only complications and interferences.",
-			"Here you can forget all that. Here, all you need is around you. ",
-			"Your host had told you about the mythic history of the city–According to Swayambhu Purana, present-day Kathmandu was once a huge and deep lake named Nagdaha – as it was full of snakes. The lake was drained by Bodhisatwa Manjusri with his sword, and the water removed from it. After sometime, a demon named Banasur closed the outlet, and the valley was again a lake. Then lord Krishna came to Nepal, killed Banasur, and again drained out the water. ",
-			"Kathmandu is a capital city in the global south. Tradition and modernity walk hand in hand here, and you were both amazed and overwhelmed by the bustling metropolis. While you were in Kathmandu, you couldn’t wait to leave. But now, in this isolated stretch of road, you can’t help but feel wistful about that chaotic calm of the big city."
+			"Your journey begins.",
+			"You never thought you would actually get this grant, and with it a unique opportunity to come study this region in person. You didn't think you had a chance, but your professor insisted you apply, and you are very glad you could did!",
+			"Kathmandu is a city where traditions and modernity coexist. Gods (or actors in costume) walk the same streets as humans. Remember, this is your first time in Nepal. You are bound to experience the unexpected here!",
+			"You have no doubts about finding rich environments to study, but you aren't as sure about the spiritual. You have never been religious, why start now? "
 		],
 		choices: [
 			{
-				pointsTo: "simikot",
-				displayText: {
-					title: "Fly to Simikot",
-					description: "",
-					navText: "Board the Plane"
-				},
-				position: { x: 40, y: 20 },
+				pointsTo: "exploreKathmandu",
 				type: "arrow-right"
+			},
+			{
+				pointsTo: "leaveKathmandu",
+				type: "arrow-left"
+			},
+			{
+				pointsTo: "simikot",
+				type: "arrow-up"
 			}
 		],
 		map: {
@@ -75,37 +75,87 @@ StoryHolder.story1 = {
 		},
 		backgroundImage: "kathmandu.jpg"
 	},
+	leaveKathmandu: {
+		title: "The Road out of Kathmandu",
+		textnodes: [
+			"Kathmandu is a capital city in the global south. Tradition and modernity walk hand in hand there, and you were both amazed and overwhelmed by the bustling metropolis.",
+			"While you were in Kathmandu, you couldn’t wait to leave. But now, in this isolated stretch of road, you can’t help but feel wistful about that chaotic calm of the big city. ", 
+		],
+		choices: [
+			{
+				pointsTo: "exploreKathmandu",
+				type: "arrow-right"
+			},
+			{
+				pointsTo: "simikot",
+				type: "arrow-up"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "road.jpg"
+	},
+	exploreKathmandu: {
+		title: "Explore Kathmandu",
+		textnodes: [
+			"You leaarned about the mythic history of the city–According to Swayambhu Purana, present-day Kathmandu was once a huge and deep lake named &ldquo;Nagdaha&rdquo;– as it was full of snakes. The lake was drained by Bodhisatwa Manjusri. Sometime later, a demon named Banasur closed the outlet, and the valley was a lake again. Then lord Krishna came to Nepal, killed Banasur, and again drained out the water.", 
+			"...or so the story goes."
+		],
+		choices: [
+			{
+				pointsTo: "moreKathmandu",
+				type: "arrow-right"
+			},
+			{
+				pointsTo: "simikot",
+				type: "arrow-up"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "kathmandu2.jpg"
+	},
+	moreKathmandu: {
+		title: "Template",
+		textnodes: [
+			"Kathmandu is a city where tradition and modernity coexisit, making it a vibrant first destination. But you aren't a very social person, and all this hustle and bustle makes you anxious.",
+			"Truth be told, you're ready for some calmer environments.", 
+		],
+		choices: [
+			{
+				pointsTo: "simikot",
+				type: "arrow-up"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "kathmandu3.jpg"
+	},
 	simikot: {
 		title: "Simikot",
 		textnodes: [
-			"You are flying into Simikot, which is an experience unto itself. You fly just above the mountain ridges, and then bank and swoop down and land on the flattened ridge of one of the many mountains in the area.",
-			"Your stomach lurches, and you close your eyes reciting a prayer your grandmother taught you when you were a child.",
+			"You fly into Simikot, which is an experience in itself. The small propeller plane flies over mountain ridges, and then banks and swoops down to land on the flattened ridge of one of the many mountains in the area. You notice that the landing strip is exceptionally small...",
+			"Stomach lurching, and you close your eyes and automatically start reciting a prayer your grandmother taught you when you were a child. ",
 			"You catch yourself with surprise – you are not religious. You remind yourself that you are a scientist, not a pilgrim."
 		],
 		guidebook: "Simikot: Translates to Swampy Fort, and gets it&rsquo;s name from a swamp just below the airport, with a ruined fort (Kot) of the Malla Kings. Simikot runs on a market economy, unlike the rest of the region which follows the traditional barter system.",
 		choices: [
 			{
 				pointsTo: "teVillage",
-				title: "Te Village",
-				description: "East of Simikot is Te Village. It sounds like it might be worth spending a day there.",
-				navText: "Follow the Path to Te Village",
-				position: { x: 30, y: 50 },
 				type: "arrow-right"
 			},
 			{
-				pointsTo: "upperLimiValley",
-				title: "Upper Limi Valley",
-				description: "You have little time here, let's head out! ",
-				navText: "Go West to the Upper Limi Valley",
-				position: { x: -30, y: 40 },
+				pointsTo: "trailhead",
 				type: "arrow-up"
 			},
 			{
 				pointsTo: "simikot2",
-				title: "Explore Simikot",
-				description: "Simikot is worth seeing for one more day.",
-				navText: "Poke Around",
-				position: {x: 0, y: 45 },
 				type: "arrow-left"
 			}
 		],
@@ -119,34 +169,21 @@ StoryHolder.story1 = {
 		title: "Exploring Simikot",
 		textnodes: [
 			"Simikot is an important town in the most remote district of Nepal. Although dominated by the Airport, the town is split into four parts. South of the Airport are the main government buildings, schools, post office and guest houses. To the east and northwest are two large settlements of the Chhetri and Dum community.",
-			"Any research in this region begins here, since Simikot is connected directly to Hilsa by road. Hilsa is last checkpost in Nepal, and the entry point into the Tibetian Autonomous Region, making it an important transit location. This is the popular route taken by pilgrims and tourists. You really hope you can avoid it.",
-			"After flying into Simikot, you walk around the city trying to find an alternative route to Kailash. "			
+			"Any research in this region begins here, since Simikot is connected directly to Hilsa by road. Hilsa is last checkpost in Nepal, and the entry point into the Tibetian Autonomous Region, making it an important transit location. This is the popular route taken by pilgrims and tourists. You really hope you can avoid it."
 		],
 		guidebook: "Simikot is the administrative headquarters of Humla District of Karnali Zone in the mountain region of northwestern Nepal. Remember, this is a very remote part of Nepal, so be prepared for solitude and not a lot of tourists!",
 		choices: [
 			{
-				pointsTo: "twoFish",
-				title: "Humla River",
-				description: "Someone said something about a two interesting rocks.",
-				navText: "Explore the Humla River",
-				position: { x: -15, y: 30 },
-				type: "arrow-left"
-			},
-			{
-				pointsTo: "herderCairns",
-				title: "Stone Cairns",
-				description: "Near a herder camp, there are some stone Carns",
-				navText: "Take a closer look",
-				position: { x: 23, y: 30 },
+				pointsTo: "talkToTraveller",
 				type: "arrow-right"
 			},
 			{
-				pointsTo: "ralingGompa",
-				title: "Raling Gompa",
-				description: "Good thing you hung around! There&rsquo;s a famous monestary close by.",
-				navText: "Check it out.",
-				position: { x: -3, y: 55 },
+				pointsTo: "herderCairns",
 				type: "arrow-up"
+			},
+			{
+				pointsTo: "ralingGompa",
+				type: "arrow-left"
 			}
 			
 		],
@@ -156,22 +193,66 @@ StoryHolder.story1 = {
 		},
 		backgroundImage: "buildingCollage.jpg"
 	},
+	talkToTraveller: {
+		title: "Talk to Traveller",
+		textnodes: [
+			"You meet a traveller at your hostel. She just returned from hiking around upper Limi Valley. She took a route recently repopened by the government, allowing travellers to see the old villages of Limi Valley. On this ancient hearding path, she felt she had travelled back in time. She insists that there is an enchanted meadow in Talung Valley, she just couldn't find it this time...", 
+			"This remote trail, unchanged by outside influences, might just be what you were looking for!"
+		],
+		choices: [
+			{
+				pointsTo: "teVillage",
+				type: "arrow-right"
+			},
+			{
+				pointsTo: "twoFish",
+				type: "arrow-up"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
 	ralingGompa: {
 		title: "Raling Gompa",
 		textnodes: [
-			"", 
-			"",
-			""
+			"Raling Gompa is a monastery perched high in the mountains. Walking up a rocky trail, you see a wooden gate through the trees.", 
+			"The gate appears to mark the outer boundary of the monastery area, and you can see an impressive monastery behind it. After walking through the gate, the main building and the secondary structures making up Rawling Gompa loom ahead.",
+			"After scrambling up a large boulder field immediately behind the gompa, the view opens up to the roof of the monastery and the beautiful valley below."
 		],
-		guidebook: "",
+		guidebook: "Raling Gompa is one of the oldest and most revered Buddhist religious sites in the immediate area around Simikot, serving the many nearby Buddhist lama communities. ",
 		choices: [
 			{
-				pointsTo: "",
-				title: "",
-				description: "",
-				navText: "",
-				position: {x: 0, y: 45 },
-				type: "hand"
+				pointsTo: "simikot2",
+				type: "arrow-left"
+			},
+			{
+				pointsTo: "talkToMonk",
+				type: "arrow-right"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	ralingGompa2: {
+		title: "Talk to Monk",
+		textnodes: [
+			"Walking around Raling Gompa, you loose track of time. A young monk comes up to you and asks if you are a tourist. You tell him you are here to learn about this regions unique natural and spiritual wonders.", 
+			"He tells you to check out two rocks on your way to Limi Valley. There is something mysterious about them, and no one can agree on their story. Some people think those rocks are fish that brought Malaria to this valley, but he doesn't think so. He hopes you get to see them! "
+		],
+		choices: [
+			{
+				pointsTo: "twoFish",
+				type: "arrow-left"
+			},
+			{
+				pointsTo: "trailhead",
+				type: "arrow-up"
 			}
 		],
 		map: {
@@ -190,18 +271,10 @@ StoryHolder.story1 = {
 		choices: [
 			{
 				pointsTo: "checkBoulder",
-				title: "Check out the Boulder",
-				description: "",
-				navText: "These deserve a closer look...",
-				position: { x: 40, y: 10 },
 				type: "arrow-up"
 			},
 			{
 				pointsTo: "trailhead",
-				title: "To the Trailhead",
-				description: "",
-				navText: "Continue your journey",
-				position: { x: 10, y: 10 },
 				type: "arrow-right"
 			}
 		],
@@ -222,18 +295,10 @@ StoryHolder.story1 = {
 		choices: [
 			{
 				pointsTo: "simikot2",
-				title: "Back to Simikot",
-				description: "",
-				navText: "Let's see if there's something else at Simikot.",
-				position: { x: 4, y: 70 },
 				type: "arrow-left"
 			},
 			{
 				pointsTo: "trailhead",
-				title: "To the Trailhead",
-				description: "",
-				navText: "Continue your journey",
-				position: { x: -10, y: 10 },
 				type: "arrow-right"
 			}
 		],
@@ -253,18 +318,10 @@ StoryHolder.story1 = {
 		choices: [
 			{
 				pointsTo: "hilsa",
-				title: "Continue East towards Hilsa",
-				description: "",
-				navText: "Travel East towards Hilsa",
-				position: {x: 0, y: 45 },
 				type: "arrow-right"
 			},
 			{
 				pointsTo: "upperLimiValley",
-				title: "Travel through the Limi Valley",
-				description: "",
-				navText: "Continue North",
-				position: {x: 0, y: 0 },
 				type: "arrow-up"
 			}
 		],
@@ -279,24 +336,16 @@ StoryHolder.story1 = {
 		textnodes: [
 			"After a long hike through the valley and up into the mountains, the trail opens onto a large, flat, rocky area with many stone prayer cairns. You catch a glimpse of a mountain lake from here as well.",
 			"Neatly piled rocks are scattered around the field, and in this mist, they look like a small army of dieties manifesting on earth.",
-			"While you were never particularly religious, but even you are struck by the stillness here. Something compels you to pay your respects with a moment of silence for the prayers of others, if not your own. "
+			"The stillness here is striking. Something compels you to pay your respects with a moment of silence for the prayers of others, if not your own. "
 		],
 		choices: [
 			{
 				pointsTo: "exploreLake",
-				title: "To the Lake",
-				description: "The Lake looks like something worth spending a little time investigating.",
-				navText: "Explore the Lake",
-				position: {x: 0, y: 45 },
-				type: "arrow-up"
+				type: "arrow-right"
 			},
 			{
 				pointsTo: "herderCamp",
-				title: "Talk to the Herders",
-				description: "",
-				navText: "Go North to the Herder Camp",
-				position: {x: 0, y: 45 },
-				type: "arrow-right"
+				type: "arrow-up"
 			}
 		],
 		map: {
@@ -308,25 +357,16 @@ StoryHolder.story1 = {
 	herderCamp: {
 		title: "Herder Village",
 		textnodes: [
-			"You see some more stone structures, and wonder if they are more cairns. Instead, you find make-shift stone houses. Looking around, you notice a wary herder looking at you from a nearby hill. You tentatively wave as greeting to him.",
-			"The herder comes down from the hill and greets you. He asks why you were looking into his house. You apologize and ask him about this village. You tell him that you are curious about this region and are here to learn more about it.", 
-			"The herder seems satisfied. He tells you that there are several temporary stone houses built by local herders who use the area during seasonal grazing. These used to be sacred grazing lands, goverened by fierce demigods." 
+			"You see some more stone structures up ahead. Could they be more cairns? They are make-shift stone huts! Looking around, you notice a wary herder looking at you from a nearby hill. You tentatively wave a greeting to him. ",
+			"The herder comes down from the hill and greets you. He asks why you were looking into his house. You apologize and ask him about this area. Is it a village? Your curiosity about this region is evident, and he seems satisfied with you intentions. There are several temporary stone houses around here, built by local herders who use the area during seasonal grazing. Once upon a time, these used to be sacred grazing lands, goverened by fierce demigods..." 
 		],
 		choices: [
 		{
-			pointsTo: "learnFromHerder",
-			title: "Talk with the Herder more",
-			description: "",
-			navText: "Spending some extra time here would be fantastic!",
-			position: {x: 0, y: 45 },
+			pointsTo: "exploreLake",
 			type: "arrow-up"
 		},
 		{
 			pointsTo: "nyaluLa",
-			title: "Continue Onwards",
-			description: "",
-			navText: "No time, and we'd like to get to Nyalu La Summit!",
-			position: {x: 0, y: 45 },
 			type: "arrow-right"
 		}],
 		backgroundImage: "village.jpg"
@@ -334,19 +374,15 @@ StoryHolder.story1 = {
 	exploreLake: {
 		title: "Explore the Lake",
 		textnodes: [
-			"", 
-			"",
-			""
+			"You walk with the herder and his animals to a small mountain lake south of the herder camp the next morning. The lake makes this part of the Tshongsa Valley an ideal spot for grazing livestock. ", 
+			"The herder tells you about a meadow which used to be an ancient trading place between Tibet and Nepal. As the legend goes, this meadow has nine corners and beautiful waterfalls, all under the protection of the mercurial Jowo Changtsen Chhenpo, the lord of the northern demigods. Venerated by all the Bhod Shamans of Humla, until recently his wrath was appeased by sheep sacrifices. Now, dough effigies are used instead.",
+			"Limi Valley is changing with the times, but for this herder, time seems to have stopped in this meadow."
 		],
-		guidebook: "",
+		guidebook: "The people of Limi Valley used to traditionally be semi-nomadic. Although citizens of Nepal, they had winter grazing rights in Tibet. Following the boundary demarcation between China and Nepal, these rights were retracted in 1961.",
 		choices: [
 			{
-				pointsTo: "",
-				title: "",
-				description: "",
-				navText: "",
-				position: {x: 0, y: 45 },
-				type: "hand"
+				pointsTo: "nayaluLa",
+				type: "arrow-up"
 			}
 		],
 		map: {
@@ -355,15 +391,18 @@ StoryHolder.story1 = {
 		},
 		backgroundImage: "cloudvalley.jpg"
 	},
-	learnFromHerder: {
-		title: "Learn from the Herders",
+	nyaluLa: {
+		title: "Nyalu La",
 		textnodes: [
-			"You accompany the herder with his animals as they walk to a small mountain lake south of the herder camp. This lake makes this part of the Tshongsa Valley an ideal spot for herders grazing livestock. ",
-			"Your new friend tells you about this meadow in Tshongsa Valley. It used to be an ancient trading place between Tibet and Nepal. Traditionally, it was beleived that this meadow has nine corners and beautiful waterfalls, all under the protection of Jowo Changtsen Chhenpo, the lord of the northern demigods. Venerated by all the Bhod Shamans of Humla, until recently he was venerated by sheep sacrifices. Now, dough effigies are used instead.",
-			"Limi Valley is changing with the times, but for this herder, time seems to have stopped in this meadow, steeped in history and tradition."
+			"Your breath is short, and comes out in erratic bursts. You have arrived at Nyalu La, the highest point in the upper Limi Valley trail, reaching an elevation of 4,990 m. Your body isn&rsquo;t used to such elevations and you rest a second.", 
+			"You hear a rustling behind you. You turn in fear, only to catch a fleeting glimpse of a rare snow leopard! An endangered and slowly dissapearing animal indegenous to this region, you are lucky to have seen it. "
 		],
-		guidebook: "The people of Limi Valley used to traditionally be semi-nomadic. Although citizens of Nepal, they had winter grazing rights in Tibet. Following the boundary demarcation between China and Nepal, these rights were retracted in 1961.",
+		guidebook: "The view from the 4940 meter (16,300 ft) Nyalu pass, which cuts the Limi Valley off from the rest of Humla and thus the rest of Nepal for six months of the year. This region is famed for its wildlife and plants. There are many kinds of exotic animal: Himalayan bears, wild horses, blue sheep, musk deer, mountain eagles and many more. Although rare, snow leopards may be seen in this region.",
 		choices: [
+			{
+				pointsTo: "stoneCairnsField",
+				type: "arrow-up"
+			}
 		],
 		map: {
 			position: { x: 0, y: 0},
@@ -371,24 +410,119 @@ StoryHolder.story1 = {
 		},
 		backgroundImage: "stones3.jpg"
 	},
-	nayaluLa: {
-		title: "Nayalu La",
+	stoneCairnsField: {
+		title: "Stone Cairns",
 		textnodes: [
-			"", 
-			"",
-			""
+			"Climbing down the trail from Nyalu La, you breathe in all the air your lungs can hold! High elevations take a little gettings used to...", 
+			"Rising from the mist, you see the tops of a field full of stone cairns. If you weren't a scientist, you&rsquo;d be swept away by the magic of this region and believe you were in a myth. Or perhaps you already are?",
+			"Just after this area the trail slowly winds down a rocky hillside to the lush river valley below."
 		],
-		guidebook: "",
+		guidebook: "Cairns and a prostration site can be found near Nyalu pass. Cairns, variously called la btsas or rdo phung, are common sites along pilgrimage paths as well as at mountain passes. They are ways of propitiating mountain deities. Some also say that these are places one's soul can rest after death.  They are also seen as mandalas. Here, each one forms a mandala in and of itself as well as forming a mandala around Mt. Kailash.",
 		choices: [
 			{
-				pointsTo: "",
-				title: "",
-				description: "",
-				navText: "",
-				position: {x: 0, y: 45 },
-				type: "hand"
+				pointsTo: "talungValley",
+				type: "arrow-up"
 			}
 		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	talungValley: {
+		title: "Talung Valley",
+		textnodes: [
+			"After climbing down through the rocky trail from Nyalu La, you come to an abrupt stop at a grassy knoll, before dropping down to the valley below.", 
+			"The view of the valley below is nothing short of breathtaking. Just for a moment, you are awestruck by the deep spirituality that others speak of. Suddenly it strikes you! You can't research nature by ignoring the spirit, not here. Spirituality and nature are two sides of the same coin in the Kailash Sacred Region."
+		],
+		choices: [
+			{
+				pointsTo: "exploreTalung",
+				type: "arrow-right"
+			},
+			{
+				pointsTo: "talungCampsite",
+				type: "arrow-up"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "mountaincutout.jpg"
+	},
+	exploreTalung: {
+		title: "Talung Valley",
+		textnodes: [
+			"A beautiful walk along the waterfalls and lakes with views of Api Saipal Himal (7025m), you realize with a start that you just got your first glimpse of the Holy mountain, Mt. Kailash! It's barely a speck from here, but there is a magnetism about ut tgat you can't ignore. "		],
+		choices: [
+			{
+				pointsTo: "stayInTalung",
+				type: "arrow-right"
+			},
+			{
+				pointsTo: "talungCampsite",
+				type: "arrow-up"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	talungCampsite: {
+		title: "Talung Campsite",
+		textnodes: [
+			"Hiking along the river valley you emerge at a large flat area surrounded by stones and raised earthen mounts. A sign says &ldquo;Talung Riverside Campsite 2016.&rdquo; This large flat area is situated between a series of small river channels that split and join again all through the valley", 
+			"Talung Camp, spread out over a grassy meadow is an island of calm. Hopefully it will provide some respite from the cold and windy weather that began suddenly.",
+			"You wonder if you accidentally upset one of the northern demigods..."
+		],
+		choices: [
+			{
+				pointsTo: "tshomtsoLake",
+				type: "arrow-up"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	tshomtsoLake: {
+		title: "Tshom Tso Lake",
+		textnodes: [
+			"As the trail winds down further towards the end of the Talung valley, streams from Limi and Takche river slowly converge into a large marshy lake called Tshom Tso (Lake). A plethora of birds and other wildlife live here, and you spy some temporary herder camps setup across the lake.",
+			"Tshom Tso feels like a lake from the epic Panchatantra, where magical talking birds and animals have adventures in the wilderness. You wonder what the animals and birds might be thinking about you..."
+			],
+		choices: [
+			{
+				pointsTo: "LaptaSharRoad",
+				type: "arrow-right"
+			},
+			{
+				pointsTo: "whiteSandDunes",
+				type: "arrow-up"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	stayInTalung: {
+		title: "Stay in Talung",
+		textnodes: [
+			"You see a goathearder on the road in front of you. You hail the man, and he hails back. He tells you that one of his goats just gave birth, so he and his heard are taking a break on the roadside. He lets you hold the tiny baby goat, and tells you about grazing in Talung Valley.",
+			"He and other grazers are allowed to stay for three months of the year without payment to Limi residents as long as they stay within the Talung Valley. This land belongs to Tsang village in Limi, which used to have far more livestock. However, changing border policies and migration of local labour have reduced their livestock numbers. Now he and his friends are the primary grazers in the valley."
+		],
+		choices: [{
+				pointsTo: "talungCampsite",
+				type: "arrow-up"
+		}],
 		map: {
 			position: { x: 0, y: 0},
 			found: false
@@ -405,10 +539,6 @@ StoryHolder.story1 = {
 		choices: [
 			{
 				pointsTo: "karnaliRiver",
-				title: "Karnali River",
-				description: "",
-				navText: "Follow the River",
-				position: { x: 10, y: 10 },
 				type: "arrow-up"
 			}
 		],
@@ -421,21 +551,379 @@ StoryHolder.story1 = {
 	teVillage: {
 		title: "Te Village",
 		textnodes: [
-			"", 
-			"",
-			""
+			"Te is a small village east of Simikot, with a large Dalit community, a marginalized social caste from South Asia. The village has a unique design, consisting of very tightly built houses perched on the side of a hill in Nyin Valley. The everyday ingenuity of this little village's construction is amazing.", 
+			"You look around you and see a sign for Raling Gampa going East, and Simikot going West. ...Or you could stay here."
 		],
-		guidebook: "",
+		guidebook: "Dalits are a historically undersevered and oppresed social caste across religions in South Asia. Despite constitutional ammendments and wide sweeping social changes, the discrimination towards Dalits remains alive and well in present times. Efforts continue to improve the situation globally.//",
 		choices: [
 			{
-				pointsTo: "",
-				title: "",
-				description: "",
-				navText: "",
-				position: {x: 0, y: 45 },
-				type: "hand"
+				pointsTo: "talkToTeVillagers",
+				type: "arrow-right"
+			},
+			{
+				pointsTo: "simikot2",
+				type: "arrow-left"
+			},
+			{
+				pointsTo: "ralingGompa",
+				type: "arrow-up"
 			}
 		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "tevillage.jpg"
+	},
+	talkToTeVillagers: {
+		title: "Talk to Te Villagers",
+		textnodes: [
+			"You find a group of villagers sitting under a tree. They seem a bit wary, but once they realize you are no threat to them, they let their guard down. The old man of the group asks you to sit next to him. You tell him you are doing research here, and ask him about this village. The old man says that although caste practices are illegal, they are rampant even today. Until recently, Te village had different taps for Dalit and Chettris. The old man sighs, he tells you that times change, but people don't change as fast.", 
+			"He asks where you are going. You were heading towards Upper Limi Valley, but you might be a little lost... ",
+			"The old man laughs, you are really off track! You need to go West, not East for Limi Valley! But since you are here already, he suggests you stop by Raling Gompa, just to the East of Te Village.",
+			"You thank the old man for the tea and his kindness."
+		],
+		guidebook: "Dalit is the Sanskrit word for oppressed, and is the name chosen by members of this social caste to describe their caste-based oppression. Dalit groups exist across countries and religious practices in South Asia.",
+		choices: [
+			{
+				pointsTo: "ralingGompa",
+				type: "arrow-right"
+			},
+			{
+				pointsTo: "simikot2",
+				type: "arrow-left"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "tevillage2.jpg"
+	},
+	LaptaSharRoad: {
+		title: "Lapta Shar Road",
+		textnodes: [
+			"Across the valley lies an old caravan trade and pilgrimage route from Limi to Tibet over the Laptsa Shar pass. You see an old woman sitting taking a break by the roadside. She has a huge cloth bundle next to her. You hail her and ask about her bundle. She is a trader, and is taking the new road to Tsang to sell her goods. You can't see a road where she points.", 
+			"The old woman laughs, and points at a rough road that you can barely glimpse. Back in the day, the Limi people used this path to reach seasonal trade fairs and trading centers in Tibet. It was also used to take their livestock to graze in winter. This border was closed in 1962 except to local Limi residents who are allowed to cross the border to buy goods. A few years ago, scholar and politician Tshewang Lama organized the building of this rough road where the caravan trail was. After borrowing an excavator in Kathmandu, driving it up the Friendship Highway into Tibet and across Shigatse to the west, and back down through Laptsa Shar, now they have a road! It is easier for people in the nearest village, Tsang, to buy goods, though the road does not extend to the next village of Halzi nor across the Nyalu pass to the rest of Humla yet.",
+			"Sustainable change happens gradually, and you are happy to hear about it."
+		],
+		choices: [
+			{
+				pointsTo: "fordingRiver",
+				type: "arrow-up"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	fordingRiver: {
+		title: "Fording the River",
+		textnodes: [
+			"At the mouth of the river you are surprised to see another traveller at all! She warns you about fording the river. Due to the mountain snows melting, the level of water in this area can change quite rapidly. But since this is the summer, the stream can be waded across easily, with the water about 2 feet (~0.5 m) high. &ldquo;Just be careful!&rdquo; she yells your way. "
+		],
+		choices: [
+			{
+				pointsTo: "LaptaSharRoad",
+				type: "arrow-right"
+			},
+			{
+				pointsTo: "whiteSandDunes",
+				type: "arrow-up"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	whiteSandDunes: {
+		title: "White Sand Dunes",
+		textnodes: [
+			"Just over the ridge an unusual sight greets you. After passing Tsom Tso lake and crossing the river, and thanks to centuries of erosion and flooding, finely ground sand has accumulated at the base of the valley. This has unexpectedly turned the end of the trail into a massive white sand dune. You reach the end of Talung Valley, and with it the merging of the Limi and Takche rivers.", 
+			"The white of the sand is in stark contrast to the green of the valley, and it's fine texture makes a welcome change from the rocky trail. Stepping into it, you forget you're in a mountain valley..."
+			],
+		guidebook: "As you get further from the beaten trail, your guidebook is becoming less reliable. You'll just have to figure this out yourself!",
+		choices: [
+			{
+				pointsTo: "abandonedVillage",
+				type: "arrow-up"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	abandonedVillage: {
+		title: "Abandoned Village",
+		textnodes: [
+			"You wonder if that is Takyon Karpo mountain in the distance. Stopping to drink some water and take a break, and notice some ruins nearby.", 
+			"A child is playing near them, and she hides the second you turn towards her.",
+			"The child is shy at first, but then warms up when you offer her a piece of candy. In this valley between the white dunes and this road up to Lapcha Shar, are the ruins of Chamdo, an old village that her grandmother tells her stories about it. Before you can ask her any more, she runs off."
+		],
+		choices: [
+			{
+				pointsTo: "moreVillageInfo",
+				type: "arrow-right"
+			},
+			{
+				pointsTo: "Suspension Bridge",
+				type: "arrow-up"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	moreVillageInfo: {
+		title: "Explore the Village",
+		textnodes: [
+			"You find a small village, perhaps just a temporary rest stop for herders and travelling traders. Looking around, you find the child from the ruins sitting with a group of women in the shade of a large boulder. She recognizes you and comes running towards you. Pulling your hand, she takes you to an old woman sitting in the corner. This is her grandmother. ", 
+			"You greet the old woman and sit nearby. On asking about the ruined village, she tells you that it was abandoned in the distant past, perhaps 100 years ago, when Khas communities from the north invaded and drove the local Lama communities out and further south. Now all that remains are the stone outlines of a former settlement. &ldquo;And some ghosts,&rdquo; she adds with a wink."
+		],
+		guidebook: "There doesn't seem to be anything in the guidebook about how to deal with ghosts...",
+		choices: [
+			{
+				pointsTo: "suspensionBridge",
+				type: "arrow-up"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	suspensionBridge: {
+		title: "Suspension Bridge",
+		textnodes: [
+			"Travelers leaving Talung Valley can cross the river here (Ling Chu), either on the old wooden foot bridge or the new metal suspension bridge. On the footbridge, a fellow traveller hails you, asking if you are heading to Kailash or just hiking around Limi Valley? He was heading towards Kailash, but went west instead of North, and ended up taking a long detour in Limi... He reminds you that this bridge marks the end of Talung Valley and the start of Takche Valley. You thank him and keep moving. "
+		],
+		choices: [{
+				pointsTo: "jangHotSprings",
+				type: "arrow-left"
+		}],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	jangHotSprings: {
+		title: "Jang Hot Springs",
+		textnodes: [
+			"You arrive at a small hotsprings and camping site. As you greet the campers, you realize your anxiety has completly left you. You don't feel out of place at all. Or maybe facing the Snow Leopard just made you braver! Either way, you feel like you belong here, on this trail, in this region.", 
+			"Walking up to them, you ask what brings them here? An older tourist washing out her utensils tells you that this camp is just west of the village of Jang. A beautiful old village that she just returned from. This campsite was recently upgraded by the Limi Valley Youth Club, who adding some stone outhouses near the campsite and hot springs. It makes for a welcome break for the solitary traveller. "
+		],
+		choices: [{
+				pointsTo: "jangVillage",
+				type: "arrow-left"
+		}],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	jangVillage: {
+		title: "Jang Village",
+		textnodes: [
+			"Of all the villages in the upper Limi Valley, Jang still has the strongest look and feel of old Tibetan culture. Walking into Jang, it feels like you travelled back centuries!", 
+			"Thanks to its isolation inside Nepal, cultural and political policies have not forced local change in this region, allowing nature to preserve the old tibetian lifestyle here in Jang. Here people sell Maplewood tea pots, soup bowls, and other wooden artisan products."
+		],
+		choices: [
+			{
+				pointsTo: "moreJangVillage",
+				type: "arrow-right"
+			},
+			{
+				pointsTo: "nepalPoliceCheckPoint",
+				type: "arrow-left"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	moreJangVillage: {
+		title: "Explore Jang Village",
+		textnodes: [
+			"Walking around the village, you see a tea-seller. You ask for a tea and enquire about the village. ", 
+			"Jang is one of the largest villages in the upper Limi Valley, including two main levels of houses, a monastery and a school. The monastery is on the northern slopes of Jang. A large community hall serves as a communal gathering space for the village, as well as traveling groups. He asks if you have been to the famed hot springs, east of the village. When you tell him you have he beams with joy. He is very proud of Jang Village, and makes sure you know it! "		
+		],
+		choices: [{
+			pointsTo: "nepalPoliceCheckPoint",
+			type: "arrow-left"
+		}],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	nepalPoliceCheckPoint: {
+		title: "Nepali Police Checkpoint",
+		textnodes: [
+			"This is the furthest northern police check post in upper Limi Valley. Outsiders like you are required to show travel permits for Limi Valley here.", 
+			"Making sure all your documents are in order, you show the officer your permits and a letter from your university. The officer seems satisfied, and since there aren't a lot of other people at the checkpoint yet, you ask the officer about this area, his job. ",
+			"This is a very quiet region, and nothing much happens here. But back during the Maoist insurgency, the Sunkhani check post had been damaged. But it is being fixed now. Many officers find this post to be boring, but to this officer, it's the best post. He feels more connected to nature here.",
+			"You couldn&rsquo;t agree more!"
+		],
+		choices: [{
+				pointsTo: "haljiVillage",
+				type: "arrow-left"
+		}],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	haljiVillage: {
+		title: "Halji Village",
+		textnodes: [
+			"Stumbling into an energetic bustle of a village is huge shock from the ascetic solitude of the trail. A woman walks by you carrying a child who smiles at you. Waving at the child catches the mother&rsquo;s attention, and she comes towards you.", 
+			"You ask her what the name of this village is and she starts to laugh! &ldquo;This is Halji Village, one of the largest villages in upper Limi Valley. But more importantly, it is home to Rinchen Ling Gompa, the oldest Buddhist monastery in the entire western region of Nepal.&rdquo; She walks away with her child, still similing. ",
+			"You feel a little foolish, but that&rsquo;s the joy of exploring a region without a plan. You just follow the trail!"
+		],
+		guidebook: "Rinchen Ling Gompa is the oldest buddhist monastry in western Nepal. Dating back to the 10th or 11th century, Rinchen Ling Gompa was patronized by Lotsawa Rinchen Zangpo, a principal lotsawa or translator of Sanskrit Buddhist texts into Tibetan during the second diffusion of Buddhism in Tibet. Rinchen Ling played a crucial part in introducing Buddhism to Nepal from Tibet and Northern India.",
+		choices: [{
+				pointsTo: "rinchenLingGompa",
+				type: "arrow-up"
+		}],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	rinchenLingGompa: {
+		title: "Rinchen Ling Gompa",
+		textnodes: [
+			"You arrive at the Gompa, and it is a breathtaking site. Visible from across the valley, Rinchen Ling Gompa looks iconic. You are struck by the beautiful archways and the courtyard.", 
+			"As you stare at a mandala painting on the Monastry walls, a young monk comes up to you. He enquires if you need any help. You thank him for his kindness, and ask him about the Gompa. He is more than happy to tell you all about it!",
+			"Rinchen Ling Gompa played a key role in introducing Buddhism to Nepal the 10th and 11th century under the leadership of Lotsawa Zangpo."
+		],
+		choices: [
+			{
+				pointsTo: "ecoImpactGompa",
+				type: "arrow-right"
+			},
+			{
+				pointsTo: "prayerFlagsTilchung",
+				type: "arrow-left"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	ecoImpactGompa: {
+		title: "Rinchen Gompa",
+		textnodes: [
+			"You return to the Monastry the next day, and seek out your friend, the young monk again. He&lsquo;s completing some chores, and you wait for him to finish. You certainly don&lsquo;t want to disturb him with your questions!", 
+			"Once he&lsquo;s done, you ask him to tell you more about this beautiful Monastry. He tells you that although Rinchen Ling Gompa is revered, its physical presense might not last that long. Due to global warming, this historical gompa and the surrounding village of Halji are constantly threatened by floods. If this gompa has any chance of surviving, it needs protective action immediately...",
+			"Your research might be handy for something like this! You tell your friend that you are studying the changing ecology in this region, and you'll make a point of mentioning the impact on this gompa in your studies. You both part ways a little more at peace."
+		],
+		choices: [{
+			pointsTo: "prayerFlagsTilchung",
+			type: "arrow-left"
+		}],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	prayerFlagsTilchung: {
+		title: "Prayer Flags at Tilchung",
+		textnodes: [
+			"From a distance you notice prayer flags fluttering in the wind. They look beautiful, so you walk towards them. Looking down the valley, you see the confluence of two mighty rivers. You wish you knew more about them.", 
+			"Just as you start walking away, an old monk comes up the road and stops near you. He looks tired. You ask the monk if he needs some water, offering your cannister. Thanking you, the monk politely refuses. You ask him about the rivers below you. He smiles and tells you to sit down a moment. These prayer flags mark the end of this trail at Til Village, a little further down accross the valley. ",
+			"Tagtsi Khola, the main tributary of the Humla Karnali River, meets the stream Tilchung at Til Village, where the two merge. They cut through a mountain and proceed south through a deep and narrow ravine. You realize you must have just missed the ravine while you were in the valley! There is so much to see and learn here...",
+			"You thank the old monk, who tells you to go see the Ya Yip Phuk meditation caves, since you are so close to them."
+		],
+		choices: [{
+			pointsTo: "yaYipPhukMeditationCaves",
+			type: "arrow-up"
+		}],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	yaYipPhukMeditationCaves: {
+		title: "Ya Yip Phuk Caves",
+		textnodes: [
+			"Although off the beaten trail, the Ya Yip Phuk caves are well worth the detour. A meditation complex carved into the side of the mountain, it has both natural rock overhands and constructed rock houses. ", 
+			"You&lsquo;re struck dumb by the sheer size of the caves. Marvelling at the construction of the caves, you almost miss a man walking by you with a staff and a bag full of things. If you didn&lsquo;t know better, you might think it was Lord Shiva himself! ",
+			"You ask him if he knows anything about these caves. He laughs and tells you that he is a shaman, he knows everthing! ",
+			"The shaman tells you that local legend says that the famous Buddhist translator Lotsawa Rinchhen Zangpo once spent time meditating here. The cave have a major stuppa under the rocks, as well as slowly degrading but still quite impressive murals painted into the rocks of several meditation rooms. He suggests you spend some time here. He thinks you might learn something about yourself here. He gets up and leaves abruptly. ",
+			"You are amused, and curious."
+		],
+		choices: [
+			{
+				pointsTo: "hilsa",
+				type: "arrow-left"
+			},
+			{
+				pointsTo: "stayInYaYip",
+				type: "arrow-right"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	stayInYaYip: {
+		title: "Spend More Time in Ya Yip Phuk Caves",
+		textnodes: [
+			"In the caves, Water comes from two springs, but one appears to have dried up, and there is a root of what looks like a juniper tree in the other. There are three stupas in line, with heaps of clay tablets around. ", 
+			"Lotsawa Rinchen Zangpo (985-1055 CE), the noted translator of Buddhist scriptures who was crucial to the revival of Buddhist cultural exchange between Tibet and India, is said to have meditated here. He had the cave decorated with mantras of various buddhist dieties and there are paintings by Kashmiri artists who he had bought here. ",
+			"Maybe your shaman friend was right. Hidden stories are everywhere! Perhaps there is more to learn here, but you barely have any time left..."
+		],
+		choices: [
+			{
+				pointsTo: "shamansBuddhists",
+				type: "arrow-right"
+			},
+			{
+				pointsTo: "hilsa",
+				type: "arrow-left"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "cloudvalley.jpg"
+	},
+	shamansBuddhists: {
+		title: "Shamans and Buddhists",
+		textnodes: [
+			"The next day, you see your friend the shaman again. You recognize his serpentine coils of hair anywhere! He waves back at you and come over. ", 
+			"You ask him what he is doing at a buddhist meditation cave. He laughs at you, &ldquo;All the religions here belong together. Don&rsquo;t the buddhists need us shamans?&rdquo; You have no idea, so he tells you. ",
+			"He is a Drangri, or a Shaman priest. This is a pre-buddhist practice, and he is not only the holy man, but a man of justice for his village. He comes to these caves to meditate and return better prepared to continue his work. He works with a Dhami, or a medium, who channels the spirits that the shaman invokes. The Drangri and the Dhami help their villages solve both spiritual and legal troubles, and they are highly respected. Some people even think that Dhami are Lord Mahadev, the Hindu god Shiva manifest on earth. ",
+			"The environment and spiritual practices of this region are deeply intertwined, so are the different spiritual and religious beliefs."
+		],
+		choices: [{
+			pointsTo: "hilsa",
+			type: "arrow-left"
+		}],
 		map: {
 			position: { x: 0, y: 0},
 			found: false
@@ -445,19 +933,18 @@ StoryHolder.story1 = {
 	hilsa: {
 		title: "Hilsa",
 		textnodes: [
-			"", 
-			"",
-			""
+			"Hilsa is a town on the northwestern corner of Nepal bordering Tibet Autonomous Region. The Humla-Karnali river crosses the Tibetian Plateau into the mountain regions on its descent to the Ganges. Tourists and pilgrims can continue on to Burang Town to begin their pilgrimage to Lake Mansarovar and Mount Kailash.", 
+			"However, you didn&rsquo;t plan to make the Hilsa crossing this time. Crossing into T.A.R. is a time consuming process requiring liaison officers at the border. This trip was supposed to be a survey, not your actual research. You decide continue exploring the Kailash Sacred Region for now, and plan to return to Hilsa next time."
 		],
-		guidebook: "",
+		guidebook: "Hilsa is an important border town in the Kailash Sacred Region, as it borders Tibet Autonomous Region (T.A.R.), and is a customs check point on the Nepal side, and a border point into T.A.R.",
 		choices: [
 			{
-				pointsTo: "",
-				title: "",
-				description: "",
-				navText: "",
-				position: {x: 0, y: 45 },
-				type: "hand"
+				pointsTo: "yaYipPhukMeditationCaves",
+				type: "arrow-up"
+			},
+			{
+				pointsTo: "trailhead",
+				type: "arrow-left"
 			}
 		],
 		map: {
@@ -477,10 +964,6 @@ StoryHolder.story1 = {
 		choices: [
 			{
 				pointsTo: "",
-				title: "",
-				description: "",
-				navText: "",
-				position: {x: 0, y: 45 },
 				type: "hand"
 			}
 		],

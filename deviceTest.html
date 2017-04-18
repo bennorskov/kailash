@@ -12,21 +12,28 @@
 </head>
 <body>
 	<h1 id="test">boop</h1>
-
+	<h1 id="turnOn">turnOn</h1>
 
 	<script language='javascript'>
 	document.getElementById("test").innerHTML= "not moving!";
 	var lastOffset = 0;
+	var bpoai = false;
 	window.addEventListener("deviceorientation", function (event) {
-		var dist = lastOffset - event.gamma;
-		var smoothing = .2;
-		var offsetAmount = lastOffset + dist * smoothing;
-		var maxClamp = 30;
-		offsetAmount = Math.min(Math.max(offsetAmount, -maxClamp), maxClamp);
-		lastOffset = event.gamma;
-		document.getElementsByTagName("body")[0].style.backgroundPosition = 50 + offsetAmount + "%";
+		if (!bpoai) {
+			var dist = lastOffset - event.gamma;
+			var smoothing = .2;
+			var offsetAmount = lastOffset + dist * smoothing;
+			var maxClamp = 30;
+			offsetAmount = Math.min(Math.max(offsetAmount, -maxClamp), maxClamp);
+			lastOffset = event.gamma;
+			document.getElementsByTagName("body")[0].style.backgroundPosition = 50 + offsetAmount + "%";
 
-		document.getElementById("test").innerHTML= offsetAmount;
+			document.getElementById("test").innerHTML= offsetAmount;
+		}
+	});
+	document.getElementById("turnOn").addEventListener("click", function () {
+		bpoai = true;
+		document.getElementById("turnOn").innerHTML = "click";
 	});
 	</script>
 </body>

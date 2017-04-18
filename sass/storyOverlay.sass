@@ -47,9 +47,9 @@
 	height: $basicSquare
 	font-size: $basicSquare
 	line-height: $basicSquare
-	background: url(../images/Kailash_UI_Icons.png)
-	background-size: 200% 200%
-	background-position: 100% 0 
+	background: url(../images/navIcons.png)
+	background-size: 200% 100%
+	background-position: top right
 	#dropDown
 		display: none
 		background: $white
@@ -70,8 +70,8 @@
 	position: fixed
 	top: .3em
 	right: .3em
-	background: url(../images/Kailash_UI_Icons.png)
-	background-size: 200% 200% 
+	background: url(../images/navIcons.png)
+	background-size: 200% 100% 
 	width: $basicSquare
 	height: $basicSquare
 	font-size: $basicSquare
@@ -83,9 +83,9 @@
 
 #descriptionBox
 	z-index: $descriptionZOrder
-	opacity: 0
-	+transition(opacity, 1s)
 	display: none
+	&.opened
+		display: table
 	.contentCentererDiv .overlayText
 		p
 			line-height: $textSize + .15
