@@ -40,16 +40,16 @@
 #mapButton
 	position: fixed
 	top: .3em
-	left: .3em
+	right: .3em
 	cursor: pointer
-	color: $lightGreen
-	width: $basicSquare
-	height: $basicSquare
-	font-size: $basicSquare
-	line-height: $basicSquare
+	width: $basicSquare*2
+	height: $basicSquare*2
 	background: url(../images/navIcons.png)
 	background-size: 200% 100%
 	background-position: top right
+	background-color: $deepRed
+	border-radius: $basicSquare
+	cursor: pointer
 	#dropDown
 		display: none
 		background: $white
@@ -69,18 +69,15 @@
 #fieldGuideInformationButton
 	position: fixed
 	top: .3em
-	right: .3em
+	left: .3em
 	background: url(../images/navIcons.png)
 	background-size: 200% 100% 
-	width: $basicSquare
-	height: $basicSquare
-	font-size: $basicSquare
-	line-height: $basicSquare
+	width: $basicSquare*2
+	height: $basicSquare*2
 	cursor: pointer
-	text-align: center
-	&.newInformation
-		border: solid 2px $lightGreen
-
+	background-color: $deepRed
+	border-radius: $basicSquare
+	
 #descriptionBox
 	z-index: $descriptionZOrder
 	display: none

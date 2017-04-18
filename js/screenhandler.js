@@ -85,15 +85,19 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	$(".fullpage").css("background-image", "url("+ScreenHandler.imageArray[_id].src+")");
 
 	// --------------------------------------------------- Handle Description Text
-	ScreenHandler.closeDescriptionOverlay();
 	var _html = "<h1>"+StoryHolder.story1[_id].title+"</h1>";
 	$.each(StoryHolder.story1[_id].textnodes, function(index, value) {
 		_html += "<p>"+value+"</p>";
 	});
+	/* if (StoryHolder.story1[_id].guidebook != undefined) {
+		_html += "<div id='guidebook' on='click'>";
+		_html += StoryHolder.story1[_id].guidebook;
+		_html += "</div>"
+	} */
 	$("#descriptionBox .overlayText").html(_html);
 
 	// window.setTimeout(function(){
-		ScreenHandler.openDescriptionOverlay(); // open description overlay by default
+	ScreenHandler.openDescriptionOverlay(); // open description overlay by default
 	// }, 1000);
 	
 	// --------------------------------------------------- Handle Choice Nodes
