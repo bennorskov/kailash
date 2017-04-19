@@ -6,7 +6,7 @@ $(document).ready( function(){
 	// ————— ————— ————— ————— ————— ————— ————— Story Overlay Control
 	ScreenHandler.storyOverlay = $("#storyOverlay");
 	ScreenHandler.storyOverlay.on("click", function () { 
-		// if (timesThrough>0) ScreenHandler.closeDescriptionOverlay();
+		ScreenHandler.closeNavigationOverlay();
 	});
 	// ————— ————— ————— ————— ————— ————— ————— Overlay Controls
 	ScreenHandler.mapOverlay = $("#mapOverlay");
@@ -49,8 +49,8 @@ ScreenHandler.gotoStoryNode = function( _id ){
 		return;
 	}
 	// do different things at different counts
+	console.log("goto " + _id);
 	timesThrough++;
-	console.log(":53])>times through: " + timesThrough);
 	if (timesThrough == 2) {
 
 		$("#bottomNavigation .node").on("click", function(){
@@ -87,13 +87,23 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	//switch out image
 	$(".fullpage").css("background-image", "url("+ScreenHandler.imageArray[_id].src+")");
 
-	// --------------------------------------------------- Handle Description Text
+	// ----------------------------------------------------------------- Handle Description Text
 	var _html = "<h1>"+StoryHolder.story1[_id].title+"</h1>";
 	$.each(StoryHolder.story1[_id].textnodes, function(index, value) {
 		_html += "<p>"+value+"</p>";
 	});
+	if (StoryHolder.story1[_id].guidebook != undefined) {
+		_html += "<h2 id='guidebookTitle'>Guidebook<span>&#x25BC;</span></h2>";
+		_html += "<p class='guidebookInfo'>"+StoryHolder.story1[_id].guidebook+"</p>"
+	}
 	
 	$("#descriptionBox .overlayText").html(_html);
+	if (StoryHolder.story1[_id].guidebook != undefined) {
+		$("#guidebookTitle").on("click", function (e){
+			e.stopPropagation();
+			$(".guidebookInfo").toggleClass('opened');
+		});
+	}
 
 	ScreenHandler.openDescriptionOverlay(); // open description overlay by default
 	

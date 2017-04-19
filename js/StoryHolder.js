@@ -128,7 +128,7 @@ StoryHolder.story1 = {
 		backgroundImage: "Kathmandu3.jpg"
 	},
 	moreKathmandu: {
-		title: "One Day in Kathmandu",
+		title: "Continue Exploring Kathmandu",
 		textnodes: [
 			"Kathmandu is a city where tradition and modernity coexisit, making it a vibrant first destination. But you aren't a very social person, and all this hustle and bustle makes you anxious.",
 			"Truth be told, you're ready for some calmer environments.", 
@@ -155,7 +155,7 @@ StoryHolder.story1 = {
 		guidebook: "Simikot: Translates to Swampy Fort, and gets it&rsquo;s name from a swamp just below the airport, with a ruined fort (Kot) of the Malla Kings. Simikot runs on a market economy, unlike the rest of the region which follows the traditional barter system.",
 		choices: [
 			{
-				pointsTo: "teVillage",
+				pointsTo: "theVillage",
 				type: "arrow-right"
 			},
 			{
@@ -209,7 +209,7 @@ StoryHolder.story1 = {
 		],
 		choices: [
 			{
-				pointsTo: "teVillage",
+				pointsTo: "theVillage",
 				type: "arrow-right"
 			},
 			{
@@ -461,7 +461,7 @@ StoryHolder.story1 = {
 		backgroundImage: "TalungValley.jpg"
 	},
 	exploreTalung: {
-		title: "Talung Valley",
+		title: "Explore Talung",
 		textnodes: [
 			"A beautiful walk along the waterfalls and lakes with views of Api Saipal Himal (7025m), you realize with a start that you just got your first glimpse of the Holy mountain, Mt. Kailash! It's barely a speck from here, but there is a magnetism about ut tgat you can't ignore. "		],
 		choices: [
@@ -556,16 +556,16 @@ StoryHolder.story1 = {
 		},
 		backgroundImage: "stones2.jpg"
 	},
-	teVillage: {
-		title: "Te Village",
+	theVillage: {
+		title: "The Village",
 		textnodes: [
-			"Te is a small village east of Simikot, with a large Dalit community, a marginalized social caste from South Asia. The village has a unique design, consisting of very tightly built houses perched on the side of a hill in Nyin Valley. The everyday ingenuity of this little village's construction is amazing.", 
+			"The is a small village east of Simikot, with a large Dalit community, a marginalized social caste from South Asia. The village has a unique design, consisting of very tightly built houses perched on the side of a hill in Nyin Valley. The everyday ingenuity of this little village's construction is amazing.", 
 			"You look around you and see a sign for Raling Gampa going East, and Simikot going West. ...Or you could stay here."
 		],
 		guidebook: "Dalits are a historically undersevered and oppresed social caste across religions in South Asia. Despite constitutional ammendments and wide sweeping social changes, the discrimination towards Dalits remains alive and well in present times. Efforts continue to improve the situation globally.//",
 		choices: [
 			{
-				pointsTo: "talkToTeVillagers",
+				pointsTo: "talkToTheVillagers",
 				type: "arrow-right"
 			},
 			{
@@ -583,13 +583,12 @@ StoryHolder.story1 = {
 		},
 		backgroundImage: "Te-Village.jpg"
 	},
-	talkToTeVillagers: {
-		title: "Talk to Te Villagers",
+	talkToTheVillagers: {
+		title: "Talk to The Villagers",
 		textnodes: [
-			"You find a group of villagers sitting under a tree. They seem a bit wary, but once they realize you are no threat to them, they let their guard down. The old man of the group asks you to sit next to him. You tell him you are doing research here, and ask him about this village. The old man says that although caste practices are illegal, they are rampant even today. Until recently, Te village had different taps for Dalit and Chettris. The old man sighs, he tells you that times change, but people don't change as fast.", 
+			"You find a group of villagers sitting under a tree. They seem a bit wary, but once they realize you are no threat to them, they let their guard down. The old man of the group asks you to sit next to him. You tell him you are doing research here, and ask him about this village. The old man says that although caste practices are illegal, they are rampant even today. Until recently, The Village had different taps for Dalit and Chettris. The old man sighs, &ldquo;Times change, but people don't change as fast.&rdquo;", 
 			"He asks where you are going. You were heading towards Upper Limi Valley, but you might be a little lost... ",
-			"The old man laughs, you are really off track! You need to go West, not East for Limi Valley! But since you are here already, he suggests you stop by Raling Gompa, just to the East of Te Village.",
-			"You thank the old man for the tea and his kindness."
+			"The old man laughs, you are really off track! &ldquo;You need to go West, not East for Limi Valley! But since you are here already, why not stop by Raling Gompa?&rdquo;"
 		],
 		guidebook: "Dalit is the Sanskrit word for oppressed, and is the name chosen by members of this social caste to describe their caste-based oppression. Dalit groups exist across countries and religious practices in South Asia.",
 		choices: [
@@ -970,7 +969,7 @@ StoryHolder.story1 = {
 		guidebook: "West Nepal has a strong belief of a variety of demi gods who protect the rich pasture lands, and even influence local social governance. All resources goverened by these demigods need to be paid for, and it is common for hunters to pacify them. This system maintained law and order and even controlled border crossings for many years.",
 		choices: [
 			{
-				pointsTo: "StoneCairnsHerderField",
+				pointsTo: "stoneCairnsField",
 				type: "arrow-up"
 			},
 			{
@@ -992,7 +991,7 @@ StoryHolder.story1 = {
 		],
 		choices: [
 			{
-				pointsTo: "StoneCairnsHerderField",
+				pointsTo: "stoneCairnsField",
 				type: "arrow-up"
 			}
 		],

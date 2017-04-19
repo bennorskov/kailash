@@ -252,6 +252,24 @@ a {
     cursor: pointer;
     text-decoration: underline;
     color: black; }
+  .overlayText h2#guidebookTitle {
+    color: #008AB0;
+    border-top: 2px solid #F0BF08;
+    padding-top: 0.2em;
+    margin-top: 0.2em; }
+    .overlayText h2#guidebookTitle span {
+      font-size: 0.5em;
+      margin-left: 40%; }
+  .overlayText p.guidebookInfo {
+    max-height: 0;
+    overflow: hidden;
+    -moz-transition: max-height 0.7s ease-out;
+    -webkit-transition: max-height 0.7s ease-out;
+    -o-transition: max-height 0.7s ease-out;
+    transition: max-height 0.7s ease-out; }
+    .overlayText p.guidebookInfo.opened {
+      max-height: 300px;
+      overflow: auto; }
 
 .hidden {
   display: none; }

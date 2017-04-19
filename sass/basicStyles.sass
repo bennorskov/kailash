@@ -72,5 +72,25 @@
 		cursor: pointer
 		text-decoration: underline
 		color: black
+	h2#guidebookTitle
+		color: $teal
+		border-top: 2px solid $yellow
+		padding-top: .2em
+		margin-top: .2em
+		span
+			font-size: .5em
+			margin-left: 40%
+	p.guidebookInfo
+		max-height: 0
+		overflow: hidden
+		$ease: ease-out
+		$guidebookTransitionTime: .7s
+		-moz-transition: max-height $guidebookTransitionTime $ease
+		-webkit-transition: max-height $guidebookTransitionTime $ease
+		-o-transition: max-height $guidebookTransitionTime $ease
+		transition: max-height $guidebookTransitionTime $ease
+		&.opened
+			max-height: 300px
+			overflow: auto
 .hidden
 	display: none
