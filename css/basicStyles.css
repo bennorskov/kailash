@@ -232,12 +232,13 @@ a {
     padding: 0.2em 1em; }
 
 .overlayText {
-  padding: 0.2em 1.2em 1.2em;
+  padding: 0.5em 1.2em 1.2em;
   overflow: auto;
   background-color: white;
   border-radius: 16px;
   color: #B3262A;
-  max-height: 85%; }
+  max-height: 85%;
+  min-height: 20%; }
   .overlayText.navigation {
     height: auto; }
   .overlayText h1 {

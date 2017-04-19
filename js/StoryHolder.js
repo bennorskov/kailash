@@ -81,7 +81,7 @@ StoryHolder.story1 = {
 			position: { x: 90, y: 90 },
 			found: false
 		},
-		backgroundImage: "kathmandu.jpg"
+		backgroundImage: "Kathmandu.jpg"
 	},
 	leaveKathmandu: {
 		title: "The Road out of Kathmandu",
@@ -103,7 +103,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "road.jpg"
+		backgroundImage: "Kathmandu2.jpg"
 	},
 	exploreKathmandu: {
 		title: "Explore Kathmandu",
@@ -125,7 +125,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "kathmandu2.jpg"
+		backgroundImage: "Kathmandu3.jpg"
 	},
 	moreKathmandu: {
 		title: "One Day in Kathmandu",
@@ -143,7 +143,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "kathmandu3.jpg"
+		backgroundImage: "Kathmandu4.jpg"
 	},
 	simikot: {
 		title: "Simikot",
@@ -199,7 +199,7 @@ StoryHolder.story1 = {
 			position: { x: 76.3, y: 75.1 },
 			found: false
 		},
-		backgroundImage: "buildingCollage.jpg"
+		backgroundImage: "SimikotTown.jpg"
 	},
 	talkToTraveller: {
 		title: "Talk to Traveller",
@@ -221,7 +221,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "TravellerSimikot.jpg"
 	},
 	ralingGompa: {
 		title: "Raling Gompa",
@@ -245,7 +245,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "Raling-Gompa.jpg"
+		backgroundImage: "Rawling-Gompa-first-view.jpg"
 	},
 	talkToMonk: {
 		title: "Talk to Monk",
@@ -267,7 +267,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "Rawling-Gompa-Gate.jpg"
 	},
 	twoFish: {
 		id: 3,
@@ -290,7 +290,7 @@ StoryHolder.story1 = {
 			position: { x: 71.2, y: 71 },
 			found: false
 		},
-		backgroundImage: "village.jpg"
+		backgroundImage: "Two-Fish-from-Trail.jpg"
 	},
 	checkBoulder: {
 		title: "Myth of the Two Fish",
@@ -337,10 +337,10 @@ StoryHolder.story1 = {
 			position: { x: 60.1, y: 68.2 },
 			found: false
 		},
-		backgroundImage: "stones2.jpg"
+		backgroundImage: "Trailhead.jpg"
 	},
 	herderCairns: {
-		title: "Stone Carns",
+		title: "Stone Cairns",
 		textnodes: [
 			"After a long hike through the valley and up into the mountains, the trail opens onto a large, flat, rocky area with many stone prayer cairns. You catch a glimpse of a mountain lake from here as well.",
 			"Neatly piled rocks are scattered around the field, and in this mist, they look like a small army of dieties manifesting on earth.",
@@ -377,7 +377,7 @@ StoryHolder.story1 = {
 			pointsTo: "nyaluLa",
 			type: "arrow-right"
 		}],
-		backgroundImage: "village.jpg"
+		backgroundImage: "HerderCamp.jpg"
 	},
 	exploreLake: {
 		title: "Explore the Lake",
@@ -389,7 +389,7 @@ StoryHolder.story1 = {
 		guidebook: "The people of Limi Valley used to traditionally be semi-nomadic. Although citizens of Nepal, they had winter grazing rights in Tibet. Following the boundary demarcation between China and Nepal, these rights were retracted in 1961.",
 		choices: [
 			{
-				pointsTo: "nayaluLa",
+				pointsTo: "nyaluLa",
 				type: "arrow-up"
 			}
 		],
@@ -397,7 +397,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "MountainLake.jpg"
 	},
 	nyaluLa: {
 		title: "Nyalu La",
@@ -436,7 +436,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "StoneCairnsHerderField.jpg"
 	},
 	talungValley: {
 		title: "Talung Valley",
@@ -458,7 +458,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "mountaincutout.jpg"
+		backgroundImage: "TalungValley.jpg"
 	},
 	exploreTalung: {
 		title: "Talung Valley",
@@ -478,7 +478,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "ExploreTalung.jpg"
 	},
 	talungCampsite: {
 		title: "Talung Campsite",
@@ -497,7 +497,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "Talung-Riverside-Camp.jpg"
 	},
 	tshomtsoLake: {
 		title: "Tshom Tso Lake",
@@ -519,7 +519,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "Tshom_Tsho_Lake.jpg"
 	},
 	stayInTalung: {
 		title: "Stay in Talung",
@@ -535,7 +535,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "StayInTalung.jpg"
 	},
 	roadToHilsa: {
 		title: "Hilsa",
@@ -581,7 +581,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "tevillage.jpg"
+		backgroundImage: "Te-Village.jpg"
 	},
 	talkToTeVillagers: {
 		title: "Talk to Te Villagers",
@@ -606,7 +606,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "tevillage2.jpg"
+		backgroundImage: "TeVillager.jpg"
 	},
 	LaptaSharRoad: {
 		title: "Lapta Shar Road",
@@ -625,7 +625,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "LaptaSharRoad.jpg"
 	},
 	fordingRiver: {
 		title: "Fording the River",
@@ -794,7 +794,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "NepalPoliceChekpoint.jpg"
 	},
 	haljiVillage: {
 		title: "Halji Village",
@@ -964,22 +964,56 @@ StoryHolder.story1 = {
 	upperLimiValley: {
 		title: "Upper Limi Valley",
 		textnodes: [
-			"", 
-			"",
-			""
+			"You are in Tshongsa Valley, onward lies Limi Valley, and with it, a wealth of wonders. Before you, alpine meadow meets a sub-alpine forest. Suffice to say, it is breathtaking. ", 
+			"A forking path lies before you at Salli Khola, the trailhead. You can either keep going East towards the Hilsa chekpoint on the Greater Himalayan Trail, or go north into Upper Limi Valley."
 		],
-		guidebook: "",
+		guidebook: "West Nepal has a strong belief of a variety of demi gods who protect the rich pasture lands, and even influence local social governance. All resources goverened by these demigods need to be paid for, and it is common for hunters to pacify them. This system maintained law and order and even controlled border crossings for many years.",
 		choices: [
 			{
-				pointsTo: "",
-				type: "hand"
+				pointsTo: "StoneCairnsHerderField",
+				type: "arrow-up"
+			},
+			{
+				pointsTo: "eastWestCrossroads",
+				type: "arrow-right"
 			}
 		],
 		map: {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "TrailheadSaliKhola.jpg"
+	},
+	eastWestCrossroads: {
+		title: "East West Crossroads",
+		textnodes: [
+			"At this crossroads, going west is a 6 day hike to Hilsa, the border town between Nepal and Tibet Autonomous Region. A popular tourist hike, it is considered to be pleasant and easy. Expect a lot of tourists on this route. ", 
+			"Going north via Limi Valley is the other option. This is a tougher route, with higher elevations and fewer tourists for company. Reopened recently, the route allows tourists to make a circutous trip to Zher (near Hilsa), via Nyalo Pass. However, you were told that the Shangri-la like villages of Limi Valley, and the pristine state of this ancient trail make it well worth the effort."
+		],
+		choices: [
+			{
+				pointsTo: "StoneCairnsHerderField",
+				type: "arrow-up"
+			}
+		],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "EastWestCrossing.jpg"
+	},
+	finalNode: {
+		title: "Final",
+		textnodes: [
+			"Your time is up for this trip! You&rsquo;ll have to come back again to see more.", 
+			"You gathered enough data to start your research, and write a short paper. You may not every fully understand the Kailash Sacred Region, but you have been profoundly changed by it."
+		],
+		choices: [],
+		map: {
+			position: { x: 0, y: 0},
+			found: false
+		},
+		backgroundImage: "flagLoop.gif"
 	}
 }
 

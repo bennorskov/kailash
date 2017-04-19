@@ -6,7 +6,7 @@ $(document).ready( function(){
 	// ————— ————— ————— ————— ————— ————— ————— Story Overlay Control
 	ScreenHandler.storyOverlay = $("#storyOverlay");
 	ScreenHandler.storyOverlay.on("click", function () { 
-		ScreenHandler.closeOverlay();
+		// if (timesThrough>0) ScreenHandler.closeDescriptionOverlay();
 	});
 	// ————— ————— ————— ————— ————— ————— ————— Overlay Controls
 	ScreenHandler.mapOverlay = $("#mapOverlay");
@@ -36,29 +36,29 @@ $(document).ready( function(){
 	$("#fieldGuideInformationButton").on("click", function() {
 		ScreenHandler.openDescriptionOverlay();
 	});
-	$("#restart").on("click", function () {
-		window.location.reload();
-	});
 	setupDeviceMotionEvents();
 });
 
 // —————————————— —————————————— —————————————— ——————————————  Story Node Handling
 var timesThrough = 0;
 ScreenHandler.gotoStoryNode = function( _id ){
+	ScreenHandler.closeNavigationOverlay();
+
 	if (StoryHolder.story1[_id] == undefined) { //error handling
 		console.error("didn't find " + _id + " in the story structure.");
 		return;
 	}
 	// do different things at different counts
 	timesThrough++;
+	console.log(":53])>times through: " + timesThrough);
 	if (timesThrough == 2) {
 
 		$("#bottomNavigation .node").on("click", function(){
-			if ($(this).hasClass("visited") && !$(this).hasClass("currentNavNode")) ScreenHandler.openOverlay($(this), true);
+			if ($(this).hasClass("visited") && !$(this).hasClass("currentNavNode")) ScreenHandler.openNavigationOverlay(_id);
 		});
 
 		$(".currentNavNode").attr("data-navigation-goto", _id);
-		$(".currentNavNode").attr("data-navigationText", StoryHolder.story1[_id].title);
+
 		$("#bottomNavigation").removeClass('hidden');
 		$("#mapButton").removeClass("hidden");
 		$("#fieldGuideInformationButton").show();
@@ -75,8 +75,9 @@ ScreenHandler.gotoStoryNode = function( _id ){
 		var $firstNode = $cNN.next(); 
 		if (($firstNode.length < 1) && ($cNN.length > 0)){ //first time through, there's no current nav node
 			// end of your journey
-			alert("That's all you have time for this trip!\n You'll have to return to Kailash in the future.");
-			_id = "endImage";
+			console.log("FINAL NODE!!!");
+			ScreenHandler.gotoStoryNode("finalNode");
+			return;
 		} else {
 			$firstNode.attr("data-navigation-goto", _id);
 			$firstNode.attr("data-navigationText", StoryHolder.story1[_id].title);
@@ -91,11 +92,7 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	$.each(StoryHolder.story1[_id].textnodes, function(index, value) {
 		_html += "<p>"+value+"</p>";
 	});
-	/* if (StoryHolder.story1[_id].guidebook != undefined) {
-		_html += "<div id='guidebook' on='click'>";
-		_html += StoryHolder.story1[_id].guidebook;
-		_html += "</div>"
-	} */
+	
 	$("#descriptionBox .overlayText").html(_html);
 
 	ScreenHandler.openDescriptionOverlay(); // open description overlay by default
@@ -108,14 +105,12 @@ ScreenHandler.gotoStoryNode = function( _id ){
 		ScreenHandler.spawnChoiceNode(value);
 	});
 	$(".choiceNode").on("click", function () {
-		// ScreenHandler.openOverlay( $(this) );
 		ScreenHandler.openNavigationOverlay( $(this).attr("data-navigation-goto"));
 	});
 
 	if (timesThrough == 1) {
-		console.log("oine");
-		$(".choiceNode").css("background", "none");
-		//create fake button for example
+		// this code only runs if the tutorial screen is displayed
+		$(".choiceNode").css("background", "none"); //create fake button for example
 	}
 
 	// update found nodes for the map
@@ -124,22 +119,8 @@ ScreenHandler.gotoStoryNode = function( _id ){
 }
 
 ScreenHandler.spawnChoiceNode = function( _nodeData ) {
-	/* node data looks like this: {
-		pointsTo: [string to another story Node],
-		displayText: {
-			title: [string to display],
-			description: [longer paragraph],
-			navText: [string for link]
-		},
-		position: {int x, int y}
-	}*/
-	// console.log(_nodeData.displayText);
 	var _html = "<div class='choiceNode type-" + _nodeData.type;
 	_html += "' data-navigation-goto='" + _nodeData.pointsTo;
-	// _html += "' data-node-description='" + _nodeData.description;
-	// _html += "' data-node-title='" + _nodeData.title;
-	// _html += "' data-navigationText='" + _nodeData.navText;
-	// _html += "style='left:" + _nodeData.position.x + "%; top:"+_nodeData.position.y+"%;'>";
 	_html += "'></div>"
 	$(".current").append(_html);
 }
@@ -154,7 +135,7 @@ ScreenHandler.closeDescriptionOverlay = function() {
 	isDescriptionOpen = false;
 };
 // ————— ————— ————— ————— ————— ————— ————— Story Overlay Control
-ScreenHandler.openOverlay = function ( _clickedNode, navigationNode ) {
+/* ScreenHandler.openOverlay = function ( _clickedNode, navigationNode ) {
 	var isNavNode = (navigationNode === true);
 	this.closeDescriptionOverlay();
 	// console.log(_clickedNode + " " + navigationNode);
@@ -172,7 +153,7 @@ ScreenHandler.closeOverlay = function () {
 	// console.log("closeOverlay");
 	$("#storyTextHolder").children(".navigation").off("click");
 	ScreenHandler.storyOverlay.css("display", "none");
-}
+}*/
 
 // ————— ————— ————— ————— ————— ————— ————— Story Navigation Overlay Control
 
@@ -184,13 +165,16 @@ ScreenHandler.openNavigationOverlay = function(_id) {
 		_html += "<h2>Travel To ";
 		_html += StoryHolder.story1[_id].title + "?</h2>";
 		_html += "</a>";
-	
 	$("#storyTextHolder").html(_html);
 	$("#storyTextHolder").addClass("navigation");
 
 	$("#storyTextHolder").children(".navigation").on("click", function(event) {
 		ScreenHandler.gotoStoryNode( _id ) ;
 	});
+}
+ScreenHandler.closeNavigationOverlay = function () {
+	$("#storyTextHolder").children(".navigation").off("click");
+	ScreenHandler.storyOverlay.css("display", "none");
 }
 
 // ————— ————— ————— ————— ————— ————— ————— About Overlay Control
@@ -261,6 +245,7 @@ ScreenHandler.preload = function() {
 	// stores an img object in an associative array
 	//each key is the name of a storynode.
 	// if we do other stories, we'll have to create a preload for those stories as well
+	ScreenHandler.imageArray['flag.gif'] = loader.addImage("images/flagLoop.gif");
 	$.each(Object.keys(StoryHolder.story1), function (index, value) {
 		// story1.stone1.backgroundImage;
 		if (value != undefined) ScreenHandler.imageArray[value] = loader.addImage("images/"+StoryHolder.story1[value].backgroundImage);
@@ -277,17 +262,30 @@ ScreenHandler.preload = function() {
 	loader.addCompletionListener( function () {
 		$("#loadingProgress").html("<a id='beginJourney' href=#>Begin Your Journey</a>");
 		$("#beginJourney").on("click", function() {
-			ScreenHandler.storyOverlay.css("display", "table");
+			ScreenHandler.storyOverlay.css({
+				"background-image": "url(images/PrologueImage_sm.jpg)",
+				"background-position": "50% 0",
+				"background-repeat": "no-repeat",
+				"background-size": "auto 90%",
+				"display": "table"
+			});
 			var _html = "";
 			_html += "<p>&#8220;Kailash is not a Mountain to climb physically in this life; it is a holy mountain to climb metaphorically for spiritual transformation&#8221;</p>";
 			_html += "<p>– Tshewang Lama</p>";
 			
 			$("#storyTextHolder").html(_html);
+			$("#storyTextHolder").css("margin-top", "80%");
+			$(".contentCentererDiv").css("background", "none");
 			window.setTimeout( function () {
 				//auto advance
-				ScreenHandler.storyOverlay.fadeOut();
 				ScreenHandler.gotoStoryNode("characterIntro");
-			}, 240);
+				ScreenHandler.storyOverlay.css({
+					"background": "none",
+					"display": "none"
+				});
+				$("#storyTextHolder").css("margin", "0 auto");
+				$(".contentCentererDiv").css("background", "rgba(0, 0, 0, .5");
+			}, 40);
 			$("#loadingScreen").remove();
 			$(".current").removeClass("hidden");
 		});
