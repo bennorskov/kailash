@@ -40,7 +40,7 @@ $(document).ready( function(){
 });
 
 // —————————————— —————————————— —————————————— ——————————————  Story Node Handling
-var timesThrough = 0;
+var timesThrough = -1;
 var finalNodeCount = 10;
 var kathmanduCount = 2;
 ScreenHandler.gotoStoryNode = function( _id ){
@@ -57,6 +57,11 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	// do different things at different counts
 	timesThrough++;
 	console.log("goto " + _id + " " + timesThrough);
+
+	if (timesThrough == 0) {
+		ScreenHandler.setupQuoteNode();
+	}
+
 	if (timesThrough == kathmanduCount) {
 
 		$("#bottomNavigation .node").on("click", function(){
@@ -64,6 +69,8 @@ ScreenHandler.gotoStoryNode = function( _id ){
 				ScreenHandler.openNavigationOverlay( $(this).attr("data-navigation-goto") );
 			}
 		});
+
+		$("#bottomNavigation .node").first().addClass("visited currentNavNode");
 
 		$(".currentNavNode").attr("data-navigation-goto", _id);
 
@@ -115,17 +122,37 @@ ScreenHandler.gotoStoryNode = function( _id ){
 ScreenHandler.firstTimeSetup = function() {
 	$(".choiceNode").css("background", "none"); //create fake button for example
 	$(".gradient").show();
+	ScreenHandler.storyOverlay.css({
+		"background": "none",
+		"display": "none"
+	});
+
+	$("#storyTextHolder").css("margin", "0 auto");
+	$(".contentCentererDiv").css("background", "rgba(0, 0, 0, .5");
 }
 
 ScreenHandler.setupFinalNode = function () {
 
 	$(".choiceNode").remove();
-	var _id = "finalNode";
+	var _id = "finalNode"; //didn't pass it; It will always be "finalNode" though
 	$(".fullpage").css("background-image", "url("+ScreenHandler.imageArray[_id].src+")");
 
 	ScreenHandler.setupDescriptionBox(_id);
 
-	$("#bottomNavigation").hide();
+	$("#bottomNavigation").addClass("hidden");
+}
+
+ScreenHandler.setupQuoteNode = function() {
+
+	// ScreenHandler.storyOverlay.css({
+	// 	"background-position": "50% 0",
+	// 	"background-repeat": "no-repeat",
+	// 	"background-size": "auto 90%",
+	// 	"display": "table"
+	// });
+
+	// $("#storyTextHolder").css("margin-top", "80%");
+	$(".contentCentererDiv").css("background", "none");
 }
 
 // ------ ————— ------- ————— ------- ————— ------ ————— -------- Setup Choice Nodes
@@ -178,28 +205,19 @@ ScreenHandler.closeDescriptionOverlay = function() {
 	ScreenHandler.descriptionOverlay.removeClass("opened");
 	isDescriptionOpen = false;
 };
-// ————— ————— ————— ————— ————— ————— ————— Story Overlay Control
-/* ScreenHandler.openOverlay = function ( _clickedNode, navigationNode ) {
-	var isNavNode = (navigationNode === true);
-	this.closeDescriptionOverlay();
-	// console.log(_clickedNode + " " + navigationNode);
-	this.storyOverlay.css("display", "table");
-	var _html = (isNavNode) ? "<h1>Travel Back?</h1>" :"<h1>" + _clickedNode.attr("data-node-title") + "</h1>";
-	
-	$("#storyTextHolder").html(_html);
+// ————— ------ ————— ------ ————— ------ ————— ------ ————— ————— ————— Story Reset Control
 
-	$("#storyTextHolder").children(".navigation").on("click", function(event) {
-		ScreenHandler.gotoStoryNode( _clickedNode.attr("data-navigation-goto") ) ;
-	});
+ScreenHandler.reset = function () {
+	$("#bottomNavigation").addClass('hidden');
+	$("#mapButton").addClass("hidden");
+	$("#fieldGuideInformationButton").hide();
+	timesThrough= -1;
+	$("#bottomNavigation .node").removeClass("visited currentNavNode");
+	$("#bottomNavigation .node").off("click");
+	ScreenHandler.gotoStoryNode("introQuote");
 }
 
-ScreenHandler.closeOverlay = function () {
-	// console.log("closeOverlay");
-	$("#storyTextHolder").children(".navigation").off("click");
-	ScreenHandler.storyOverlay.css("display", "none");
-}*/
-
-// ————— ————— ————— ————— ————— ————— ————— Story Navigation Overlay Control
+// ————— ------ ————— ------ ————— ————— ————— ------ ————— ————— Story Navigation Overlay Control
 
 ScreenHandler.openNavigationOverlay = function(_id) {
 	$("#descriptionBox").removeClass("opened");
@@ -306,32 +324,9 @@ ScreenHandler.preload = function() {
 	loader.addCompletionListener( function () {
 		$("#loadingProgress").html("<a id='beginJourney' href=#>Begin Your Journey</a>");
 		$("#beginJourney").on("click", function() {
-			ScreenHandler.storyOverlay.css({
-				"background-image": "url(images/PrologueImage_sm.jpg)",
-				"background-position": "50% 0",
-				"background-repeat": "no-repeat",
-				"background-size": "auto 90%",
-				"display": "table"
-			});
-			var _html = "";
-			_html += "<p>&#8220;Kailash is not a Mountain to climb physically in this life; it is a holy mountain to climb metaphorically for spiritual transformation&#8221;</p>";
-			_html += "<p>– Tshewang Lama</p>";
-			
-			$("#storyTextHolder").html(_html);
-			$("#storyTextHolder").css("margin-top", "80%");
-			$(".contentCentererDiv").css("background", "none");
-			window.setTimeout( function () {
-				//auto advance
-				ScreenHandler.gotoStoryNode("characterIntro");
-				ScreenHandler.storyOverlay.css({
-					"background": "none",
-					"display": "none"
-				});
-				$("#storyTextHolder").css("margin", "0 auto");
-				$(".contentCentererDiv").css("background", "rgba(0, 0, 0, .5");
-			}, 40);
 			$("#loadingScreen").remove();
 			$(".current").removeClass("hidden");
+			ScreenHandler.gotoStoryNode("introQuote");
 		});
 	});
 

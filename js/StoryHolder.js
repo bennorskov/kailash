@@ -54,6 +54,20 @@ StoryHolder.story1 = {
 		],
 		backgroundImage: "tooltips.jpg"
 	},
+	introQuote: {
+		title: "",
+		textnodes: [
+			"&#8220;Kailash is not a Mountain to climb physically in this life; it is a holy mountain to climb metaphorically for spiritual transformation&#8221;", 
+			"– Tshewang Lama"
+		],
+		choices: [
+			{
+				pointsTo: "characterIntro",
+				type: "arrow-right"
+			}
+		],
+		backgroundImage: "PrologueImage_sm.jpg"
+	},
 	INTRODUCTION: {
 		id: 1,
 		title: "Kathmandu",
@@ -562,7 +576,7 @@ StoryHolder.story1 = {
 			"The is a small village east of Simikot, with a large Dalit community, a marginalized social caste from South Asia. The village has a unique design, consisting of very tightly built houses perched on the side of a hill in Nyin Valley. The everyday ingenuity of this little village's construction is amazing.", 
 			"You look around you and see a sign for Raling Gampa going East, and Simikot going West. ...Or you could stay here."
 		],
-		guidebook: "Dalits are a historically undersevered and oppresed social caste across religions in South Asia. Despite constitutional ammendments and wide sweeping social changes, the discrimination towards Dalits remains alive and well in present times. Efforts continue to improve the situation globally.//",
+		guidebook: "Dalits are a historically undersevered and oppresed social caste across religions in South Asia. Despite constitutional ammendments and wide sweeping social changes, the discrimination towards Dalits remains alive and well in present times. Efforts continue to improve the situation globally.",
 		choices: [
 			{
 				pointsTo: "talkToTheVillagers",
@@ -897,7 +911,7 @@ StoryHolder.story1 = {
 		backgroundImage: "cloudvalley.jpg"
 	},
 	stayInYaYip: {
-		title: "Spend More Time in Ya Yip Phuk Caves",
+		title: "Explore the Caves",
 		textnodes: [
 			"In the caves, Water comes from two springs, but one appears to have dried up, and there is a root of what looks like a juniper tree in the other. There are three stupas in line, with heaps of clay tablets around. ", 
 			"Lotsawa Rinchen Zangpo (985-1055 CE), the noted translator of Buddhist scriptures who was crucial to the revival of Buddhist cultural exchange between Tibet and India, is said to have meditated here. He had the cave decorated with mantras of various buddhist dieties and there are paintings by Kashmiri artists who he had bought here. ",
@@ -940,10 +954,10 @@ StoryHolder.story1 = {
 	hilsa: {
 		title: "Hilsa",
 		textnodes: [
-			"Hilsa is a town on the northwestern corner of Nepal bordering Tibet Autonomous Region. The Humla-Karnali river crosses the Tibetian Plateau into the mountain regions on its descent to the Ganges. Tourists and pilgrims can continue on to Burang Town to begin their pilgrimage to Lake Mansarovar and Mount Kailash.", 
-			"However, you didn&rsquo;t plan to make the Hilsa crossing this time. Crossing into T.A.R. is a time consuming process requiring liaison officers at the border. This trip was supposed to be a survey, not your actual research. You decide continue exploring the Kailash Sacred Region for now, and plan to return to Hilsa next time."
+			"In Hilsa, there are many tourists and pilgrims waiting to continue on to Burang Town on their pilgrimage to Lake Mansarovar and Mount Kailash.", 
+			"However, you didn&rsquo;t plan to make the Hilsa crossing this time. Crossing into T.A.R. is a time consuming process requiring liaison officers at the border. You continue exploring the Kailash Sacred Region for now, and plan to return to Hilsa next time."
 		],
-		guidebook: "Hilsa is an important border town in the Kailash Sacred Region, as it borders Tibet Autonomous Region (T.A.R.), and is a customs check point on the Nepal side, and a border point into T.A.R.",
+		guidebook: "Hilsa is an important border town in the Kailash Sacred Region, as it borders Tibet Autonomous Region (T.A.R.), and is a customs check point on the Nepal side, and a border point into T.A.R. The Humla-Karnali river crosses the Tibetian Plateau into the mountain regions on its descent to the Ganges. ",
 		choices: [
 			{
 				pointsTo: "yaYipPhukMeditationCaves",
