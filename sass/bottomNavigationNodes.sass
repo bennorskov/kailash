@@ -5,6 +5,7 @@
 	text-align: center
 	height: 6px
 	background: black
+	z-index: $UIZOrder
 	.node
 		width: $basicSquare
 		height: $basicSquare
@@ -21,3 +22,26 @@
 		&.currentNavNode
 			border-color: $yellow
 			background: black
+
+.gradient
+	z-index: $gradientZOrder
+	position: fixed
+	height: 2em
+	width: 100%
+	display: none
+	$firstGradientStop: rgba(0, 0, 0, .8)
+	$lastGradientStop: transparent
+	&#topGradient
+		background: none
+		background: -webkit-linear-gradient(top, $firstGradientStop, $lastGradientStop)
+		background: -o-linear-gradient(top, $firstGradientStop, $lastGradientStop)
+		background: -moz-linear-gradient(top, $firstGradientStop, $lastGradientStop)
+		background: linear-gradient(top, $firstGradientStop, $lastGradientStop)
+		top: 0
+	&#bottomGradient
+		background: none
+		background: -webkit-linear-gradient(bottom, $firstGradientStop, $lastGradientStop)
+		background: -o-linear-gradient(bottom, $firstGradientStop, $lastGradientStop)
+		background: -moz-linear-gradient(bottom, $firstGradientStop, $lastGradientStop)
+		background: linear-gradient(bottom, $firstGradientStop, $lastGradientStop)
+		bottom: 0

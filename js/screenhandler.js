@@ -41,6 +41,8 @@ $(document).ready( function(){
 
 // —————————————— —————————————— —————————————— ——————————————  Story Node Handling
 var timesThrough = 0;
+var finalNodeCount = 10;
+var kathmanduCount = 2;
 ScreenHandler.gotoStoryNode = function( _id ){
 	ScreenHandler.closeNavigationOverlay();
 
@@ -48,13 +50,19 @@ ScreenHandler.gotoStoryNode = function( _id ){
 		console.error("didn't find " + _id + " in the story structure.");
 		return;
 	}
+	if (_id == "finalNode") {
+		ScreenHandler.setupFinalNode();
+		return;
+	} 
 	// do different things at different counts
-	console.log("goto " + _id);
 	timesThrough++;
-	if (timesThrough == 2) {
+	console.log("goto " + _id + " " + timesThrough);
+	if (timesThrough == kathmanduCount) {
 
 		$("#bottomNavigation .node").on("click", function(){
-			if ($(this).hasClass("visited") && !$(this).hasClass("currentNavNode")) ScreenHandler.openNavigationOverlay(_id);
+			if ($(this).hasClass("visited") && !$(this).hasClass("currentNavNode")) {
+				ScreenHandler.openNavigationOverlay( $(this).attr("data-navigation-goto") );
+			}
 		});
 
 		$(".currentNavNode").attr("data-navigation-goto", _id);
@@ -63,31 +71,85 @@ ScreenHandler.gotoStoryNode = function( _id ){
 		$("#mapButton").removeClass("hidden");
 		$("#fieldGuideInformationButton").show();
 	}
-	if (timesThrough > 2) {
+	if (timesThrough > kathmanduCount) {
+		if (timesThrough > finalNodeCount){ //first time through, there's no current nav node
+			// end of your journey
+			console.log("———————— FINAL NODE!!! ———————");
+			ScreenHandler.gotoStoryNode("finalNode");
+			return;
+		}
 		/* 
 		right now, every place you visit becomes a node, even if you go backwards. 
 		This is the easier version to code. To test earlier visits, we'll have to put in some more functionality
 		I figure you only get so many places to go? It's a feature, not a bug!
 		*/
 		$cNN = $("#bottomNavigation .currentNavNode");
+		var $firstNode = $cNN.next();
 		// console.log($cNN);
 		$cNN.removeClass("currentNavNode");
-		var $firstNode = $cNN.next(); 
-		if (($firstNode.length < 1) && ($cNN.length > 0)){ //first time through, there's no current nav node
-			// end of your journey
-			console.log("FINAL NODE!!!");
-			ScreenHandler.gotoStoryNode("finalNode");
-			return;
-		} else {
-			$firstNode.attr("data-navigation-goto", _id);
-			$firstNode.attr("data-navigationText", StoryHolder.story1[_id].title);
-			$firstNode.addClass("visited currentNavNode");
-		}
+		$firstNode.attr("data-navigation-goto", _id);
+		$firstNode.attr("data-navigationText", StoryHolder.story1[_id].title);
+		$firstNode.addClass("visited currentNavNode");
 	}
-	//switch out image
+
+	// ----------------------------------------------------------------- switch out image
 	$(".fullpage").css("background-image", "url("+ScreenHandler.imageArray[_id].src+")");
 
 	// ----------------------------------------------------------------- Handle Description Text
+	ScreenHandler.setupDescriptionBox(_id);
+	
+	// --------------------------------------------------- Handle Choice Nodes
+	ScreenHandler.setupChoiceNodes(_id);
+
+	if (timesThrough == 1) {
+		// this code only runs if the tutorial screen is displayed
+		ScreenHandler.firstTimeSetup();
+	}
+
+	// update found nodes for the map
+	if (StoryHolder.story1[_id].map !== undefined) StoryHolder.story1[_id].map.found = true;
+	
+}
+
+// ----------------------------------------------------------------- Individual Choice Setups
+ScreenHandler.firstTimeSetup = function() {
+	$(".choiceNode").css("background", "none"); //create fake button for example
+	$(".gradient").show();
+}
+
+ScreenHandler.setupFinalNode = function () {
+
+	$(".choiceNode").remove();
+	var _id = "finalNode";
+	$(".fullpage").css("background-image", "url("+ScreenHandler.imageArray[_id].src+")");
+
+	ScreenHandler.setupDescriptionBox(_id);
+
+	$("#bottomNavigation").hide();
+}
+
+// ------ ————— ------- ————— ------- ————— ------ ————— -------- Setup Choice Nodes
+ScreenHandler.setupChoiceNodes = function (_id) {
+	//hide all choice nodes
+	$(".choiceNode").remove();
+	//display each choice node:
+	$.each(StoryHolder.story1[_id].choices, function (index, value) {
+		ScreenHandler.spawnChoiceNode(value);
+	});
+	$(".choiceNode").on("click", function () {
+		ScreenHandler.openNavigationOverlay( $(this).attr("data-navigation-goto"));
+	});
+}
+
+ScreenHandler.spawnChoiceNode = function( _nodeData ) {
+	var _html = "<div class='choiceNode type-" + _nodeData.type;
+	_html += "' data-navigation-goto='" + _nodeData.pointsTo;
+	_html += "'></div>"
+	$(".current").append(_html);
+}
+// ————— ————— ————— ————— ————— ————— ————— Description Overlay Control
+
+ScreenHandler.setupDescriptionBox = function(_id) {
 	var _html = "<h1>"+StoryHolder.story1[_id].title+"</h1>";
 	$.each(StoryHolder.story1[_id].textnodes, function(index, value) {
 		_html += "<p>"+value+"</p>";
@@ -106,35 +168,7 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	}
 
 	ScreenHandler.openDescriptionOverlay(); // open description overlay by default
-	
-	// --------------------------------------------------- Handle Choice Nodes
-	//hide all choice nodes
-	$(".choiceNode").remove();
-	//display each choice node:
-	$.each(StoryHolder.story1[_id].choices, function (index, value) {
-		ScreenHandler.spawnChoiceNode(value);
-	});
-	$(".choiceNode").on("click", function () {
-		ScreenHandler.openNavigationOverlay( $(this).attr("data-navigation-goto"));
-	});
-
-	if (timesThrough == 1) {
-		// this code only runs if the tutorial screen is displayed
-		$(".choiceNode").css("background", "none"); //create fake button for example
-	}
-
-	// update found nodes for the map
-	if (StoryHolder.story1[_id].map !== undefined) StoryHolder.story1[_id].map.found = true;
-	
 }
-
-ScreenHandler.spawnChoiceNode = function( _nodeData ) {
-	var _html = "<div class='choiceNode type-" + _nodeData.type;
-	_html += "' data-navigation-goto='" + _nodeData.pointsTo;
-	_html += "'></div>"
-	$(".current").append(_html);
-}
-// ————— ————— ————— ————— ————— ————— ————— Description Overlay Control
 var isDescriptionOpen = false;
 ScreenHandler.openDescriptionOverlay = function() {
 	ScreenHandler.descriptionOverlay.addClass("opened");
@@ -171,14 +205,14 @@ ScreenHandler.openNavigationOverlay = function(_id) {
 	$("#descriptionBox").removeClass("opened");
 	// console.log(_clickedNode + " " + navigationNode);
 	this.storyOverlay.css("display", "table");
-	var _html = "<a class='navigation' href=#>";
-		_html += "<h2>Travel To ";
-		_html += StoryHolder.story1[_id].title + "?</h2>";
-		_html += "</a>";
+	var _html = "<div class='navigationDialogue' href=#>";
+		_html += "<p>Travel to: </p>";
+		_html += "<h2>"+StoryHolder.story1[_id].title + "</h2>";
+		_html += "</div>";
 	$("#storyTextHolder").html(_html);
 	$("#storyTextHolder").addClass("navigation");
 
-	$("#storyTextHolder").children(".navigation").on("click", function(event) {
+	$("#storyTextHolder").children(".navigationDialogue").on("click", function(event) {
 		ScreenHandler.gotoStoryNode( _id ) ;
 	});
 }
