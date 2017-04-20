@@ -328,7 +328,7 @@ StoryHolder.story1 = {
 			position: { x: 63.9, y: 67.9 },
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "Two-Fish-from-Trail.jpg"
 	},
 	trailhead: {
 		title: "Tshongsa Valley",
@@ -659,7 +659,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "FordingRiver.jpg"
 	},
 	whiteSandDunes: {
 		title: "White Sand Dunes",
@@ -678,7 +678,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "WhiteSandBank.jpg"
 	},
 	abandonedVillage: {
 		title: "Abandoned Village",
@@ -701,7 +701,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "AbandonedVillage.jpg"
 	},
 	moreVillageInfo: {
 		title: "Explore the Village",
@@ -720,12 +720,12 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "MoreVillageInfo.jpg"
 	},
 	suspensionBridge: {
 		title: "Suspension Bridge",
 		textnodes: [
-			"Travelers leaving Talung Valley can cross the river here (Ling Chu), either on the old wooden foot bridge or the new metal suspension bridge. On the footbridge, a fellow traveller hails you, asking if you are heading to Kailash or just hiking around Limi Valley? He was heading towards Kailash, but went west instead of North, and ended up taking a long detour in Limi... He reminds you that this bridge marks the end of Talung Valley and the start of Takche Valley. You thank him and keep moving. "
+			"Travelers leaving Talung Valley can cross the river here (Ling Chu), either on the old wooden foot bridge or the new metal suspension bridge. On the footbridge, a fellow traveller hails you, asking if you are heading to Kailash or just hiking around Limi Valley? He was heading towards Kailash, but went west instead of North, and ended up taking a long detour in Limi... He reminds you that this bridge marks the end of Talung Valley and the start of Takche Valley."
 		],
 		choices: [{
 				pointsTo: "jangHotSprings",
@@ -735,7 +735,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "SuspensionBridge.jpg"
 	},
 	jangHotSprings: {
 		title: "Jang Hot Springs",
@@ -773,7 +773,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "JangVillage.jpg"
 	},
 	moreJangVillage: {
 		title: "Explore Jang Village",
@@ -789,7 +789,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "JangMonastry.jpg"
 	},
 	nepalPoliceCheckPoint: {
 		title: "Nepali Police Checkpoint",
@@ -807,7 +807,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "NepalPoliceChekpoint.jpg"
+		backgroundImage: "PoliceStation.jpg"
 	},
 	haljiVillage: {
 		title: "Halji Village",
@@ -825,7 +825,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "HaljiVillage.jpg"
 	},
 	rinchenLingGompa: {
 		title: "Rinchen Ling Gompa",
@@ -848,7 +848,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "RinchenLingGompa.jpg"
 	},
 	ecoImpactGompa: {
 		title: "Rinchen Gompa",
@@ -865,7 +865,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "EcoImpact.jpg"
 	},
 	prayerFlagsTilchung: {
 		title: "Prayer Flags at Tilchung",
@@ -883,7 +883,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "PrayerFlagsTilchung.jpg"
 	},
 	yaYipPhukMeditationCaves: {
 		title: "Ya Yip Phuk Caves",
@@ -908,7 +908,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "YaYipPhuk.jpg"
 	},
 	stayInYaYip: {
 		title: "Explore the Caves",
@@ -931,7 +931,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "YaYipPhuk2.jpg"
 	},
 	shamansBuddhists: {
 		title: "Shamans and Buddhists",
@@ -949,7 +949,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "Shamans_Buddhists.jpg"
 	},
 	hilsa: {
 		title: "Hilsa",
@@ -972,7 +972,7 @@ StoryHolder.story1 = {
 			position: { x: 0, y: 0},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "hilsa.jpg"
 	},
 	upperLimiValley: {
 		title: "Upper Limi Valley",
@@ -1021,12 +1021,22 @@ StoryHolder.story1 = {
 			"Your time is up for this trip! You&rsquo;ll have to come back again to see more.", 
 			"You gathered enough data to start your research, and write a short paper. You may not every fully understand the Kailash Sacred Region, but you have been profoundly changed by it."
 		],
-		choices: [],
+		choices: [{
+			pointsTo: "reset",
+			type: "arrow-up"
+		}],
 		map: {
 			position: { x: 0, y: 0},
 			found: false
 		},
 		backgroundImage: "flagLoop.gif"
+	},
+	reset: {
+		title: "Play Again?",
+		textnodes: [],
+		choices: [],
+		map: {found: false},
+		backgroundImage: "black.gif"
 	}
 }
 

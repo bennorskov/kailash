@@ -54,13 +54,13 @@ ScreenHandler.gotoStoryNode = function( _id ){
 		ScreenHandler.setupFinalNode();
 		return;
 	} 
+	if (_id == "reset") {
+		ScreenHandler.reset();
+		return;
+	}
 	// do different things at different counts
 	timesThrough++;
 	console.log("goto " + _id + " " + timesThrough);
-
-	if (timesThrough == 0) {
-		ScreenHandler.setupQuoteNode();
-	}
 
 	if (timesThrough == kathmanduCount) {
 
@@ -108,8 +108,14 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	// --------------------------------------------------- Handle Choice Nodes
 	ScreenHandler.setupChoiceNodes(_id);
 
+	if (timesThrough == 0) {
+		ScreenHandler.setupQuoteNode();
+	}
 	if (timesThrough == 1) {
 		// this code only runs if the tutorial screen is displayed
+		$("#quotePageTooltip").fadeOut(200, function() {
+			$(this).remove();
+		});
 		ScreenHandler.firstTimeSetup();
 	}
 
@@ -136,7 +142,7 @@ ScreenHandler.setupFinalNode = function () {
 	$(".choiceNode").remove();
 	var _id = "finalNode"; //didn't pass it; It will always be "finalNode" though
 	$(".fullpage").css("background-image", "url("+ScreenHandler.imageArray[_id].src+")");
-
+	ScreenHandler.setupChoiceNodes(_id);
 	ScreenHandler.setupDescriptionBox(_id);
 
 	$("#bottomNavigation").addClass("hidden");
@@ -150,9 +156,9 @@ ScreenHandler.setupQuoteNode = function() {
 	// 	"background-size": "auto 90%",
 	// 	"display": "table"
 	// });
-
+	$(".current").append("<div id='quotePageTooltip'>Use this button to continue</div>");
 	// $("#storyTextHolder").css("margin-top", "80%");
-	$(".contentCentererDiv").css("background", "none");
+	// $(".contentCentererDiv").css("background", "none");
 }
 
 // ------ ————— ------- ————— ------- ————— ------ ————— -------- Setup Choice Nodes
