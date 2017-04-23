@@ -28,14 +28,23 @@
 				position: absolute
 				margin: 0 auto
 				cursor: pointer
-				width: $basicSquare *.75
-				height: $basicSquare*.75
-				background: $white
-				font-family: "Fjalla One", sans-serif
+				width: $basicSquare *.5
+				height: $basicSquare*.5
+				background: black
 				z-index: $nodeZOrder
 				border-radius: 50%
+				border: 2px $yellow solid
 				&.foundMapNode
-					border: 2px $lightGreen solid
+					background: $yellow
+					span
+						display: block
+						margin-left: $basicSquare*.5
+						margin-top: -5px
+				span
+					display: none
+					font-family: "Fjalla One", sans-serif
+					width: 140px
+
 
 #mapButton
 	position: fixed

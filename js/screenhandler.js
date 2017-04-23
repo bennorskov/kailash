@@ -1,7 +1,7 @@
 var ScreenHandler = ScreenHandler || {};
 var isSafari = false;
 $(document).ready( function(){
-	var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+	var isSafari = /^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent);
 	if (isSafari) {
 		$("#descriptionBox .contentCentererDiv .overlayText").css("height", "30%");//safari doesn't do the min-height css call because apple sucks. 
 	}
@@ -279,8 +279,8 @@ ScreenHandler.addMapNodes = function() {
 					_html += " foundMapNode";
 				}
 				_html += "' style='left:";
-				_html += value.map.position.x + "%; top: " + value.map.position.y + "%;"
-				_html += "' data-navigation-goto='"+index+"'></div>";
+				_html += value.map.position.x + "%; top: " + value.map.position.y + "%;";
+				_html += "' data-navigation-goto='"+index+"'><span>"+value.title+"</span></div>";
 				
 			$mapNodeHolder.append(_html);
 		}

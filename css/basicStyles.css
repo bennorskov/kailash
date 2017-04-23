@@ -49,14 +49,22 @@ a {
         position: absolute;
         margin: 0 auto;
         cursor: pointer;
-        width: 24px;
-        height: 24px;
-        background: rgba(255, 255, 255, 0.8);
-        font-family: "Fjalla One", sans-serif;
+        width: 16px;
+        height: 16px;
+        background: black;
         z-index: 10;
-        border-radius: 50%; }
+        border-radius: 50%;
+        border: 2px #F0BF08 solid; }
         #mapOverlay #navigationMap #mapNodeHolder .mapNode.foundMapNode {
-          border: 2px #00A990 solid; }
+          background: #F0BF08; }
+          #mapOverlay #navigationMap #mapNodeHolder .mapNode.foundMapNode span {
+            display: block;
+            margin-left: 16px;
+            margin-top: -5px; }
+        #mapOverlay #navigationMap #mapNodeHolder .mapNode span {
+          display: none;
+          font-family: "Fjalla One", sans-serif;
+          width: 140px; }
 
 #mapButton {
   position: fixed;
@@ -165,7 +173,7 @@ a {
   width: 100%;
   text-align: center;
   height: 6px;
-  background: black;
+  background: white;
   z-index: 50; }
   #bottomNavigation .node {
     width: 32px;

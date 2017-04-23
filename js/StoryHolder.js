@@ -92,16 +92,16 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 90, y: 90 },
+			position: { x: 90, y: 80 },
 			found: false
 		},
 		backgroundImage: "Kathmandu.jpg"
 	},
 	leaveKathmandu: {
-		title: "The Road out of Kathmandu",
+		title: "Kathmandu Road",
 		textnodes: [
-			"Kathmandu is a capital city in the global south. Tradition and modernity walk hand in hand there, and you were both amazed and overwhelmed by the bustling metropolis.",
-			"While you were in Kathmandu, you couldn’t wait to leave. But now, in this isolated stretch of road, you can’t help but feel wistful about that chaotic calm of the big city. ", 
+			"Kathmandu is a capital city in the global south. Tradition and modernity walk hand in hand there, and you are both amazed and overwhelmed by the bustling metropolis.",
+			"You thought that you would hate to be here long, but there's a chaotic calm to city that surprises you. ", 
 		],
 		choices: [
 			{
@@ -114,7 +114,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 90, y: 83 },
 			found: false
 		},
 		backgroundImage: "Kathmandu2.jpg"
@@ -136,7 +136,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 90, y: 86 },
 			found: false
 		},
 		backgroundImage: "Kathmandu3.jpg"
@@ -154,7 +154,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: {  x: 90, y: 89 },
 			found: false
 		},
 		backgroundImage: "Kathmandu4.jpg"
@@ -182,7 +182,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 75.3, y: 75.1 },
+			position: { x: 67.2, y: 81.3 },
 			found: false
 		},
 		backgroundImage: "simikot.jpg"
@@ -210,7 +210,7 @@ StoryHolder.story1 = {
 			
 		],
 		map: {
-			position: { x: 76.3, y: 75.1 },
+			position: { x: 67.2, y: 84.3 },
 			found: false
 		},
 		backgroundImage: "SimikotTown.jpg"
@@ -232,7 +232,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 67.2, y: 87.3 },
 			found: false
 		},
 		backgroundImage: "TravellerSimikot.jpg"
@@ -242,7 +242,7 @@ StoryHolder.story1 = {
 		textnodes: [
 			"Raling Gompa is a monastery perched high in the mountains. Walking up a rocky trail, you see a wooden gate through the trees.", 
 			"The gate appears to mark the outer boundary of the monastery area, and you can see an impressive monastery behind it. After walking through the gate, the main building and the secondary structures making up Rawling Gompa loom ahead.",
-			"After scrambling up a large boulder field immediately behind the gompa, the view opens up to the roof of the monastery and the beautiful valley below."
+			"Scrambling up a large boulder field immediately behind the gompa, the view opens up to the roof of the monastery and the beautiful valley below."
 		],
 		guidebook: "Raling Gompa is one of the oldest and most revered Buddhist religious sites in the immediate area around Simikot, serving the many nearby Buddhist lama communities. ",
 		choices: [
@@ -256,7 +256,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 78.7, y: 83.2 },
 			found: false
 		},
 		backgroundImage: "Rawling-Gompa-first-view.jpg"
@@ -278,7 +278,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: {  x: 78.7, y: 86.2 },
 			found: false
 		},
 		backgroundImage: "Rawling-Gompa-Gate.jpg"
@@ -301,7 +301,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 71.2, y: 71 },
+			position: { x: 58.4, y: 73 },
 			found: false
 		},
 		backgroundImage: "Two-Fish-from-Trail.jpg"
@@ -325,7 +325,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 63.9, y: 67.9 },
+			position: { x: 58.4, y: 76 },
 			found: false
 		},
 		backgroundImage: "Two-Fish-from-Trail.jpg"
@@ -348,7 +348,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 60.1, y: 68.2 },
+			position: { x: 45.1, y: 66.2 },
 			found: false
 		},
 		backgroundImage: "Trailhead.jpg"
@@ -565,7 +565,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 55.5, y: 66.7 },
+			position: { x: 2.9, y: 37.9 },
 			found: false
 		},
 		backgroundImage: "stones2.jpg"
@@ -592,7 +592,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 72, y: 88 },
 			found: false
 		},
 		backgroundImage: "Te-Village.jpg"
@@ -616,7 +616,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 72, y: 91},
 			found: false
 		},
 		backgroundImage: "TeVillager.jpg"
@@ -698,7 +698,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 49.7, y: 9.9},
 			found: false
 		},
 		backgroundImage: "AbandonedVillage.jpg"
@@ -717,7 +717,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 49.7, y: 12.9},
 			found: false
 		},
 		backgroundImage: "MoreVillageInfo.jpg"
@@ -732,7 +732,7 @@ StoryHolder.story1 = {
 				type: "arrow-left"
 		}],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 47, y: 4.3},
 			found: false
 		},
 		backgroundImage: "SuspensionBridge.jpg"
@@ -748,7 +748,7 @@ StoryHolder.story1 = {
 				type: "arrow-left"
 		}],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 40, y: 17},
 			found: false
 		},
 		backgroundImage: "cloudvalley.jpg"
@@ -770,7 +770,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 37, y: 6.7},
 			found: false
 		},
 		backgroundImage: "JangVillage.jpg"
@@ -786,7 +786,7 @@ StoryHolder.story1 = {
 			type: "arrow-left"
 		}],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 37, y: 9.7},
 			found: false
 		},
 		backgroundImage: "JangMonastry.jpg"
@@ -969,7 +969,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 2.9, y: 37.9},
 			found: false
 		},
 		backgroundImage: "hilsa.jpg"
@@ -1035,7 +1035,6 @@ StoryHolder.story1 = {
 		title: "Play Again?",
 		textnodes: [],
 		choices: [],
-		map: {found: false},
 		backgroundImage: "black.gif"
 	}
 }
