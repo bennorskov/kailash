@@ -29,7 +29,7 @@ a {
     color: black; }
 
 #mapOverlay {
-  z-index: 100; }
+  z-index: 102; }
   #mapOverlay #navigationMap {
     padding: 0;
     position: absolute;

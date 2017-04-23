@@ -327,6 +327,10 @@ StoryHolder.story1 = {
 			{
 				pointsTo: "stoneCairnsField",
 				type: "arrow-up"
+			},
+			{
+				pointsTo: "hilsa",
+				type: "arrow-left"
 			}
 		],
 		map: {
@@ -642,6 +646,10 @@ StoryHolder.story1 = {
 			{
 				pointsTo: "abandonedVillage",
 				type: "arrow-up"
+			},
+			{
+				pointsTo: "jangVillage",
+				type: "arrow-left"
 			}
 		],
 		map: {
@@ -848,6 +856,10 @@ StoryHolder.story1 = {
 		choices: [{
 			pointsTo: "yaYipPhukMeditationCaves",
 			type: "arrow-up"
+		},
+		{
+			pointsTo: "jangVillage",
+			type: "arrow-right"
 		}],
 		map: {
 			position: { x: 15, y: 27},
@@ -893,7 +905,7 @@ StoryHolder.story1 = {
 				type: "arrow-right"
 			},
 			{
-				pointsTo: "hilsa",
+				pointsTo: "jangVillage",
 				type: "arrow-left"
 			}
 		],
@@ -935,7 +947,7 @@ StoryHolder.story1 = {
 			},
 			{
 				pointsTo: "trailhead",
-				type: "arrow-left"
+				type: "arrow-right"
 			}
 		],
 		map: {
