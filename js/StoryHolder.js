@@ -31,41 +31,27 @@ StoryHolder.story1 = {
 		backgroundImage: "cloudvalley.jpg"
 	},
 	// ———————————————————————— /TEMPLATE*/
-	characterIntro: {
+	characterIntro1: {
 		title: "Who are you?",
-		textnodes: [
-			"You are a researcher working with ecological conservation. You receive a grant to study the duality of ecology and spirituality in the Kailash Sacred Region.",
-			"While you are really excited about this project, you pride your scientific rationality above all else. Not being very religious, explored this region before, what if you can’t find anything spiritual…?",
-			],
-		guidebook: "You are about to leave on a 10 day trip to familiarise yourself with the region. Each location visited takes a day off your expedition. Navigate using the arrows at the bottom of the screen. You can see how many days you have left in the circles at the bottom of text. Return to any of the previously visited locations by tapping on any filled in circles.",
-		choices: [
-			{
-				pointsTo: "INTRODUCTION",
-				type: "arrow-up"
-			},
-			{
-				pointsTo: "INTRODUCTION",
-				type: "arrow-right"
-			},
-			{
-				pointsTo: "INTRODUCTION",
-				type: "arrow-left"
-			}
-		],
+		textnodes: [],	
+		choices: [],
+		backgroundImage: "tooltips1.jpg"
+	},
+	characterIntro2: {
+		title: "Who are you?",
+		textnodes: [],
+		choices: [],
 		backgroundImage: "tooltips.jpg"
 	},
 	introQuote: {
 		title: "",
 		textnodes: [
 			"&#8220;Kailash is not a Mountain to climb physically in this life; it is a holy mountain to climb metaphorically for spiritual transformation&#8221;", 
-			"– Tshewang Lama"
+			"– Tshewang Lama",
+			"&nbsp;",
+			"(tap anywhere to continue)"
 		],
-		choices: [
-			{
-				pointsTo: "characterIntro",
-				type: "arrow-right"
-			}
-		],
+		choices: [],
 		backgroundImage: "PrologueImage_sm.jpg"
 	},
 	INTRODUCTION: {
