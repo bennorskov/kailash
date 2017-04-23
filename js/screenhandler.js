@@ -3,7 +3,7 @@ var isSafari = false;
 $(document).ready( function(){
 	var isSafari = /^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent);
 	if (isSafari) {
-		$("#descriptionBox .contentCentererDiv .overlayText").css("height", "30%");//safari doesn't do the min-height css call because apple sucks. 
+		$("#descriptionBox .contentCentererDiv .overlayText").css("height", "50%");//safari doesn't do the min-height css call because apple sucks. 
 	}
 	ScreenHandler.preload();
 
@@ -44,8 +44,8 @@ $(document).ready( function(){
 });
 
 // —————————————— —————————————— —————————————— ——————————————  Story Node Handling
-var timesThrough = -1;
-var finalNodeCount = 10;
+var timesThrough = -2;
+var finalNodeCount = 11;
 var kathmanduCount = 2;
 ScreenHandler.gotoStoryNode = function( _id ){
 	ScreenHandler.closeNavigationOverlay();
@@ -54,6 +54,12 @@ ScreenHandler.gotoStoryNode = function( _id ){
 		console.error("didn't find " + _id + " in the story structure.");
 		return;
 	}
+
+	// do different things at different counts
+	timesThrough++;
+	console.log("goto " + _id + " " + timesThrough);
+
+	// —————— -------- ————— ----- –––––––  -------- ————— ----- ––––––– Specific ID Callouts
 	if (_id == "finalNode") {
 		ScreenHandler.setupFinalNode();
 		return;
@@ -62,12 +68,25 @@ ScreenHandler.gotoStoryNode = function( _id ){
 		ScreenHandler.reset();
 		return;
 	}
-	// do different things at different counts
-	timesThrough++;
-	console.log("goto " + _id + " " + timesThrough);
+	if (_id == "introQuote") {
+		ScreenHandler.setupQuoteNode();
+	}
+	if (_id == "characterIntro1") {
+		// this code only runs if the tutorial screen is displayed
+		$(".fullpage").css("background-image", "url("+ScreenHandler.imageArray[_id].src+")");
+		ScreenHandler.addClickAnywhere("characterIntro2");
+		return;
+	}
+	if (_id == "characterIntro2"){
+		$(".fullpage").css("background-image", "url("+ScreenHandler.imageArray[_id].src+")");
+		ScreenHandler.addClickAnywhere("introQuote");
+		return
+	}
 
+	// —————— -------- ————— ----- –––––––  -------- ————— ----- ––––––– Actual Story Nodes
 	if (timesThrough == kathmanduCount) {
 
+		ScreenHandler.firstTimeSetup();
 		$("#bottomNavigation .node").on("click", function(){
 			if ($(this).hasClass("visited") && !$(this).hasClass("currentNavNode")) {
 				ScreenHandler.openNavigationOverlay( $(this).attr("data-navigation-goto") );
@@ -112,17 +131,6 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	// --------------------------------------------------- Handle Choice Nodes
 	ScreenHandler.setupChoiceNodes(_id);
 
-	if (timesThrough == 0) {
-		ScreenHandler.setupQuoteNode();
-	}
-	if (timesThrough == 1) {
-		// this code only runs if the tutorial screen is displayed
-		$("#quotePageTooltip").fadeOut(200, function() {
-			$(this).remove();
-		});
-		ScreenHandler.firstTimeSetup();
-	}
-
 	// update found nodes for the map
 	if (StoryHolder.story1[_id].map !== undefined) StoryHolder.story1[_id].map.found = true;
 	
@@ -139,32 +147,66 @@ ScreenHandler.firstTimeSetup = function() {
 
 	$("#storyTextHolder").css("margin", "0 auto");
 	$(".contentCentererDiv").css("background", "rgba(0, 0, 0, .5");
+	$("#mapOverlay .contentCentererDiv").css("background-color", "black");
 }
 
 ScreenHandler.setupFinalNode = function () {
 
 	$(".choiceNode").remove();
-	var _id = "finalNode"; //didn't pass it; It will always be "finalNode" though
+	var _id = "finalNode"; //didn't pass it; It will always be "finalNode" this way
 	$(".fullpage").css("background-image", "url("+ScreenHandler.imageArray[_id].src+")");
-	ScreenHandler.setupChoiceNodes(_id);
-	ScreenHandler.setupDescriptionBox(_id);
+	
+	//ScreenHandler.setupDescriptionBox(_id);
+
+	var _html = "<div id='finalTextNode'>";
+		_html += "<img src='images/final_run_icon.png'>";
+		_html += "<h1>YOUR TEN DAYS ARE UP!<br>";
+		_html += "THAT'S ALL THE TIME YOU <br>HAVE THIS TRIP</h1>";
+		_html += "<h2>YOU KNOW YOU&rsquo;LL BE BACK SOON</h2>";
+		_html += "<a href=# id='playAgain'>PLAY AGAIN TO SEE WHAT ELSE YOU UNEARTH</a>";
+		_html += "<div class='dividingYellowLine'></div>";
+		_html += "<a href=# id='checkMap'><span id='mapIcon'></span>GO CHECK THE MAP TO<br>SEE YOUR PATH!</a>";
+		_html += "</div>";
+
+	$("#descriptionBox .overlayText").html(_html);
+	ScreenHandler.openDescriptionOverlay(); 
 
 	$("#bottomNavigation").addClass("hidden");
+
+	$("#playAgain").on("click", function (e) {
+		e.stopPropagation();
+		ScreenHandler.openNavigationOverlay( "reset");
+	});
+	$("#checkMap").on("click", function (e) {
+		e.stopPropagation();
+		ScreenHandler.openMapOverlay();
+	});
 }
 
 ScreenHandler.setupQuoteNode = function() {
-
+	ScreenHandler.setupDescriptionBox("introQuote");
+	ScreenHandler.addClickAnywhere("INTRODUCTION");
 	// ScreenHandler.storyOverlay.css({
 	// 	"background-position": "50% 0",
 	// 	"background-repeat": "no-repeat",
 	// 	"background-size": "auto 90%",
 	// 	"display": "table"
 	// });
-	$(".current").append("<div id='quotePageTooltip'>Use this button to continue</div>");
 	// $("#storyTextHolder").css("margin-top", "80%");
 	// $(".contentCentererDiv").css("background", "none");
 }
 
+
+ScreenHandler.addClickAnywhere = function (_whereTo) {
+	console.log("where you goin' to? " + _whereTo);
+	var _html = "<div id='fullScreenClickBox' data-navigation-goto='"+_whereTo+"'></div>";
+	$("body").append(_html);
+	$("#fullScreenClickBox").on("click", function() {
+		console.log("where you clickin' at?");
+		$(this).remove();
+		ScreenHandler.gotoStoryNode( $(this).attr("data-navigation-goto"));
+	});
+}
 // ------ ————— ------- ————— ------- ————— ------ ————— -------- Setup Choice Nodes
 ScreenHandler.setupChoiceNodes = function (_id) {
 	//hide all choice nodes
@@ -225,6 +267,12 @@ ScreenHandler.reset = function () {
 	$("#bottomNavigation .node").removeClass("visited currentNavNode");
 	$("#bottomNavigation .node").off("click");
 	ScreenHandler.gotoStoryNode("introQuote");
+	$.each(StoryHolder.story1, function (index, value) {
+		// console.log(value + " " + index);
+		if (value.map != undefined) {
+			value.map.found = false;
+		}
+	});
 }
 
 // ————— ------ ————— ------ ————— ————— ————— ------ ————— ————— Story Navigation Overlay Control
@@ -285,9 +333,12 @@ ScreenHandler.addMapNodes = function() {
 			$mapNodeHolder.append(_html);
 		}
 	});
-	$(".foundMapNode").on("click", function() {
-		ScreenHandler.openNavigationOverlay( $(this).attr("data-navigation-goto") );
-	});
+
+	if (timesThrough < finalNodeCount) {
+		$(".foundMapNode").on("click", function() {
+			ScreenHandler.openNavigationOverlay( $(this).attr("data-navigation-goto") );
+		});
+	}
 	$("#navigationMap").scrollLeft( $("#navigationMap img").width());
 }
 
@@ -319,10 +370,8 @@ ScreenHandler.preload = function() {
 	// if we do other stories, we'll have to create a preload for those stories as well
 	ScreenHandler.imageArray['flag.gif'] = loader.addImage("images/flagLoop.gif");
 	$.each(Object.keys(StoryHolder.story1), function (index, value) {
-		// story1.stone1.backgroundImage;
 		if (value != undefined) ScreenHandler.imageArray[value] = loader.addImage("images/"+StoryHolder.story1[value].backgroundImage);
 	});
-	// console.log(ScreenHandler.imageArray);
 	
 	loader.addProgressListener(function(e) { 
 		loaderDisplay.text(Math.round( e.completedCount/e.totalCount * 100));
@@ -336,7 +385,7 @@ ScreenHandler.preload = function() {
 		$("#beginJourney").on("click", function() {
 			$("#loadingScreen").remove();
 			$(".current").removeClass("hidden");
-			ScreenHandler.gotoStoryNode("introQuote");
+			ScreenHandler.gotoStoryNode("characterIntro1");
 		});
 	});
 

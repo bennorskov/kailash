@@ -15,6 +15,7 @@
 		overflow: auto
 		width: 100%
 		height: 100%
+		background-color: black
 		img
 			display: block
 			height: 100%
@@ -98,4 +99,46 @@
 		p
 			line-height: $textSize + .15
 
+#finalTextNode
+	img
+		width: $basicSquare*2
+		height: $basicSquare*2
+		display: block
+	h1
+		border-left: 4px solid $deepRed
+		padding-left: 1em
+		margin-left: 1em
+		color: $deepRed
+		font-size: 1.3em
+	h2
+		margin-left: 22px
+		color: $teal
+		font-size: 1.2em
+	div.dividingYellowLine
+		background-color: $yellow
+		height: 8px
+		border-radius: 4px
+		margin: $basicSquare
+	a
+		margin-left: 1.3em
+		font-size: .9em
+		display: block
+		cursor: pointer
+		&#playAgain
+			color: $teal
+		&#checkMap
+			text-decoration: none
+			color: $lightGreen
+			height: $basicSquare*2
+			span#mapIcon
+				display: inline-block
+				margin-top: $basicSquare*-.5
+				float: right
+				width: $basicSquare*2
+				height: $basicSquare*2
+				background: url(../images/navIcons.png)
+				background-size: 200% 100%
+				background-position: top right
+				background-color: $deepRed
+				border-radius: 50%
 
