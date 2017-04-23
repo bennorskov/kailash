@@ -171,6 +171,9 @@ ScreenHandler.setupFinalNode = function () {
 	$("#descriptionBox .overlayText").html(_html);
 	ScreenHandler.openDescriptionOverlay(); 
 
+	var bottomHtml ="<div id='finalScreenBottomLinks'><h3>By the <a target='_blank' href='http://indiachinainstitute.org'>India China Institute</a> and <a target='_blank' href='http://playistheantidote.com'>Antidote Games</a></h3></div>"
+	$('body').append(bottomHtml);
+
 	$("#bottomNavigation").addClass("hidden");
 
 	$("#playAgain").on("click", function (e) {
@@ -260,10 +263,11 @@ ScreenHandler.closeDescriptionOverlay = function() {
 // ————— ------ ————— ------ ————— ------ ————— ------ ————— ————— ————— Story Reset Control
 
 ScreenHandler.reset = function () {
+	$("#finalScreenBottomLinks").remove();
 	$("#bottomNavigation").addClass('hidden');
 	$("#mapButton").addClass("hidden");
 	$("#fieldGuideInformationButton").hide();
-	timesThrough= -1;
+	timesThrough= 0;
 	$("#bottomNavigation .node").removeClass("visited currentNavNode");
 	$("#bottomNavigation .node").off("click");
 	ScreenHandler.gotoStoryNode("introQuote");

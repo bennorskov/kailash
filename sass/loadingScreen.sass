@@ -1,49 +1,74 @@
 #loadingScreen
-	background: white
+	background: url(../images/PrologueImage_sm.jpg)
 	text-align: center 
 	height: 100%
-	img
-		margin: 20% 0
-		width: 60%
-	h1
-		background: $teal
-		color: $teal
-		font-size: 1.4em
-		line-height: 1.2em
-		margin: 10px 0
-		span
-			display: inline-block
-			background: white
-			height: 1.35em
-			font-family: 'Snippet', sans-serif
-			padding: 4px 8px
-			vertical-align: baseline
-	h2
-		background: $deepRed
-		font-size: .8em
-		color: $deepRed
-		line-height: .7em
-		span
-			display: inline-block
-			background: white
-			height: 1.35em
-			font-family: 'Fjalla One', sans-serif
-			padding: 4px 10px
-			vertical-align: baseline
-	#loadingProgress
-		color: $salmon
-		margin-top: 10px
-	#spacerLine
-		height: 10px
-		background: $yellow
-		margin: 8px 0
-	#topBar
-		background: $deepRed
-		margin-bottom: 8px
-		height: 10%
+	background-position: top center
+	background-size: auto 100%
+	div.bottomOfLoadingScreen
+		position: absolute
+		width: 100%
+		bottom: 0
+		h1
+			background: $teal
+			color: $teal
+			font-size: 2em
+			line-height: 1.2em
+			margin: 10px 0
+			span
+				display: inline-block
+				background: white
+				height: 1.35em
+				font-family: 'Snippet', sans-serif
+				padding: 4px 8px
+				vertical-align: baseline
+		h2
+			background: $deepRed
+			font-size: 1em
+			color: $deepRed
+			line-height: 1.5em
+			span
+				display: inline-block
+				background: white
+				height: 2em
+				font-family: 'Fjalla One', sans-serif
+				padding: 4px 10px
+				vertical-align: baseline
+		#loadingProgress
+			margin-top: 10px
+			a
+				color: white
+		#spacerLine
+			height: 10px
+			background: $yellow
+			margin: 8px 0
+		#topBar
+			background: $deepRed
+			margin-bottom: 8px
+			height: 10%
+		h3
+			color: $white
+			background: $yellow
+			font-family: 'Reem Kufi', sans-serif
+			font-size: 1em
+			padding: 5% 0
+			a
+				color: white
+				font-family: 'Reem Kufi', sans-serif
+				font-size: 1em
+
+#finalScreenBottomLinks
+	position: fixed
+	z-index: 101
+	width: 100%
+	text-align: center
+	bottom: 0
 	h3
 		color: $white
 		background: $yellow
 		font-family: 'Reem Kufi', sans-serif
-		font-size: .8em
-		padding: 10% 0
+		font-size: 1em
+		padding: 5% 0
+		a
+			color: white
+			font-family: 'Reem Kufi', sans-serif
+			font-size: 1em

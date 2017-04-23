@@ -161,54 +161,79 @@ a {
       border-radius: 50%; }
 
 #loadingScreen {
-  background: white;
+  background: url(../images/PrologueImage_sm.jpg);
   text-align: center;
-  height: 100%; }
-  #loadingScreen img {
-    margin: 20% 0;
-    width: 60%; }
-  #loadingScreen h1 {
-    background: #008AB0;
-    color: #008AB0;
-    font-size: 1.4em;
-    line-height: 1.2em;
-    margin: 10px 0; }
-    #loadingScreen h1 span {
-      display: inline-block;
-      background: white;
-      height: 1.35em;
-      font-family: "Snippet", sans-serif;
-      padding: 4px 8px;
-      vertical-align: baseline; }
-  #loadingScreen h2 {
-    background: #B3262A;
-    font-size: 0.8em;
-    color: #B3262A;
-    line-height: 0.7em; }
-    #loadingScreen h2 span {
-      display: inline-block;
-      background: white;
-      height: 1.35em;
-      font-family: "Fjalla One", sans-serif;
-      padding: 4px 10px;
-      vertical-align: baseline; }
-  #loadingScreen #loadingProgress {
-    color: #996666;
-    margin-top: 10px; }
-  #loadingScreen #spacerLine {
-    height: 10px;
-    background: #F0BF08;
-    margin: 8px 0; }
-  #loadingScreen #topBar {
-    background: #B3262A;
-    margin-bottom: 8px;
-    height: 10%; }
-  #loadingScreen h3 {
+  height: 100%;
+  background-position: top center;
+  background-size: auto 100%; }
+  #loadingScreen div.bottomOfLoadingScreen {
+    position: absolute;
+    width: 100%;
+    bottom: 0; }
+    #loadingScreen div.bottomOfLoadingScreen h1 {
+      background: #008AB0;
+      color: #008AB0;
+      font-size: 2em;
+      line-height: 1.2em;
+      margin: 10px 0; }
+      #loadingScreen div.bottomOfLoadingScreen h1 span {
+        display: inline-block;
+        background: white;
+        height: 1.35em;
+        font-family: "Snippet", sans-serif;
+        padding: 4px 8px;
+        vertical-align: baseline; }
+    #loadingScreen div.bottomOfLoadingScreen h2 {
+      background: #B3262A;
+      font-size: 1em;
+      color: #B3262A;
+      line-height: 1.5em; }
+      #loadingScreen div.bottomOfLoadingScreen h2 span {
+        display: inline-block;
+        background: white;
+        height: 2em;
+        font-family: "Fjalla One", sans-serif;
+        padding: 4px 10px;
+        vertical-align: baseline; }
+    #loadingScreen div.bottomOfLoadingScreen #loadingProgress {
+      margin-top: 10px; }
+      #loadingScreen div.bottomOfLoadingScreen #loadingProgress a {
+        color: white; }
+    #loadingScreen div.bottomOfLoadingScreen #spacerLine {
+      height: 10px;
+      background: #F0BF08;
+      margin: 8px 0; }
+    #loadingScreen div.bottomOfLoadingScreen #topBar {
+      background: #B3262A;
+      margin-bottom: 8px;
+      height: 10%; }
+    #loadingScreen div.bottomOfLoadingScreen h3 {
+      color: rgba(255, 255, 255, 0.8);
+      background: #F0BF08;
+      font-family: "Reem Kufi", sans-serif;
+      font-size: 1em;
+      padding: 5% 0; }
+      #loadingScreen div.bottomOfLoadingScreen h3 a {
+        color: white;
+        font-family: "Reem Kufi", sans-serif;
+        font-size: 1em; }
+
+#finalScreenBottomLinks {
+  position: fixed;
+  z-index: 101;
+  width: 100%;
+  text-align: center;
+  bottom: 0; }
+  #finalScreenBottomLinks h3 {
     color: rgba(255, 255, 255, 0.8);
     background: #F0BF08;
     font-family: "Reem Kufi", sans-serif;
-    font-size: 0.8em;
-    padding: 10% 0; }
+    font-size: 1em;
+    padding: 5% 0; }
+    #finalScreenBottomLinks h3 a {
+      color: white;
+      font-family: "Reem Kufi", sans-serif;
+      font-size: 1em; }
 
 #bottomNavigation {
   position: fixed;
