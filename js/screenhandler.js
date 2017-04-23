@@ -70,6 +70,7 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	}
 	if (_id == "introQuote") {
 		ScreenHandler.setupQuoteNode();
+		ScreenHandler.firstTimeSetup();
 	}
 	if (_id == "characterIntro1") {
 		// this code only runs if the tutorial screen is displayed
@@ -86,7 +87,6 @@ ScreenHandler.gotoStoryNode = function( _id ){
 	// —————— -------- ————— ----- –––––––  -------- ————— ----- ––––––– Actual Story Nodes
 	if (timesThrough == kathmanduCount) {
 
-		ScreenHandler.firstTimeSetup();
 		$("#bottomNavigation .node").on("click", function(){
 			if ($(this).hasClass("visited") && !$(this).hasClass("currentNavNode")) {
 				ScreenHandler.openNavigationOverlay( $(this).attr("data-navigation-goto") );

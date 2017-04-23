@@ -314,7 +314,7 @@ StoryHolder.story1 = {
 			position: { x: 58.4, y: 76 },
 			found: false
 		},
-		backgroundImage: "Two-Fish-from-Trail.jpg"
+		backgroundImage: "ricepaddies.jpg"
 	},
 	trailhead: {
 		title: "Tshongsa Valley",
@@ -325,7 +325,7 @@ StoryHolder.story1 = {
 		guidebook: "West Nepal has a strong belief of a variety of demi gods who protect the rich pasture lands, and even influence local social governance. All resources goverened by these demigods need to be paid for, and it is common for hunters to pacify them. This system maintained law and order and even controlled border crossings for many years. ",
 		choices: [
 			{
-				pointsTo: "upperLimiValley",
+				pointsTo: "stoneCairnsField",
 				type: "arrow-up"
 			}
 		],
