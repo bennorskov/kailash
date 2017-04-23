@@ -182,7 +182,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 67.2, y: 81.3 },
+			position: { x: 68, y: 85 },
 			found: false
 		},
 		backgroundImage: "simikot.jpg"
@@ -210,7 +210,7 @@ StoryHolder.story1 = {
 			
 		],
 		map: {
-			position: { x: 67.2, y: 84.3 },
+			position: { x: 68, y: 82 },
 			found: false
 		},
 		backgroundImage: "SimikotTown.jpg"
@@ -232,7 +232,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 67.2, y: 87.3 },
+			position: { x: 68, y: 79 },
 			found: false
 		},
 		backgroundImage: "TravellerSimikot.jpg"
@@ -334,14 +334,10 @@ StoryHolder.story1 = {
 		title: "Tshongsa Valley",
 		textnodes: [
 			"You are in Tshongsa Valley, onward lies Limi Valley, and with it, a wealth of villages and natural sights. Before you, alpine meadow meets a sub-alpine forest. Suffice to say, it is breathtaking.", 
-			"A forking path lies before you at Salli Khola, the trailhead. You can either keep going East towards the Hilsa chekpoint on the Greater Himalayan Trail, or go north into Upper Limi Valley."
+			"The path lies before you at Salli Khola, the trailhead. It will can go north into Upper Limi Valley."
 		],
 		guidebook: "West Nepal has a strong belief of a variety of demi gods who protect the rich pasture lands, and even influence local social governance. All resources goverened by these demigods need to be paid for, and it is common for hunters to pacify them. This system maintained law and order and even controlled border crossings for many years. ",
 		choices: [
-			{
-				pointsTo: "hilsa",
-				type: "arrow-right"
-			},
 			{
 				pointsTo: "upperLimiValley",
 				type: "arrow-up"
@@ -371,10 +367,10 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 50.5, y: 53},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "stones2.jpg"
 	},
 	herderCamp: {
 		title: "Herder Village",
@@ -391,6 +387,12 @@ StoryHolder.story1 = {
 			pointsTo: "nyaluLa",
 			type: "arrow-right"
 		}],
+
+		map: {
+			position: { x: 51.5, y: 50},
+			found: false
+		},
+
 		backgroundImage: "HerderCamp.jpg"
 	},
 	exploreLake: {
@@ -408,7 +410,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 53.5, y: 47},
 			found: false
 		},
 		backgroundImage: "MountainLake.jpg"
@@ -427,19 +429,19 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 53, y: 35.5},
 			found: false
 		},
 		backgroundImage: "stones3.jpg"
 	},
 	stoneCairnsField: {
-		title: "Stone Cairns",
+		title: "Stone Cairns Field",
 		textnodes: [
 			"Climbing down the trail from Nyalu La, you breathe in all the air your lungs can hold! High elevations take a little gettings used to...", 
 			"Rising from the mist, you see the tops of a field full of stone cairns. If you weren't a scientist, you&rsquo;d be swept away by the magic of this region and believe you were in a myth. Or perhaps you already are?",
 			"Just after this area the trail slowly winds down a rocky hillside to the lush river valley below."
 		],
-		guidebook: "Cairns and a prostration site can be found near Nyalu pass. Cairns, variously called la btsas or rdo phung, are common sites along pilgrimage paths as well as at mountain passes. They are ways of propitiating mountain deities. Some also say that these are places one's soul can rest after death.  They are also seen as mandalas. Here, each one forms a mandala in and of itself as well as forming a mandala around Mt. Kailash.",
+		guidebook: "Cairns and a prostration site can be found near Nyalu pass. Cairns, variously called la btsas or rdo phung, are common sites along pilgrimage paths as well as at mountain passes. They are ways of propitiating mountain deities. Some also say that these are places one's soul can rest after death. They are also seen as mandalas. Here, each one forms a mandala in and of itself as well as forming a mandala around Mt. Kailash.",
 		choices: [
 			{
 				pointsTo: "talungValley",
@@ -447,7 +449,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 50.5, y: 33},
 			found: false
 		},
 		backgroundImage: "StoneCairnsHerderField.jpg"
@@ -469,13 +471,13 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 50.75, y: 29.5},
 			found: false
 		},
 		backgroundImage: "TalungValley.jpg"
 	},
 	exploreTalung: {
-		title: "Explore Talung",
+		title: "Explore Valley",
 		textnodes: [
 			"A beautiful walk along the waterfalls and lakes with views of Api Saipal Himal (7025m), you realize with a start that you just got your first glimpse of the Holy mountain, Mt. Kailash! It's barely a speck from here, but there is a magnetism about ut tgat you can't ignore. "		],
 		choices: [
@@ -489,7 +491,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 51, y: 27},
 			found: false
 		},
 		backgroundImage: "ExploreTalung.jpg"
@@ -508,7 +510,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 51, y: 23},
 			found: false
 		},
 		backgroundImage: "Talung-Riverside-Camp.jpg"
@@ -530,13 +532,13 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 50.65, y: 20.5},
 			found: false
 		},
 		backgroundImage: "Tshom_Tsho_Lake.jpg"
 	},
 	stayInTalung: {
-		title: "Stay in Talung",
+		title: "Explore Lake",
 		textnodes: [
 			"You see a goathearder on the road in front of you. You hail the man, and he hails back. He tells you that one of his goats just gave birth, so he and his heard are taking a break on the roadside. He lets you hold the tiny baby goat, and tells you about grazing in Talung Valley.",
 			"He and other grazers are allowed to stay for three months of the year without payment to Limi residents as long as they stay within the Talung Valley. This land belongs to Tsang village in Limi, which used to have far more livestock. However, changing border policies and migration of local labour have reduced their livestock numbers. Now he and his friends are the primary grazers in the valley."
@@ -546,30 +548,12 @@ StoryHolder.story1 = {
 				type: "arrow-up"
 		}],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 50.5, y: 18},
 			found: false
 		},
 		backgroundImage: "StayInTalung.jpg"
 	},
-	roadToHilsa: {
-		title: "Hilsa",
-		textnodes: [
-			"You notice that they have a measured way around the rough path by the river. They barely look at the ground, but their passage over it looks practiced. Compared to your new hiking shoes, their roughshod footwear looks shabby, but anyone looking could clearly see how you didn’t belong here. You were a tourist. Much like them, you wore your colours as blatantly as any tribal person. Only yours were bland and mass-produced.",
-			"Caught in your reverie, you slip quite badly and manage to twist your ankle. You yell out in surprise and find your left ankle throbbing with pain. Some of the locals look back at you in concern."
-		],
-		guidebook: "Karnali River has many names; it is called Ghagra on the Indian side, Kung-chiao Ho on the Chinese side, and is one of the significant rivers of the region. It originates near the Manasarowar Lake in Tibet. Stretching for 1080 kms, Karnali is an important tributary of the Ganges. This is specifically important to India, given the spiritual significance of the Ganges, as well as a large part of Karnali is in India. Total catchment area of Karnali being 127,950 sq km of which 45% is in India. Ghagra River passes through Nepal where it is known as Karnali or Kauriala. It joins the Ganges at Chapra in Bihar. This river is the main source of water in Bara-Banki District of Uttar Pradesh. Rapti, Little Gandak, Sarda and Sarju are the major tributaries of this river.",
-		choices: [
-			{
-				pointsTo: "karnaliRiver",
-				type: "arrow-up"
-			}
-		],
-		map: {
-			position: { x: 2.9, y: 37.9 },
-			found: false
-		},
-		backgroundImage: "stones2.jpg"
-	},
+	
 	theVillage: {
 		title: "The Village",
 		textnodes: [
@@ -635,7 +619,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 49.75, y: 15.5},
 			found: false
 		},
 		backgroundImage: "LaptaSharRoad.jpg"
@@ -656,7 +640,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 49.5, y: 13},
 			found: false
 		},
 		backgroundImage: "FordingRiver.jpg"
@@ -675,7 +659,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 49.5, y: 10.5},
 			found: false
 		},
 		backgroundImage: "WhiteSandBank.jpg"
@@ -698,7 +682,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 49.7, y: 9.9},
+			position: { x: 49.5, y: 8},
 			found: false
 		},
 		backgroundImage: "AbandonedVillage.jpg"
@@ -717,7 +701,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 49.7, y: 12.9},
+			position: { x: 48.75, y: 5.5},
 			found: false
 		},
 		backgroundImage: "MoreVillageInfo.jpg"
@@ -732,7 +716,7 @@ StoryHolder.story1 = {
 				type: "arrow-left"
 		}],
 		map: {
-			position: { x: 47, y: 4.3},
+			position: { x: 47, y: 3},
 			found: false
 		},
 		backgroundImage: "SuspensionBridge.jpg"
@@ -748,10 +732,10 @@ StoryHolder.story1 = {
 				type: "arrow-left"
 		}],
 		map: {
-			position: { x: 40, y: 17},
+			position: { x: 41.5, y: 12},
 			found: false
 		},
-		backgroundImage: "cloudvalley.jpg"
+		backgroundImage: "JangHotSprings2.jpg"
 	},
 	jangVillage: {
 		title: "Jang Village",
@@ -770,7 +754,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 37, y: 6.7},
+			position: { x: 36.5, y: 13.8},
 			found: false
 		},
 		backgroundImage: "JangVillage.jpg"
@@ -786,7 +770,7 @@ StoryHolder.story1 = {
 			type: "arrow-left"
 		}],
 		map: {
-			position: { x: 37, y: 9.7},
+			position: { x: 36.5, y: 16.8},
 			found: false
 		},
 		backgroundImage: "JangMonastry.jpg"
@@ -804,7 +788,7 @@ StoryHolder.story1 = {
 				type: "arrow-left"
 		}],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 30, y: 15.5},
 			found: false
 		},
 		backgroundImage: "PoliceStation.jpg"
@@ -822,7 +806,7 @@ StoryHolder.story1 = {
 				type: "arrow-up"
 		}],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 25., y: 20.75},
 			found: false
 		},
 		backgroundImage: "HaljiVillage.jpg"
@@ -845,13 +829,13 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 22, y: 23},
 			found: false
 		},
 		backgroundImage: "RinchenLingGompa.jpg"
 	},
 	ecoImpactGompa: {
-		title: "Rinchen Gompa",
+		title: "Ecological Imapact on Rinchen Ling Gompa",
 		textnodes: [
 			"You return to the Monastry the next day, and seek out your friend, the young monk again. He&lsquo;s completing some chores, and you wait for him to finish. You certainly don&lsquo;t want to disturb him with your questions!", 
 			"Once he&lsquo;s done, you ask him to tell you more about this beautiful Monastry. He tells you that although Rinchen Ling Gompa is revered, its physical presense might not last that long. Due to global warming, this historical gompa and the surrounding village of Halji are constantly threatened by floods. If this gompa has any chance of surviving, it needs protective action immediately...",
@@ -862,7 +846,7 @@ StoryHolder.story1 = {
 			type: "arrow-left"
 		}],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 22, y: 28.5},
 			found: false
 		},
 		backgroundImage: "EcoImpact.jpg"
@@ -880,7 +864,7 @@ StoryHolder.story1 = {
 			type: "arrow-up"
 		}],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 15, y: 27},
 			found: false
 		},
 		backgroundImage: "PrayerFlagsTilchung.jpg"
@@ -905,7 +889,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 12, y: 33.5},
 			found: false
 		},
 		backgroundImage: "YaYipPhuk.jpg"
@@ -928,7 +912,7 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 12, y: 36.5},
 			found: false
 		},
 		backgroundImage: "YaYipPhuk2.jpg"
@@ -946,7 +930,7 @@ StoryHolder.story1 = {
 			type: "arrow-left"
 		}],
 		map: {
-			position: { x: 0, y: 0},
+			position: { x: 12, y: 39.5},
 			found: false
 		},
 		backgroundImage: "Shamans_Buddhists.jpg"
@@ -969,52 +953,12 @@ StoryHolder.story1 = {
 			}
 		],
 		map: {
-			position: { x: 2.9, y: 37.9},
+			position: { x: 2.9, y: 37},
 			found: false
 		},
 		backgroundImage: "hilsa.jpg"
 	},
-	upperLimiValley: {
-		title: "Upper Limi Valley",
-		textnodes: [
-			"You are in Tshongsa Valley, onward lies Limi Valley, and with it, a wealth of wonders. Before you, alpine meadow meets a sub-alpine forest. Suffice to say, it is breathtaking. ", 
-			"A forking path lies before you at Salli Khola, the trailhead. You can either keep going East towards the Hilsa chekpoint on the Greater Himalayan Trail, or go north into Upper Limi Valley."
-		],
-		guidebook: "West Nepal has a strong belief of a variety of demi gods who protect the rich pasture lands, and even influence local social governance. All resources goverened by these demigods need to be paid for, and it is common for hunters to pacify them. This system maintained law and order and even controlled border crossings for many years.",
-		choices: [
-			{
-				pointsTo: "stoneCairnsField",
-				type: "arrow-up"
-			},
-			{
-				pointsTo: "eastWestCrossroads",
-				type: "arrow-right"
-			}
-		],
-		map: {
-			position: { x: 0, y: 0},
-			found: false
-		},
-		backgroundImage: "TrailheadSaliKhola.jpg"
-	},
-	eastWestCrossroads: {
-		title: "East West Crossroads",
-		textnodes: [
-			"At this crossroads, going west is a 6 day hike to Hilsa, the border town between Nepal and Tibet Autonomous Region. A popular tourist hike, it is considered to be pleasant and easy. Expect a lot of tourists on this route. ", 
-			"Going north via Limi Valley is the other option. This is a tougher route, with higher elevations and fewer tourists for company. Reopened recently, the route allows tourists to make a circutous trip to Zher (near Hilsa), via Nyalo Pass. However, you were told that the Shangri-la like villages of Limi Valley, and the pristine state of this ancient trail make it well worth the effort."
-		],
-		choices: [
-			{
-				pointsTo: "stoneCairnsField",
-				type: "arrow-up"
-			}
-		],
-		map: {
-			position: { x: 0, y: 0},
-			found: false
-		},
-		backgroundImage: "EastWestCrossing.jpg"
-	},
+	
 	finalNode: {
 		title: "Final",
 		textnodes: [
@@ -1025,10 +969,7 @@ StoryHolder.story1 = {
 			pointsTo: "reset",
 			type: "arrow-up"
 		}],
-		map: {
-			position: { x: 0, y: 0},
-			found: false
-		},
+		
 		backgroundImage: "flagLoop.gif"
 	},
 	reset: {
