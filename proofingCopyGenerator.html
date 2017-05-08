@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+  <title>Edit Script</title>
+  <script src="js/StoryHolder.js" type="text/Javascript"></script>
+
+</head>
+<body>
+
+<script type="text/javascript">
+  window.onload= function() {
+    console.log("POIN");
+    var stories = Object.values(StoryHolder.story1);
+    var body = document.getElementsByTagName("body")[0];
+    var _html = "";
+    for(var i =0; i<stories.length; i++) {
+      _html += "<h1>"+stories[i].title+"</h1>";
+      for (var j = 0; j<stories[i].textnodes.length; j++) {
+        _html += "<p>"+stories[i].textnodes[j]+"</p>";
+      }
+      _html += "<ul>";
+      for (var k = 0; k<stories[i].choices.length; k++) {
+        _html += "<li>" + stories[i].choices[k].pointsTo + "</li>";
+      }
+      _html += "</ul>";
+      _html += "<hr>";
+    }
+    body.innerHTML = document.innerHTML + _html;
+  };
+    
+</script>
+</body>
+</html>
