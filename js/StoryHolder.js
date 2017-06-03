@@ -46,7 +46,7 @@ StoryHolder.story1 = {
 	introQuote: {
 		title: "",
 		textnodes: [
-			"&#8220;Kailash is not a Mountain to climb physically in this life; it is a holy mountain to climb metaphorically for spiritual transformation&#8221;", 
+			"&#8220;Kailas is not a Mountain to climb physically in this life; it is a holy mountain to climb metaphorically for spiritual transformation&#8221;", 
 			"– Tshewang Lama",
 			"&nbsp;",
 			"(tap anywhere to continue)"
@@ -155,7 +155,7 @@ StoryHolder.story1 = {
 		guidebook: "Simikot: Translates to Swampy Fort, and gets it&rsquo;s name from a swamp just below the airport, with a ruined fort (Kot) of the Malla Kings. Simikot runs on a market economy, unlike the rest of the region which follows the traditional barter system.",
 		choices: [
 			{
-				pointsTo: "theVillage",
+				pointsTo: "theheVillage",
 				type: "arrow-right"
 			},
 			{
@@ -209,7 +209,7 @@ StoryHolder.story1 = {
 		],
 		choices: [
 			{
-				pointsTo: "theVillage",
+				pointsTo: "theheVillage",
 				type: "arrow-right"
 			},
 			{
@@ -296,9 +296,9 @@ StoryHolder.story1 = {
 		title: "Myth of the Two Fish",
 		textnodes: [
 			"You walk up closer and put your hand on one of the rocks. You start to feel faint, everything starts to get brighter around you. ",
-			"Matsaya and Devi were an aging fish couple that left their home seeking Mount Kailash, the abode of the gods and the place where they thought they would find salvation themselves. ",
-			"Matsaya was despairing at the impact his life had had on the world, so his wife Devi suggested that they make a pilgrimage to Mount Kailash, like the humans, and find salvation in the after life. Althought Matsaya agreed, he wasn't convinced. He complained and doubted their journey right from the first day. All of Devi's efforts were in vain, including the story of Lord Vishnu, a Hundu God, who was disguised as a small fish and after being rescued by Manu, the first Man, played a vital role in ensuring the fate of humanity.", 
-			"Eventually, the strain of the voyage was too much on the two old fish, and they realized they wouldn't make it Mount Kailash afterall. Giving in to his despair, Matsaya asks Devi if this pointless journey was worth it, and to answer him, she asks him to turn around. Behind them lay a valley that was as green as emeralds with rice paddies. Swimming up river, they carried rice seeds with them, which grew along the river beds. Although they were just two fish, Matsaya and Devi left their mark, and blessings on the valley with their gift of Rice."
+			"Matsaya and Devi were an aging fish couple that left their home seeking Mount Kailas, the abode of the gods and the place where they thought they would find salvation themselves. ",
+			"Matsaya was despairing at the impact his life had had on the world, so his wife Devi suggested that they make a pilgrimage to Mount Kailas, like the humans, and find salvation in the after life. Althought Matsaya agreed, he wasn't convinced. He complained and doubted their journey right from the first day. All of Devi's efforts were in vain, including the story of Lord Vishnu, a Hundu God, who was disguised as a small fish and after being rescued by Manu, the first Man, played a vital role in ensuring the fate of humanity.", 
+			"Eventually, the strain of the voyage was too much on the two old fish, and they realized they wouldn't make it Mount Kailas afterall. Giving in to his despair, Matsaya asks Devi if this pointless journey was worth it, and to answer him, she asks him to turn around. Behind them lay a valley that was as green as emeralds with rice paddies. Swimming up river, they carried rice seeds with them, which grew along the river beds. Although they were just two fish, Matsaya and Devi left their mark, and blessings on the valley with their gift of Rice."
 		],
 		choices: [
 			{
@@ -431,7 +431,7 @@ StoryHolder.story1 = {
 			"Rising from the mist, you see the tops of a field full of stone cairns. If you weren't a scientist, you&rsquo;d be swept away by the magic of this region and believe you were in a myth. Or perhaps you already are?",
 			"Just after this area the trail slowly winds down a rocky hillside to the lush river valley below."
 		],
-		guidebook: "Cairns and a prostration site can be found near Nyalu pass. Cairns, variously called la btsas or rdo phung, are common sites along pilgrimage paths as well as at mountain passes. They are ways of propitiating mountain deities. Some also say that these are places one's soul can rest after death. They are also seen as mandalas. Here, each one forms a mandala in and of itself as well as forming a mandala around Mt. Kailash.",
+		guidebook: "Cairns and a prostration site can be found near Nyalu pass. Cairns, variously called la btsas or rdo phung, are common sites along pilgrimage paths as well as at mountain passes. They are ways of propitiating mountain deities. Some also say that these are places one's soul can rest after death. They are also seen as mandalas. Here, each one forms a mandala in and of itself as well as forming a mandala around Mt. Kailas.",
 		choices: [
 			{
 				pointsTo: "talungValley",
@@ -448,7 +448,7 @@ StoryHolder.story1 = {
 		title: "Talung Valley",
 		textnodes: [
 			"After climbing down through the rocky trail from Nyalu La, you come to an abrupt stop at a grassy knoll, before dropping down to the valley below.", 
-			"The view of the valley below is nothing short of breathtaking. Just for a moment, you are awestruck by the deep spirituality that others speak of. Suddenly it strikes you! You can't research nature by ignoring the spirit, not here. Spirituality and nature are two sides of the same coin in the Kailash Sacred Region."
+			"The view of the valley below is nothing short of breathtaking. Just for a moment, you are awestruck by the deep spirituality that others speak of. Suddenly it strikes you! You can't research nature by ignoring the spirit, not here. Spirituality and nature are two sides of the same coin in the Kailas Sacred Region."
 		],
 		choices: [
 			{
@@ -469,7 +469,7 @@ StoryHolder.story1 = {
 	exploreTalung: {
 		title: "Explore Valley",
 		textnodes: [
-			"A beautiful walk along the waterfalls and lakes with views of Api Saipal Himal (7025m), you realize with a start that you just got your first glimpse of the Holy mountain, Mt. Kailash! It's barely a speck from here, but there is a magnetism about ut tgat you can't ignore. "		],
+			"A beautiful walk along the waterfalls and lakes with views of Api Saipal Himal (7025m), you realize with a start that you just got your first glimpse of the Holy mountain, Mt. Kailas! It's barely a speck from here, but there is a magnetism about ut tgat you can't ignore. "		],
 		choices: [
 			{
 				pointsTo: "stayInTalung",
@@ -544,8 +544,8 @@ StoryHolder.story1 = {
 		backgroundImage: "StayInTalung.jpg"
 	},
 	
-	theVillage: {
-		title: "The Village",
+	theheVillage: {
+		title: "Thehe Village",
 		textnodes: [
 			"The is a small village east of Simikot, with a large Dalit community, a marginalized social caste from South Asia. The village has a unique design, consisting of very tightly built houses perched on the side of a hill in Nyin Valley. The everyday ingenuity of this little village's construction is amazing.", 
 			"You look around you and see a sign for Raling Gampa going East, and Simikot going West. ...Or you could stay here."
@@ -703,7 +703,7 @@ StoryHolder.story1 = {
 	suspensionBridge: {
 		title: "Suspension Bridge",
 		textnodes: [
-			"Travelers leaving Talung Valley can cross the river here (Ling Chu), either on the old wooden foot bridge or the new metal suspension bridge. On the footbridge, a fellow traveller hails you, asking if you are heading to Kailash or just hiking around Limi Valley? He was heading towards Kailash, but went west instead of North, and ended up taking a long detour in Limi... He reminds you that this bridge marks the end of Talung Valley and the start of Takche Valley."
+			"Travelers leaving Talung Valley can cross the river here (Ling Chu), either on the old wooden foot bridge or the new metal suspension bridge. On the footbridge, a fellow traveller hails you, asking if you are heading to Kailas or just hiking around Limi Valley? He was heading towards Kailas, but went west instead of North, and ended up taking a long detour in Limi... He reminds you that this bridge marks the end of Talung Valley and the start of Takche Valley."
 		],
 		choices: [{
 				pointsTo: "jangHotSprings",
@@ -936,10 +936,10 @@ StoryHolder.story1 = {
 	hilsa: {
 		title: "Hilsa",
 		textnodes: [
-			"In Hilsa, there are many tourists and pilgrims waiting to continue on to Burang Town on their pilgrimage to Lake Mansarovar and Mount Kailash.", 
-			"However, you didn&rsquo;t plan to make the Hilsa crossing this time. Crossing into T.A.R. is a time consuming process requiring liaison officers at the border. You continue exploring the Kailash Sacred Region for now, and plan to return to Hilsa next time."
+			"In Hilsa, there are many tourists and pilgrims waiting to continue on to Burang Town on their pilgrimage to Lake Mansarovar and Mount Kailas.", 
+			"However, you didn&rsquo;t plan to make the Hilsa crossing this time. Crossing into T.A.R. is a time consuming process requiring liaison officers at the border. You continue exploring the Kailas Sacred Region for now, and plan to return to Hilsa next time."
 		],
-		guidebook: "Hilsa is an important border town in the Kailash Sacred Region, as it borders Tibet Autonomous Region (T.A.R.), and is a customs check point on the Nepal side, and a border point into T.A.R. The Humla-Karnali river crosses the Tibetian Plateau into the mountain regions on its descent to the Ganges. ",
+		guidebook: "Hilsa is an important border town in the Kailas Sacred Region, as it borders Tibet Autonomous Region (T.A.R.), and is a customs check point on the Nepal side, and a border point into T.A.R. The Humla-Karnali river crosses the Tibetian Plateau into the mountain regions on its descent to the Ganges. ",
 		choices: [
 			{
 				pointsTo: "yaYipPhukMeditationCaves",
@@ -961,7 +961,7 @@ StoryHolder.story1 = {
 		title: "Final",
 		textnodes: [
 			"Your time is up for this trip! You&rsquo;ll have to come back again to see more.", 
-			"You gathered enough data to start your research, and write a short paper. You may not every fully understand the Kailash Sacred Region, but you have been profoundly changed by it."
+			"You gathered enough data to start your research, and write a short paper. You may not every fully understand the Kailas Sacred Region, but you have been profoundly changed by it."
 		],
 		choices: [{
 			pointsTo: "reset",
