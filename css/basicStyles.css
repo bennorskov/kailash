@@ -118,47 +118,52 @@ a {
   #descriptionBox .contentCentererDiv .overlayText p {
     line-height: 1.05em; }
 
-#finalTextNode img {
-  width: 64px;
-  height: 64px;
-  display: block; }
-#finalTextNode h1 {
-  border-left: 4px solid #B3262A;
-  padding-left: 1em;
-  margin-left: 1em;
-  color: #B3262A;
-  font-size: 1.3em; }
-#finalTextNode h2 {
-  margin-left: 22px;
-  color: #008AB0;
-  font-size: 1.2em; }
-#finalTextNode div.dividingYellowLine {
-  background-color: #F0BF08;
-  height: 8px;
-  border-radius: 4px;
-  margin: 32px; }
-#finalTextNode a {
-  margin-left: 1.3em;
-  font-size: 0.9em;
-  display: block;
-  cursor: pointer; }
-  #finalTextNode a#playAgain {
-    color: #008AB0; }
-  #finalTextNode a#checkMap {
-    text-decoration: none;
-    color: #009f4f;
-    height: 64px; }
-    #finalTextNode a#checkMap span#mapIcon {
-      display: inline-block;
-      margin-top: -16px;
-      float: right;
-      width: 64px;
-      height: 64px;
-      background: url(../images/navIcons.png);
-      background-size: 200% 100%;
-      background-position: top right;
-      background-color: #B3262A;
-      border-radius: 50%; }
+#finalTextNode {
+  text-align: center;
+  /*img
+   * width: $basicSquare*2
+   * height: $basicSquare*2
+   * display: block */ }
+  #finalTextNode img {
+    max-width: 80%;
+    display: inline-block; }
+  #finalTextNode h1 {
+    border-left: 4px solid #B3262A;
+    padding-left: 1em;
+    margin-left: 1em;
+    color: #B3262A;
+    font-size: 1.3em; }
+  #finalTextNode h2 {
+    margin-left: 22px;
+    color: #008AB0;
+    font-size: 1.2em; }
+  #finalTextNode div.dividingYellowLine {
+    background-color: #F0BF08;
+    height: 8px;
+    border-radius: 4px;
+    margin: 32px; }
+  #finalTextNode a {
+    margin-left: 1.3em;
+    font-size: 0.9em;
+    display: block;
+    cursor: pointer; }
+    #finalTextNode a#playAgain {
+      color: #008AB0; }
+    #finalTextNode a#checkMap {
+      text-decoration: none;
+      color: #009f4f;
+      height: 64px; }
+      #finalTextNode a#checkMap span#mapIcon {
+        display: inline-block;
+        margin-top: -16px;
+        float: right;
+        width: 64px;
+        height: 64px;
+        background: url(../images/navIcons.png);
+        background-size: 200% 100%;
+        background-position: top right;
+        background-color: #B3262A;
+        border-radius: 50%; }
 
 #loadingScreen {
   background: url(../images/PrologueImage_sm.jpg);
@@ -388,6 +393,8 @@ a {
     .overlayText p.guidebookInfo.opened {
       max-height: 300px;
       overflow: auto; }
+  .overlayText.endScreenOverlayStyles {
+    background: none; }
 
 .hidden {
   display: none; }

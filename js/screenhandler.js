@@ -154,11 +154,14 @@ ScreenHandler.setupFinalNode = function () {
 
 	$(".choiceNode").remove();
 	var _id = "finalNode"; //didn't pass it; It will always be "finalNode" this way
+	this.setupChoiceNodes(_id);
 	$(".fullpage").css("background-image", "url("+ScreenHandler.imageArray[_id].src+")");
 	
 	//ScreenHandler.setupDescriptionBox(_id);
 
 	var _html = "<div id='finalTextNode'>";
+		_html += "<img src='images/endQuote.png'>";
+		/* Old Code without image
 		_html += "<img src='images/final_run_icon.png'>";
 		_html += "<h1>YOUR TEN DAYS ARE UP!<br>";
 		_html += "THAT'S ALL THE TIME YOU <br>HAVE THIS TRIP</h1>";
@@ -166,24 +169,17 @@ ScreenHandler.setupFinalNode = function () {
 		_html += "<a href=# id='playAgain'>PLAY AGAIN TO SEE WHAT ELSE YOU UNEARTH</a>";
 		_html += "<div class='dividingYellowLine'></div>";
 		_html += "<a href=# id='checkMap'><span id='mapIcon'></span>GO CHECK THE MAP TO<br>SEE YOUR PATH!</a>";
+		*/
 		_html += "</div>";
 
 	$("#descriptionBox .overlayText").html(_html);
+	$("#descriptionBox .overlayText").addClass("endScreenOverlayStyles");
 	ScreenHandler.openDescriptionOverlay(); 
 
 	var bottomHtml ="<div id='finalScreenBottomLinks'><h3>By the <a target='_blank' href='http://indiachinainstitute.org'>India China Institute</a> and <a target='_blank' href='http://playistheantidote.com'>Antidote Games</a></h3></div>"
 	$('body').append(bottomHtml);
 
 	$("#bottomNavigation").addClass("hidden");
-
-	$("#playAgain").on("click", function (e) {
-		e.stopPropagation();
-		ScreenHandler.openNavigationOverlay( "reset");
-	});
-	$("#checkMap").on("click", function (e) {
-		e.stopPropagation();
-		ScreenHandler.openMapOverlay();
-	});
 }
 
 ScreenHandler.setupQuoteNode = function() {
